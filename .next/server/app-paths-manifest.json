@@ -1,0 +1,13 @@
+{
+  "/api/self/route": "app/api/self/route.js",
+  "/api/product/[productId]/route": "app/api/product/[productId]/route.js",
+  "/api/review/route": "app/api/review/route.js",
+  "/api/question-and-answer/route": "app/api/question-and-answer/route.js",
+  "/api/product/route": "app/api/product/route.js",
+  "/api/home/paris/route": "app/api/home/paris/route.js",
+  "/[lng]/(mainLayout)/theme/paris/page": "app/[lng]/(mainLayout)/theme/paris/page.js",
+  "/[lng]/(mainLayout)/product/[productSlug]/page": "app/[lng]/(mainLayout)/product/[productSlug]/page.js",
+  "/[lng]/(mainLayout)/account/dashboard/page": "app/[lng]/(mainLayout)/account/dashboard/page.js",
+  "/[lng]/(mainLayout)/auth/login/page": "app/[lng]/(mainLayout)/auth/login/page.js",
+  "/[lng]/(mainLayout)/auth/register/page": "app/[lng]/(mainLayout)/auth/register/page.js"
+}
