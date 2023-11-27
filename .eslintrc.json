@@ -3,10 +3,8 @@
   "rules": {
     "@next/next/no-img-element": "off",
     "quotes": "off",
-    // "no-undef": [ "off" ],
     "react-hooks/exhaustive-deps": ["off"],
     "semi": "off",
-    // "react/jsx-indent": ["warn", 0],
     "import/newline-after-import": ["warn", { "count": 1 }],
     "no-use-before-define": "warn",
     "import/order": "off",
@@ -21,3 +19,4 @@
     "eqeqeq": "off"
   }
 }
+
