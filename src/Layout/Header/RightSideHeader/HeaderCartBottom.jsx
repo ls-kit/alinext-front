@@ -10,7 +10,12 @@ import SettingContext from '@/Helper/SettingContext';
 import CartContext from '@/Helper/CartContext';
 import SelectedCart from './SelectedCart';
 
-const HeaderCartBottom = ({ modal, setModal, shippingFreeAmt, shippingCal }) => {
+const HeaderCartBottom = ({
+  modal,
+  setModal,
+  shippingFreeAmt,
+  shippingCal,
+}) => {
   const { convertCurrency } = useContext(SettingContext);
   const [selectedVariation, setSelectedVariation] = useState('');
   const { i18Lang } = useContext(I18NextContext);
@@ -28,11 +33,17 @@ const HeaderCartBottom = ({ modal, setModal, shippingFreeAmt, shippingCal }) => 
           <div className='pere-text-box success-box'>
             {shippingFreeAmt > getTotal(cartProducts) ? (
               <p>
-                {t('Spend')} <span className='shipping'>{convertCurrency(shippingFreeAmt - getTotal(cartProducts))}</span> {t('moreandenjoy')} <span className='shipping'>{t('FREESHIPPING!')}</span>
+                {t('Spend')}{' '}
+                <span className='shipping'>
+                  {convertCurrency(shippingFreeAmt - getTotal(cartProducts))}
+                </span>{' '}
+                {t('moreandenjoy')}{' '}
+                <span className='shipping'>{t('FREESHIPPING!')}</span>
               </p>
             ) : (
               <p>
-                <span className='shipping'>{t('Congratulations')}!</span> {t('Enjoyfreeshippingonus')}!
+                <span className='shipping'>{t('Congratulations')}!</span>{' '}
+                {t('Enjoyfreeshippingonus')}!
               </p>
             )}
             <Progress multi>
@@ -57,10 +68,18 @@ const HeaderCartBottom = ({ modal, setModal, shippingFreeAmt, shippingCal }) => 
               )}
             </Progress>
           </div>
-          <SelectedCart setSelectedVariation={setSelectedVariation} setModal={setModal} modal={modal} />
+          <SelectedCart
+            setSelectedVariation={setSelectedVariation}
+            setModal={setModal}
+            modal={modal}
+          />
         </>
       )}
-      <CartVariationModal modal={modal} setModal={setModal} selectedVariation={selectedVariation} />
+      <CartVariationModal
+        modal={modal}
+        setModal={setModal}
+        selectedVariation={selectedVariation}
+      />
       {!cartProducts?.length && (
         <div className='empty-cart-box'>
           <div className='empty-icon'>
@@ -78,10 +97,18 @@ const HeaderCartBottom = ({ modal, setModal, shippingFreeAmt, shippingCal }) => 
               <h4 className='theme-color fw-bold'>{convertCurrency(total)}</h4>
             </div>
             <div className='button-group'>
-              <Link href={`/${i18Lang}/cart`} className='btn btn-sm cart-button'>
+              <Link
+                href={`/${i18Lang}/cart`}
+                className='btn btn-sm cart-button'
+              >
                 {t('ViewCart')}
               </Link>
-              <Link href={isAuth ? `/${i18Lang}/checkout` : `/${i18Lang}/auth/login`} className='btn btn-sm cart-button theme-bg-color text-white'>
+              <Link
+                href={
+                  isAuth ? `/${i18Lang}/checkout` : `/${i18Lang}/auth/login`
+                }
+                className='btn btn-sm cart-button theme-bg-color text-white'
+              >
                 {t('Checkout')}
               </Link>
             </div>

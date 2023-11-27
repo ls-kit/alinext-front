@@ -10,9 +10,15 @@ const CollectionLeftSidebar = ({ filter, setFilter }) => {
   return (
     <>
       <WrapperComponent colProps={{ xs: 12 }}>
-        <OfferBanner classes={{ customHoverClass: 'banner-contain hover-effect' }} imgUrl={themeOption?.collection?.collection_banner_image_url} />
+        <OfferBanner
+          classes={{ customHoverClass: 'banner-contain hover-effect' }}
+          imgUrl={themeOption?.collection?.collection_banner_image_url}
+        />
       </WrapperComponent>
-      <WrapperComponent classes={{ sectionClass: 'section-b-space shop-section' }} customCol={true}>
+      <WrapperComponent
+        classes={{ sectionClass: 'section-b-space shop-section' }}
+        customCol={true}
+      >
         <CollectionSidebar filter={filter} setFilter={setFilter} />
         <MainCollection filter={filter} setFilter={setFilter} />
       </WrapperComponent>

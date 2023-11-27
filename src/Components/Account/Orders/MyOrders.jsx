@@ -20,16 +20,20 @@ const MyOrders = () => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const { convertCurrency } = useContext(SettingContext);
-  const { data, isLoading, refetch } = useQuery([page], () => request({ url: OrderAPI, params: { page: page, paginate: 10 } }), {
-    enabled: true,
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    select: (res) => res?.data,
-  });
+  const { data, isLoading, refetch } = useQuery(
+    [page],
+    () => request({ url: OrderAPI, params: { page: page, paginate: 10 } }),
+    {
+      enabled: true,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      select: (res) => res?.data,
+    },
+  );
   if (isLoading) return <Loader />;
   return (
     <>
-      <AccountHeading title="MyOrders" />
+      <AccountHeading title='MyOrders' />
       {data?.data?.length > 0 ? (
         <>
           <div className='total-box mt-0'>
@@ -54,13 +58,17 @@ const MyOrders = () => {
                       <td>{dateFormate(order?.created_at)}</td>
                       <td>{convertCurrency(order?.total)} </td>
                       <td>
-                        <div className={`status-${order.payment_status.toLowerCase()}`}>
+                        <div
+                          className={`status-${order.payment_status.toLowerCase()}`}
+                        >
                           <span>{order.payment_status}</span>
                         </div>
                       </td>
                       <td>{order.payment_method.toUpperCase()}</td>
                       <td>
-                        <Link href={`/${i18Lang}/account/order/details/${order.order_number}`}>
+                        <Link
+                          href={`/${i18Lang}/account/order/details/${order.order_number}`}
+                        >
                           <RiEyeLine />
                         </Link>
                       </td>
@@ -71,7 +79,12 @@ const MyOrders = () => {
             </div>
           </div>
           <nav className='custome-pagination'>
-            <Pagination current_page={data?.current_page} total={data?.total} per_page={data?.per_page} setPage={setPage} />
+            <Pagination
+              current_page={data?.current_page}
+              total={data?.total}
+              per_page={data?.per_page}
+              setPage={setPage}
+            />
           </nav>
         </>
       ) : (

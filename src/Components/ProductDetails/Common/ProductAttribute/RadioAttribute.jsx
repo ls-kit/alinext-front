@@ -1,13 +1,23 @@
 import { Fragment } from 'react';
 import { Input, Label } from 'reactstrap';
 
-const RadioAttribute = ({ elem, soldOutAttributesIds, productState, setVariant, i }) => {
+const RadioAttribute = ({
+  elem,
+  soldOutAttributesIds,
+  productState,
+  setVariant,
+  i,
+}) => {
   return (
     <div className='d-flex'>
       {elem?.attribute_values.map((value, index) => (
         <Fragment key={index}>
           {productState?.attributeValues?.includes(value?.id) ? (
-            <div className={`form-check ${soldOutAttributesIds.includes(value.id) ? 'disabled' : ''}`}>
+            <div
+              className={`form-check ${
+                soldOutAttributesIds.includes(value.id) ? 'disabled' : ''
+              }`}
+            >
               <Input
                 type='radio'
                 className='form-check-input'
@@ -16,9 +26,17 @@ const RadioAttribute = ({ elem, soldOutAttributesIds, productState, setVariant, 
                 value={index}
                 checked={productState?.variantIds?.includes(value?.id)}
                 disabled={soldOutAttributesIds.includes(value.id)}
-                onChange={(e) => setVariant(productState?.product?.variations, elem?.attribute_values[e.target.value])}
+                onChange={(e) =>
+                  setVariant(
+                    productState?.product?.variations,
+                    elem?.attribute_values[e.target.value],
+                  )
+                }
               />
-              <Label htmlFor={`radio-${i}-${index}`} className='form-check-label'>
+              <Label
+                htmlFor={`radio-${i}-${index}`}
+                className='form-check-label'
+              >
                 {value?.value}
               </Label>
             </div>

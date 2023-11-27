@@ -22,7 +22,12 @@ const AboutUsText = () => {
                 <li key={index}>
                   <div className='delivery-box'>
                     <div className='delivery-icon'>
-                      <Image src={data.iconSrc} alt='delivery' height={data.height} width={30} />
+                      <Image
+                        src={data.iconSrc}
+                        alt='delivery'
+                        height={data.height}
+                        width={30}
+                      />
                     </div>
                     <div className='delivery-detail'>
                       <h5 className='text'>{t(data.text)}</h5>

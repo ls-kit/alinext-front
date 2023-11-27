@@ -415,7 +415,8 @@ input {
     td,
     th {
       border-bottom: 1px solid #ddd;
-      padding: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320))) calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
+      padding: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320)))
+        calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
       font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
       border-left: 1px solid #ddd;
     }

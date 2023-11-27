@@ -16,17 +16,36 @@ const StandardHotDeal = () => {
     <>
       <div className='right-nav'>
         <div className='nav-number'>
-          <Image src={headPhone} className='img-fluid' alt='nav-number' height={32} width={32} />
+          <Image
+            src={headPhone}
+            className='img-fluid'
+            alt='nav-number'
+            height={32}
+            width={32}
+          />
           <span>{themeOption?.header?.support_number}</span>
         </div>
-        <a className='btn theme-bg-color ms-3 fire-button' onClick={() => setModal(true)}>
+        <a
+          className='btn theme-bg-color ms-3 fire-button'
+          onClick={() => setModal(true)}
+        >
           <div className='fire'>
-            <Image src={HotSale} className='img-fluid' alt='fire' height={20} width={20} />
+            <Image
+              src={HotSale}
+              className='img-fluid'
+              alt='fire'
+              height={20}
+              width={20}
+            />
           </div>
           <span>{t('HotDeals')}</span>
         </a>
       </div>
-      <HeaderDealModal modal={modal} setModal={setModal} data={themeOption?.header?.today_deals} />
+      <HeaderDealModal
+        modal={modal}
+        setModal={setModal}
+        data={themeOption?.header?.today_deals}
+      />
     </>
   );
 };

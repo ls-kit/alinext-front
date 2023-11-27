@@ -19,7 +19,9 @@ const HeaderCategory = ({ customClass, icon, dropDownClass }) => {
   const { t } = useTranslation(i18Lang, 'common');
   const { themeOption } = useContext(ThemeOptionContext);
   const filteredCategories = useMemo(() => {
-    return categoryData?.filter((elem) => themeOption?.header?.category_ids?.includes(elem.id));
+    return categoryData?.filter((elem) =>
+      themeOption?.header?.category_ids?.includes(elem.id),
+    );
   });
   return (
     <Col xs={12}>
@@ -41,8 +43,15 @@ const HeaderCategory = ({ customClass, icon, dropDownClass }) => {
             <ul className='category-list'>
               {filteredCategories?.map((elem, i) => (
                 <li className='onhover-category-list' key={i}>
-                  <Link href={`/${i18Lang}/collections?category=${elem?.slug}`} className='category-name'>
-                    <Avatar data={elem?.category_icon} placeHolder={placeHolderImage} name={elem.name} />
+                  <Link
+                    href={`/${i18Lang}/collections?category=${elem?.slug}`}
+                    className='category-name'
+                  >
+                    <Avatar
+                      data={elem?.category_icon}
+                      placeHolder={placeHolderImage}
+                      name={elem.name}
+                    />
                     <h6>{elem?.name}</h6>
                   </Link>
                 </li>

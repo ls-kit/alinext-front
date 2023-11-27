@@ -27,8 +27,8 @@ const SidebarProduct = ({ values }) => {
                     item?.variation && item?.variation?.variation_image
                       ? item?.variation?.variation_image?.original_url
                       : item?.product?.product_thumbnail
-                      ? item?.product?.product_thumbnail?.original_url
-                      : placeHolderImage
+                        ? item?.product?.product_thumbnail?.original_url
+                        : placeHolderImage
                   }
                   className='img-fluid'
                   alt={item?.product?.name || 'product'}
@@ -36,11 +36,24 @@ const SidebarProduct = ({ values }) => {
                   height={70}
                 />
                 <div className='cart-content'>
-                  <h4>{item?.variation ? item?.variation?.name : item?.product?.name}</h4>
+                  <h4>
+                    {item?.variation
+                      ? item?.variation?.name
+                      : item?.product?.name}
+                  </h4>
                   <h5 className='text-theme'>
-                    {item?.variation ? convertCurrency(item?.variation.sale_price) : convertCurrency(item?.product?.sale_price)} x {item.quantity}
+                    {item?.variation
+                      ? convertCurrency(item?.variation.sale_price)
+                      : convertCurrency(item?.product?.sale_price)}{' '}
+                    x {item.quantity}
                   </h5>
-                  <h5 className='price'>{convertCurrency((item?.variation ? item?.variation.sale_price : item?.product?.sale_price) * item.quantity)}</h5>
+                  <h5 className='price'>
+                    {convertCurrency(
+                      (item?.variation
+                        ? item?.variation.sale_price
+                        : item?.product?.sale_price) * item.quantity,
+                    )}
+                  </h5>
                 </div>
               </li>
             ))}

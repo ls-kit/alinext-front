@@ -2,7 +2,6 @@
     Animation scss 
  ========================== */
 @keyframes scaleUpDown {
-
   0%,
   100% {
     transform: scaleY(1) scaleX(1);
@@ -23,7 +22,6 @@
 }
 
 @keyframes shake {
-
   0%,
   100% {
     transform: skewX(0) scale(1);
@@ -134,7 +132,6 @@
 }
 
 @keyframes grow {
-
   0%,
   100% {
     transform: scale(0);
@@ -160,7 +157,6 @@
     opacity: 1;
   }
 }
-
 
 @keyframes ring {
   0% {

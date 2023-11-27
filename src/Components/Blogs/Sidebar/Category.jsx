@@ -19,7 +19,12 @@ const Category = () => {
           <ul>
             {categoryData?.map((category, index) => (
               <li key={index}>
-                <Link href={{ pathname: `/${i18Lang}/blogs`, query: { category: category?.slug } }}>
+                <Link
+                  href={{
+                    pathname: `/${i18Lang}/blogs`,
+                    query: { category: category?.slug },
+                  }}
+                >
                   <div className='category-name'>
                     <h5>{category.name}</h5>
                     <span>({category?.blogs_count})</span>

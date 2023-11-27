@@ -20,17 +20,24 @@ const RecentPost = () => {
         <div className='recent-post-box'>
           {blogState?.slice(0, 5).map((blog, index) => (
             <div className='recent-box' key={index}>
-              <Link href={`/${i18Lang}/blogs/${blog?.slug}`} className='recent-image'>
-                <Avatar data={blog?.blog_thumbnail} placeHolder={placeHolderImage} name={blog?.blog_thumbnail?.name} width={124} height={124} />
+              <Link
+                href={`/${i18Lang}/blogs/${blog?.slug}`}
+                className='recent-image'
+              >
+                <Avatar
+                  data={blog?.blog_thumbnail}
+                  placeHolder={placeHolderImage}
+                  name={blog?.blog_thumbnail?.name}
+                  width={124}
+                  height={124}
+                />
               </Link>
 
               <div className='recent-detail'>
                 <Link href={`/${i18Lang}/blogs/${blog?.slug}`}>
                   <h5 className='recent-name'>{blog.title}</h5>
                 </Link>
-                <h6>
-                  {formatDateForDateRange(blog.created_at)}
-                </h6>
+                <h6>{formatDateForDateRange(blog.created_at)}</h6>
               </div>
             </div>
           ))}

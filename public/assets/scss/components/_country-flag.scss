@@ -17,11 +17,11 @@ $background-color_4: #dbdbdb;
       }
     }
 
-    input[type="text"],
-    input[type="number"] {
+    input[type='text'],
+    input[type='number'] {
       padding-left: 132px !important;
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         padding-left: 0 !important;
         padding-right: 132px !important;
       }
@@ -29,7 +29,7 @@ $background-color_4: #dbdbdb;
       @media (max-width: 576px) {
         padding-left: 122px !important;
 
-        body[dir="rtl"] & {
+        body[dir='rtl'] & {
           padding-right: 122px !important;
         }
       }
@@ -42,7 +42,7 @@ $background-color_4: #dbdbdb;
       height: calc(51px + (54 - 51) * ((100vw - 320px) / (1920 - 320)));
       min-height: calc(51px + (54 - 51) * ((100vw - 320px) / (1920 - 320)));
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         padding-left: unset;
         padding-right: 128px;
       }
@@ -59,7 +59,7 @@ $background-color_4: #dbdbdb;
     z-index: 1;
     cursor: pointer;
 
-    body[dir="rtl"] & {
+    body[dir='rtl'] & {
       left: unset;
       right: 13px;
     }
@@ -72,7 +72,7 @@ $background-color_4: #dbdbdb;
       min-width: 110px;
       width: 110px;
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         left: unset;
         right: 13px;
       }
@@ -91,7 +91,7 @@ $background-color_4: #dbdbdb;
       @include center(vertical);
       fill: #898989;
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         left: unset;
         right: 90px;
       }
@@ -112,7 +112,7 @@ $background-color_4: #dbdbdb;
         height: 49px;
       }
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         border-radius: 0 6px 6px 0;
         border-right: unset;
         border-left: 1px solid #dee2e6;
@@ -184,7 +184,7 @@ $background-color_4: #dbdbdb;
     margin-right: 0;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     position: relative;
     z-index: 0;
     margin-top: 0 !important;
@@ -193,7 +193,7 @@ $background-color_4: #dbdbdb;
     margin-right: 0;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     position: relative;
     z-index: 0;
     margin-top: 0 !important;
@@ -248,7 +248,7 @@ $background-color_4: #dbdbdb;
     vertical-align: middle;
     margin-right: 6px;
 
-    body[dir="rtl"] & {
+    body[dir='rtl'] & {
       margin-right: unset;
       margin-left: 6px;
     }
@@ -314,13 +314,13 @@ $background-color_4: #dbdbdb;
     margin-left: 0;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-right: 6px;
     padding-left: 52px;
     margin-left: 0;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-right: 6px;
     padding-left: 52px;
     margin-left: 0;
@@ -379,8 +379,8 @@ $background-color_4: #dbdbdb;
     margin-left: 0;
   }
 
-  input[type="text"],
-  input[type="number"] {
+  input[type='text'],
+  input[type='number'] {
     padding-right: 6px;
     padding-left: 52px;
     margin-left: 0;
@@ -394,7 +394,7 @@ $background-color_4: #dbdbdb;
     }
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-right: 6px;
     padding-left: 112px !important;
     margin-left: 0;
@@ -425,11 +425,11 @@ $background-color_4: #dbdbdb;
     padding-left: 66px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 66px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 66px;
   }
 
@@ -443,11 +443,11 @@ $background-color_4: #dbdbdb;
     padding-left: 76px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 76px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 76px;
   }
 
@@ -461,11 +461,11 @@ $background-color_4: #dbdbdb;
     padding-left: 74px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 74px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 74px;
   }
 
@@ -479,11 +479,11 @@ $background-color_4: #dbdbdb;
     padding-left: 84px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 84px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 84px;
   }
 
@@ -497,11 +497,11 @@ $background-color_4: #dbdbdb;
     padding-left: 82px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 82px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 82px;
   }
 
@@ -515,11 +515,11 @@ $background-color_4: #dbdbdb;
     padding-left: 92px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 92px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 92px;
   }
 
@@ -533,11 +533,11 @@ $background-color_4: #dbdbdb;
     padding-left: 90px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 90px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 90px;
   }
 
@@ -551,11 +551,11 @@ $background-color_4: #dbdbdb;
     padding-left: 100px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     padding-left: 100px;
   }
 
-  input[type="tel"] {
+  input[type='tel'] {
     padding-left: 100px;
   }
 
@@ -603,7 +603,7 @@ $background-color_4: #dbdbdb;
   width: 20px;
   height: 15px;
   box-shadow: 0px 0px 1px 0px #888;
-  background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags.png");
+  background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags.png');
   background-repeat: no-repeat;
   background-color: $background-color_4;
   background-position: 20px 0;
@@ -1912,41 +1912,41 @@ $background-color_4: #dbdbdb;
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .iti-flag {
     background-size: 5630px 15px;
-    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png");
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png');
   }
 }
 
 @media only screen and (min--moz-device-pixel-ratio: 2) {
   .iti-flag {
     background-size: 5630px 15px;
-    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png");
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png');
   }
 }
 
 @media only screen and (-o-min-device-pixel-ratio: 2 / 1) {
   .iti-flag {
     background-size: 5630px 15px;
-    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png");
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png');
   }
 }
 
 @media only screen and (min-device-pixel-ratio: 2) {
   .iti-flag {
     background-size: 5630px 15px;
-    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png");
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png');
   }
 }
 
 @media only screen and (min-resolution: 192dpi) {
   .iti-flag {
     background-size: 5630px 15px;
-    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png");
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png');
   }
 }
 
 @media only screen and (min-resolution: 2dppx) {
   .iti-flag {
     background-size: 5630px 15px;
-    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png");
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/img/flags@2x.png');
   }
 }

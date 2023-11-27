@@ -12,7 +12,9 @@ const CompareAction = ({ product }) => {
   const { t } = useTranslation(i18Lang, 'common');
   const { handleIncDec, isLoading } = useContext(CartContext);
   const removeFromCompare = (productObj) => {
-    setCompareState((prevState) => prevState.filter((elem) => elem.id !== productObj?.id));
+    setCompareState((prevState) =>
+      prevState.filter((elem) => elem.id !== productObj?.id),
+    );
   };
   const addToCart = () => {
     handleIncDec(1, product);

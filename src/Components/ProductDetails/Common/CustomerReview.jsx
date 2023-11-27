@@ -16,11 +16,19 @@ const CustomerReview = ({ productState }) => {
   const { t } = useTranslation(i18Lang, 'common');
   const [modal, setModal] = useState('');
   const isLogin = Cookies.get('uat');
-  const { data, isLoading, refetch } = useQuery([ReviewAPI], () => request({ url: ReviewAPI, params: { product_id: productState?.product?.id } }), {
-    enabled: isLogin ? (productState?.product?.id ? true : false) : false,
-    refetchOnWindowFocus: false,
-    select: (res) => res?.data?.data,
-  });
+  const { data, isLoading, refetch } = useQuery(
+    [ReviewAPI],
+    () =>
+      request({
+        url: ReviewAPI,
+        params: { product_id: productState?.product?.id },
+      }),
+    {
+      enabled: isLogin ? (productState?.product?.id ? true : false) : false,
+      refetchOnWindowFocus: false,
+      select: (res) => res?.data?.data,
+    },
+  );
   return (
     <>
       <Col xl={5}>
@@ -49,11 +57,19 @@ const CustomerReview = ({ productState }) => {
                       <li key={i}>
                         <div className='rating-product'>
                           <h5>
-                            {productState?.product?.review_ratings?.length - 1 - i + 1}
+                            {productState?.product?.review_ratings?.length -
+                              1 -
+                              i +
+                              1}
                             <RiStarFill />
                           </h5>
                           <Progress multi>
-                            <Progress value={((rate / productState?.product?.reviews_count) * 100).toFixed(0)} />
+                            <Progress
+                              value={(
+                                (rate / productState?.product?.reviews_count) *
+                                100
+                              ).toFixed(0)}
+                            />
                           </Progress>
                           <h5 className='total'>{rate}</h5>
                         </div>
@@ -65,15 +81,29 @@ const CustomerReview = ({ productState }) => {
                 <div className='review-title-2'>
                   <h4 className='fw-bold'>{t('Reviewthisproduct')}</h4>
                   <p>{t('Letothercustomersknowwhatyouthink')}.</p>
-                  <Btn className='btn' onClick={() => setModal(productState?.product?.id)} title={productState?.product?.user_review ? t('EditReview') : t('Writeareview')} />
+                  <Btn
+                    className='btn'
+                    onClick={() => setModal(productState?.product?.id)}
+                    title={
+                      productState?.product?.user_review
+                        ? t('EditReview')
+                        : t('Writeareview')
+                    }
+                  />
                 </div>
               ) : null}
             </Col>
           </Row>
         </div>
       </Col>
-      <ReviewModal modal={modal} setModal={setModal} productState={productState} refetch={refetch} />
-      {(productState?.product?.can_review || productState?.product?.reviews_count) && <CustomerQA data={data} />}
+      <ReviewModal
+        modal={modal}
+        setModal={setModal}
+        productState={productState}
+        refetch={refetch}
+      />
+      {(productState?.product?.can_review ||
+        productState?.product?.reviews_count) && <CustomerQA data={data} />}
     </>
   );
 };

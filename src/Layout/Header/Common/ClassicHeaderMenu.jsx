@@ -13,18 +13,32 @@ const ClassicHeaderMenu = () => {
   return (
     <div className='header-nav-middle'>
       <div className='main-nav navbar navbar-expand-xl navbar-light navbar-sticky'>
-        <div className={`offcanvas offcanvas-collapse order-xl-2 ${mobileSideBar ? 'show' : ''}`} id='primaryMenu'>
+        <div
+          className={`offcanvas offcanvas-collapse order-xl-2 ${
+            mobileSideBar ? 'show' : ''
+          }`}
+          id='primaryMenu'
+        >
           <div className='offcanvas-header navbar-shadow'>
             <h5>{t('Menu')}</h5>
-            <Btn className='btn-close lead' type='button' onClick={() => setMobileSideBar(!mobileSideBar)}>
-              <RiCloseLine/>
+            <Btn
+              className='btn-close lead'
+              type='button'
+              onClick={() => setMobileSideBar(!mobileSideBar)}
+            >
+              <RiCloseLine />
             </Btn>
           </div>
           <div className='offcanvas-body'>
             <MainHeaderMenu />
           </div>
         </div>
-        {mobileSideBar && <div className={'offcanvas-backdrop fade show'} onClick={() => setMobileSideBar(!mobileSideBar)} />}
+        {mobileSideBar && (
+          <div
+            className={'offcanvas-backdrop fade show'}
+            onClick={() => setMobileSideBar(!mobileSideBar)}
+          />
+        )}
       </div>
     </div>
   );

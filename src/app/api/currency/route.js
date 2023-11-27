@@ -1,6 +1,6 @@
-import currency from './currency.json'
-import { NextResponse } from "next/server";
+import currency from './currency.json';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
-    return NextResponse.json(currency)
+  return NextResponse.json(currency);
 }

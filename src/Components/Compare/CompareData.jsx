@@ -24,22 +24,54 @@ const CompareData = () => {
             <div className='compare-part'>
               <div className='img-section'>
                 <div>
-                  <Image src={product.product_thumbnail ? product.product_thumbnail.original_url : placeHolderImage} className='img-fluid' alt={product.name} height={130} width={130} />
+                  <Image
+                    src={
+                      product.product_thumbnail
+                        ? product.product_thumbnail.original_url
+                        : placeHolderImage
+                    }
+                    className='img-fluid'
+                    alt={product.name}
+                    height={130}
+                    width={130}
+                  />
                 </div>
                 <Link href={`/${i18Lang}/product/${product?.slug}`}>
                   <h5 className='text-title'>{product?.name}</h5>
                 </Link>
               </div>
-              <CompareWrapper data={{ title: 'Discount', value: product?.discount ? product?.discount : '-' }} />
-              <CompareWrapper data={{ title: 'Price', value: convertCurrency(product?.sale_price) }} />
-              <CompareWrapper data={{ title: 'Availability', value: ModifyString(product?.stock_status) }} />
+              <CompareWrapper
+                data={{
+                  title: 'Discount',
+                  value: product?.discount ? product?.discount : '-',
+                }}
+              />
+              <CompareWrapper
+                data={{
+                  title: 'Price',
+                  value: convertCurrency(product?.sale_price),
+                }}
+              />
+              <CompareWrapper
+                data={{
+                  title: 'Availability',
+                  value: ModifyString(product?.stock_status),
+                }}
+              />
               <CompareWrapper data={{ title: 'Rating' }}>
                 <div className='compare-rating'>
                   <ProductBox1Rating totalRating={product?.rating_count} />
-                  <span className='text-content rating-text'>{`(${product?.rating_count?.toFixed(2) || 0} Rating)`}</span>
+                  <span className='text-content rating-text'>{`(${
+                    product?.rating_count?.toFixed(2) || 0
+                  } Rating)`}</span>
                 </div>
               </CompareWrapper>
-              <CompareWrapper data={{ title: 'Weight', value: product?.weight ? product?.weight : '-' }} />
+              <CompareWrapper
+                data={{
+                  title: 'Weight',
+                  value: product?.weight ? product?.weight : '-',
+                }}
+              />
               <CompareAction product={product} />
             </div>
           </Col>

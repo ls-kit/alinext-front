@@ -1,11 +1,22 @@
 import React, { useContext } from 'react';
-import { FormFeedback, FormGroup, Input, InputGroup, Label, InputGroupText } from 'reactstrap';
+import {
+  FormFeedback,
+  FormGroup,
+  Input,
+  InputGroup,
+  Label,
+  InputGroupText,
+} from 'reactstrap';
 import { handleModifier } from '../../Utils/Validation/ModifiedErrorMessage';
 import { ErrorMessage } from 'formik';
 import { useTranslation } from '@/app/i18n/client';
 import I18NextContext from '@/Helper/I18NextContext';
 
-const ReactstrapFormikInput = ({ field: { ...fields }, form: { touched, errors }, ...props }) => {
+const ReactstrapFormikInput = ({
+  field: { ...fields },
+  form: { touched, errors },
+  ...props
+}) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   return (
@@ -13,14 +24,30 @@ const ReactstrapFormikInput = ({ field: { ...fields }, form: { touched, errors }
       {props.label ? (
         <>
           <FormGroup floating>
-            <Input {...props} {...fields} invalid={Boolean(touched[fields.name] && errors[fields.name])} valid={Boolean(touched[fields.name] && !errors[fields.name])} autoComplete='off' />
+            <Input
+              {...props}
+              {...fields}
+              invalid={Boolean(touched[fields.name] && errors[fields.name])}
+              valid={Boolean(touched[fields.name] && !errors[fields.name])}
+              autoComplete='off'
+            />
             <Label htmlFor={props.id}>{t(props.label)}</Label>
-            {touched[fields.name] && errors[fields.name] ? <FormFeedback>{t(handleModifier(errors[fields.name]))}</FormFeedback> : ''}
+            {touched[fields.name] && errors[fields.name] ? (
+              <FormFeedback>
+                {t(handleModifier(errors[fields.name]))}
+              </FormFeedback>
+            ) : (
+              ''
+            )}
           </FormGroup>
         </>
       ) : props.inputaddon ? (
         <InputGroup>
-          {!props.postprefix && <InputGroupText>{props?.prefixvalue ? props?.prefixvalue : '$'}</InputGroupText>}
+          {!props.postprefix && (
+            <InputGroupText>
+              {props?.prefixvalue ? props?.prefixvalue : '$'}
+            </InputGroupText>
+          )}
           <Input
             disabled={props.disable ? props.disable : false}
             {...fields}
@@ -36,8 +63,16 @@ const ReactstrapFormikInput = ({ field: { ...fields }, form: { touched, errors }
               } else false;
             }}
           />
-          {props.postprefix && <InputGroupText>{props.postprefix}</InputGroupText>}
-          {touched[fields.name] && errors[fields.name] ? <FormFeedback>{t(handleModifier(errors[fields.name]))}</FormFeedback> : ''}
+          {props.postprefix && (
+            <InputGroupText>{props.postprefix}</InputGroupText>
+          )}
+          {touched[fields.name] && errors[fields.name] ? (
+            <FormFeedback>
+              {t(handleModifier(errors[fields.name]))}
+            </FormFeedback>
+          ) : (
+            ''
+          )}
           {props?.errormsg && (
             <ErrorMessage
               name={fields.name}
@@ -61,7 +96,13 @@ const ReactstrapFormikInput = ({ field: { ...fields }, form: { touched, errors }
                 valid={Boolean(touched[fields.name] && !errors[fields.name])}
                 autoComplete='off'
               />
-              {touched[fields.name] && errors[fields.name] ? <FormFeedback>{t(handleModifier(errors[fields.name]))}</FormFeedback> : ''}
+              {touched[fields.name] && errors[fields.name] ? (
+                <FormFeedback>
+                  {t(handleModifier(errors[fields.name]))}
+                </FormFeedback>
+              ) : (
+                ''
+              )}
               <h6>{fields.value}</h6>
             </div>
           ) : (
@@ -74,7 +115,13 @@ const ReactstrapFormikInput = ({ field: { ...fields }, form: { touched, errors }
                 valid={Boolean(touched[fields.name] && !errors[fields.name])}
                 autoComplete='off'
               />
-              {touched[fields.name] && errors[fields.name] ? <FormFeedback>{t(handleModifier(errors[fields.name]).split(' ').join(''))}</FormFeedback> : ''}
+              {touched[fields.name] && errors[fields.name] ? (
+                <FormFeedback>
+                  {t(handleModifier(errors[fields.name]).split(' ').join(''))}
+                </FormFeedback>
+              ) : (
+                ''
+              )}
               {props?.errormsg && (
                 <ErrorMessage
                   name={fields.name}

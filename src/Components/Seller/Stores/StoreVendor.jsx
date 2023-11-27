@@ -8,7 +8,8 @@ const StoreVendor = ({ elem }) => {
   const { t } = useTranslation(i18Lang, 'common');
   return (
     <>
-      {(Boolean(!elem?.hide_vendor_email) || Boolean(!elem?.hide_vendor_phone)) && (
+      {(Boolean(!elem?.hide_vendor_email) ||
+        Boolean(!elem?.hide_vendor_phone)) && (
         <div className='seller-contact-details'>
           {Boolean(!elem?.hide_vendor_email) && (
             <div className='saller-contact'>

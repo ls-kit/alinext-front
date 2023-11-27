@@ -1,11 +1,6 @@
-import MainLayout from "@/Layout"
+import MainLayout from '@/Layout';
+import { defaultLanguage } from '@/app/i18n/settings';
 
-export default function RootLayout({ children, params: { lng } }) {
-  return (
-    <>
-      <MainLayout lng={lng}>
-        {children}
-      </MainLayout>
-    </>
-  )
+export default function RootLayout({ children }) {
+  return <MainLayout lng={defaultLanguage}>{children}</MainLayout>;
 }

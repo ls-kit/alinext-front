@@ -9,7 +9,13 @@ const AboutUsImage = () => {
         <Col sm='6' className='d-sm-block d-none'>
           <div className='fresh-image-2'>
             <div>
-              <Image height={375} width={555} src={aboutUs1} className='img-fluid' alt='about-us-1' />
+              <Image
+                height={375}
+                width={555}
+                src={aboutUs1}
+                className='img-fluid'
+                alt='about-us-1'
+              />
             </div>
           </div>
         </Col>

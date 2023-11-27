@@ -6,7 +6,7 @@
   position: relative;
   color: $dark-card-background;
   font-size: 22px;
-  @include flex_common ($dis: flex, $align: center, $justify: space-between);
+  @include flex_common($dis: flex, $align: center, $justify: space-between);
   flex-wrap: wrap;
   gap: 10px;
 
@@ -41,7 +41,7 @@
   }
 
   &-1 {
-    @include flex_common ($dis: flex, $align: center, $justify: space-between);
+    @include flex_common($dis: flex, $align: center, $justify: space-between);
   }
 
   &-block {
@@ -65,7 +65,7 @@
           color: $theme-body-font-color;
 
           &::before {
-            @include pos($pos: absolute, $content: "/");
+            @include pos($pos: absolute, $content: '/');
             top: 0;
             right: -15px;
             width: 0;
@@ -112,7 +112,7 @@
       height: 26px;
       background-color: var(--theme-color);
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         left: unset;
         right: -28px;
       }
@@ -159,7 +159,7 @@
     margin-bottom: 16px;
 
     &--2 {
-      @include flex_common ($dis: flex, $align: center, $justify: space-between);
+      @include flex_common($dis: flex, $align: center, $justify: space-between);
       padding: 40px;
     }
 
@@ -202,7 +202,7 @@
             position: relative;
 
             &::before {
-              @include pos($pos: absolute, $content: "/");
+              @include pos($pos: absolute, $content: '/');
               top: 0;
               right: -10px;
               width: 0;
@@ -248,7 +248,7 @@
       }
     }
 
-    >span {
+    > span {
       font-size: $card-header-span-size;
       color: $card-header-span-color;
       margin-top: 5px;
@@ -482,8 +482,8 @@
   .card-footer {
     padding: 0;
 
-    >div {
-      +div {
+    > div {
+      + div {
         border-left: 1px solid $light-semi-gray;
       }
 

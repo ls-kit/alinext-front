@@ -12,7 +12,12 @@ const BlogCardContain = ({ blog }) => {
     <>
       <div className='blog-image'>
         <Link href={`/${i18Lang}/blogs/${blog.slug}`}>
-          <Image src={blog?.blog_thumbnail?.original_url || placeHolderImage}  alt='blog-image' height={244} width={490} />
+          <Image
+            src={blog?.blog_thumbnail?.original_url || placeHolderImage}
+            alt='blog-image'
+            height={244}
+            width={490}
+          />
         </Link>
       </div>
       <BlogContain blog={blog} />

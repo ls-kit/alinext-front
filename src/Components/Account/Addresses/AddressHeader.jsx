@@ -16,29 +16,47 @@ const AddressHeader = () => {
   const [modal, setModal] = useState('');
   const { accountData } = useContext(AccountContext);
   useEffect(() => {
-    accountData?.address.length > 0 && setAddressState((prev) => [...accountData?.address]);
+    accountData?.address.length > 0 &&
+      setAddressState((prev) => [...accountData?.address]);
   }, [accountData]);
   const addAddress = () => {
     setModal('');
-  }
+  };
   const editMutate = () => {
     setModal('');
-  }
+  };
   return (
     <>
       <div className='dashboard-address'>
         <div className='title-header'>
           <div className='d-flex align-items-center w-100 justify-content-between'>
-            <h5>{t("SavedAddress")}</h5>
-            <Btn className='theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3 ms-auto' onClick={() => setModal('add')} title={'Add Address'}>
+            <h5>{t('SavedAddress')}</h5>
+            <Btn
+              className='theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3 ms-auto'
+              onClick={() => setModal('add')}
+              title={'Add Address'}
+            >
               <RiAddLine />
             </Btn>
           </div>
         </div>
-        <AddressData addressState={addressState} setAddressState={setAddressState} modal={modal} setModal={setModal} setEditAddress={setEditAddress} />
+        <AddressData
+          addressState={addressState}
+          setAddressState={setAddressState}
+          modal={modal}
+          setModal={setModal}
+          setEditAddress={setEditAddress}
+        />
       </div>
       <div className='checkout-detail'>
-        <CustomModal modal={modal == 'add' || modal == 'edit' ? true : false} setModal={setModal} classes={{ modalClass: 'theme-modal view-modal address-modal modal-lg', modalHeaderClass: 'p-0' }}>
+        <CustomModal
+          modal={modal == 'add' || modal == 'edit' ? true : false}
+          setModal={setModal}
+          classes={{
+            modalClass: 'theme-modal view-modal address-modal modal-lg',
+            modalHeaderClass: 'p-0',
+          }}
+        >
           <div className='right-sidebar-box'>
             <AddAddressForm
               mutate={modal == 'add' ? addAddress : editMutate}

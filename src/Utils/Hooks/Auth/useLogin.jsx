@@ -1,6 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import request from '../../AxiosUtils';
-import { emailSchema, passwordSchema, YupObject } from '../../Validation/ValidationSchemas';
+import {
+  emailSchema,
+  passwordSchema,
+  YupObject,
+} from '../../Validation/ValidationSchemas';
 import { LoginAPI } from '../../AxiosUtils/API';
 import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
@@ -14,9 +18,18 @@ export const LogInSchema = YupObject({
   password: passwordSchema,
 });
 
-const LoginHandle = (responseData, router, i18Lang, refetch, compareRefetch) => {
+const LoginHandle = (
+  responseData,
+  router,
+  i18Lang,
+  refetch,
+  compareRefetch,
+) => {
   if (responseData.status === 200 || responseData.status === 201) {
-    Cookies.set('uat', responseData.data?.access_token, { path: '/', expires: new Date(Date.now() + 24 * 60 * 6000) });
+    Cookies.set('uat', responseData.data?.access_token, {
+      path: '/',
+      expires: new Date(Date.now() + 24 * 60 * 6000),
+    });
     const ISSERVER = typeof window === 'undefined';
     if (typeof window !== 'undefined') {
       Cookies.set('account', JSON.stringify(responseData.data));
@@ -41,7 +54,8 @@ const useHandleLogin = () => {
         data,
       }),
     {
-      onSuccess: (responseData) => LoginHandle(responseData, router, i18Lang, refetch, compareRefetch),
+      onSuccess: (responseData) =>
+        LoginHandle(responseData, router, i18Lang, refetch, compareRefetch),
     },
   );
 };

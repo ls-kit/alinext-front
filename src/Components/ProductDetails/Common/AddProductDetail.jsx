@@ -15,11 +15,31 @@ const AddProductDetail = ({ productState }) => {
   const { themeOption } = useContext(ThemeOptionContext);
   const { t } = useTranslation(i18Lang, 'common');
   const [modal, setModal] = useState('');
-  const getQTY = productState?.selectedVariation?.quantity ? productState?.selectedVariation?.quantity : productState?.product?.quantity;
+  const getQTY = productState?.selectedVariation?.quantity
+    ? productState?.selectedVariation?.quantity
+    : productState?.product?.quantity;
   const activeModal = {
-    size: <SizeModal modal={modal} setModal={setModal} productState={productState} />,
-    delivery: <DeliveryReturnModal modal={modal} setModal={setModal} productState={productState} />,
-    qna: <QuestionAnswerModal modal={modal} setModal={setModal} productState={productState} />,
+    size: (
+      <SizeModal
+        modal={modal}
+        setModal={setModal}
+        productState={productState}
+      />
+    ),
+    delivery: (
+      <DeliveryReturnModal
+        modal={modal}
+        setModal={setModal}
+        productState={productState}
+      />
+    ),
+    qna: (
+      <QuestionAnswerModal
+        modal={modal}
+        setModal={setModal}
+        productState={productState}
+      />
+    ),
   };
 
   const getProgressValue = (productState) => {
@@ -37,15 +57,31 @@ const AddProductDetail = ({ productState }) => {
         <div className='progress-sec'>
           <div className='left-progressbar'>
             <h6>
-              {t('PleasehurryOnly')} {productState?.selectedVariation?.quantity ?? productState?.product?.quantity} {t('leftinstock')}
+              {t('PleasehurryOnly')}{' '}
+              {productState?.selectedVariation?.quantity ??
+                productState?.product?.quantity}{' '}
+              {t('leftinstock')}
             </h6>
-            <Progress className={getQTY <= 2 ? 'danger-progress' : getQTY >= 3 && getQTY <= 7 ? 'warning-progress' : ''} striped animated value={getProgressValue(productState)} />
+            <Progress
+              className={
+                getQTY <= 2
+                  ? 'danger-progress'
+                  : getQTY >= 3 && getQTY <= 7
+                    ? 'warning-progress'
+                    : ''
+              }
+              striped
+              animated
+              value={getProgressValue(productState)}
+            />
           </div>
         </div>
       ) : null}
       {productState?.product?.size_chart_image ||
-      (themeOption?.product?.shipping_and_return && productState?.product?.is_return) ||
-      (themeOption?.product?.shipping_and_return && productState?.product?.is_return) ? (
+      (themeOption?.product?.shipping_and_return &&
+        productState?.product?.is_return) ||
+      (themeOption?.product?.shipping_and_return &&
+        productState?.product?.is_return) ? (
         <div className='size-delivery-info'>
           {productState?.product?.size_chart_image && (
             <a onClick={() => setModal('size')}>
@@ -53,12 +89,15 @@ const AddProductDetail = ({ productState }) => {
               {t('SizeChart')}
             </a>
           )}
-          {themeOption?.product?.shipping_and_return && productState?.product?.is_return ? (
+          {themeOption?.product?.shipping_and_return &&
+          productState?.product?.is_return ? (
             <a onClick={() => setModal('delivery')}>
               <RiTruckLine /> {t('DeliveryReturn')}
             </a>
           ) : null}
-          {isLogin && themeOption?.product?.shipping_and_return && productState?.product?.is_return ? (
+          {isLogin &&
+          themeOption?.product?.shipping_and_return &&
+          productState?.product?.is_return ? (
             <a onClick={() => setModal('qna')}>
               <RiQuestionnaireLine /> {t('Askaquestion')}
             </a>

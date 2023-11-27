@@ -1,7 +1,15 @@
 'use client';
 import { useContext, useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Col, Container, Row } from 'reactstrap';
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+  AccordionItem,
+  Col,
+  Container,
+  Row,
+} from 'reactstrap';
 import Breadcrumb from '../Common/Breadcrumb';
 import { useQuery } from '@tanstack/react-query';
 import request from '@/Utils/AxiosUtils';
@@ -21,11 +29,15 @@ const BrowserFaq = () => {
       setOpen(id);
     }
   };
-  const { data, isLoading } = useQuery([FaqAPI], () => request({ url: FaqAPI, params: { status: 1 } }), {
-    enabled: true,
-    refetchOnWindowFocus: false,
-    select: (data) => data?.data?.data,
-  });
+  const { data, isLoading } = useQuery(
+    [FaqAPI],
+    () => request({ url: FaqAPI, params: { status: 1 } }),
+    {
+      enabled: true,
+      refetchOnWindowFocus: false,
+      select: (data) => data?.data?.data,
+    },
+  );
 
   if (isLoading) return <Loader />;
   return (

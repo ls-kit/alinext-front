@@ -10,14 +10,26 @@ const SidebarProfile = () => {
     <>
       <div className='profile-box'>
         <div className='cover-image'>
-          <Image src={coverImage} className='img-fluid' alt='cover-image' height={150} width={378} />
+          <Image
+            src={coverImage}
+            className='img-fluid'
+            alt='cover-image'
+            height={150}
+            width={378}
+          />
         </div>
 
         <div className='profile-contain'>
           <div className='profile-image'>
             <div className='position-relative'>
               <div className='user-round'>
-                <Avatar name={accountData?.name} customImageClass={'update_img'} alt='profile-image' height={108} width={108} />
+                <Avatar
+                  name={accountData?.name}
+                  customImageClass={'update_img'}
+                  alt='profile-image'
+                  height={108}
+                  width={108}
+                />
               </div>
             </div>
           </div>

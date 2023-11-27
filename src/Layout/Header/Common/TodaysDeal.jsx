@@ -21,7 +21,11 @@ const TodaysDeal = () => {
               <span>{t('DealToday')}</span>
             </Btn>
           </div>
-          <HeaderDealModal modal={modal} setModal={setModal} data={themeOption?.header?.today_deals} />
+          <HeaderDealModal
+            modal={modal}
+            setModal={setModal}
+            data={themeOption?.header?.today_deals}
+          />
         </>
       )}
     </>

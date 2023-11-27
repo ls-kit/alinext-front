@@ -1,6 +1,12 @@
 import { useContext } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { AccordionBody, AccordionHeader, AccordionItem, Input, Label } from 'reactstrap';
+import {
+  AccordionBody,
+  AccordionHeader,
+  AccordionItem,
+  Input,
+  Label,
+} from 'reactstrap';
 import { filterPrice } from '../../../../Data/CustomData';
 import I18NextContext from '@/Helper/I18NextContext';
 import { useCustomSearchParams } from '@/Utils/Hooks/useCustomSearchParams';
@@ -8,7 +14,15 @@ import { useTranslation } from '@/app/i18n/client';
 
 const CollectionPrice = ({ filter, setFilter, attributeAPIData }) => {
   const router = useRouter();
-  const [category, attribute, sortBy, field, rating, layout] = useCustomSearchParams(['category', 'attribute', 'sortBy', 'field', 'rating', 'layout']);
+  const [category, attribute, sortBy, field, rating, layout] =
+    useCustomSearchParams([
+      'category',
+      'attribute',
+      'sortBy',
+      'field',
+      'rating',
+      'layout',
+    ]);
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const pathname = usePathname();
@@ -32,10 +46,25 @@ const CollectionPrice = ({ filter, setFilter, attributeAPIData }) => {
       };
     });
     if (temp.length > 0) {
-      const queryParams = new URLSearchParams({ ...category, ...attribute, ...sortBy, ...field, ...rating, ...layout, price: temp }).toString();
+      const queryParams = new URLSearchParams({
+        ...category,
+        ...attribute,
+        ...sortBy,
+        ...field,
+        ...rating,
+        ...layout,
+        price: temp,
+      }).toString();
       router.push(`${pathname}?${queryParams}`);
     } else {
-      const queryParams = new URLSearchParams({ ...category, ...attribute, ...sortBy, ...field, ...rating, ...layout }).toString();
+      const queryParams = new URLSearchParams({
+        ...category,
+        ...attribute,
+        ...sortBy,
+        ...field,
+        ...rating,
+        ...layout,
+      }).toString();
       router.push(`${pathname}?${queryParams}`);
     }
   };
@@ -49,8 +78,18 @@ const CollectionPrice = ({ filter, setFilter, attributeAPIData }) => {
           {filterPrice.map((price, i) => (
             <li key={i}>
               <div className='form-check category-list-box'>
-                <Input className='checkbox_animated' type='checkbox' id={`price-${price.id}`} value={price?.value} checked={checkPrice(price?.value)} onChange={applyPrice} />
-                <Label className='form-check-label' htmlFor={`price-${price.id}`}>
+                <Input
+                  className='checkbox_animated'
+                  type='checkbox'
+                  id={`price-${price.id}`}
+                  value={price?.value}
+                  checked={checkPrice(price?.value)}
+                  onChange={applyPrice}
+                />
+                <Label
+                  className='form-check-label'
+                  htmlFor={`price-${price.id}`}
+                >
                   {price?.price ? (
                     <span className='name'>
                       {price.text} ${price.price}

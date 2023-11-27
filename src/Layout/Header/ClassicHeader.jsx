@@ -12,7 +12,11 @@ const ClassicHeader = () => {
   const { themeOption } = useContext(ThemeOptionContext);
   const UpScroll = useHeaderScroll(false);
   return (
-    <header className={themeOption?.header?.sticky_header_enable && UpScroll ? 'active' : ''}>
+    <header
+      className={
+        themeOption?.header?.sticky_header_enable && UpScroll ? 'active' : ''
+      }
+    >
       {themeOption?.header?.page_top_bar_enable && <HeaderTopBar />}
 
       <div className='top-nav top-header sticky-header'>
@@ -22,7 +26,10 @@ const ClassicHeader = () => {
               <div className='navbar-top'>
                 <HeaderLogo />
                 <ClassicHeaderMenu />
-                <RightSideHeader noContactUs={true} wishListIcon={<FiBookmark />} />
+                <RightSideHeader
+                  noContactUs={true}
+                  wishListIcon={<FiBookmark />}
+                />
               </div>
             </Col>
           </Row>

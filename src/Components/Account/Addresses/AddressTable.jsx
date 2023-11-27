@@ -19,7 +19,8 @@ const AddressTable = ({ address }) => {
               <td>Address :</td>
               <td>
                 <p>
-                  {address?.street}, {address?.city}, {address?.state?.name},{address?.country?.name}
+                  {address?.street}, {address?.city}, {address?.state?.name},
+                  {address?.country?.name}
                 </p>
               </td>
             </tr>

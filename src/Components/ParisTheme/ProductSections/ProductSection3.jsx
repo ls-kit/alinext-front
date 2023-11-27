@@ -11,7 +11,11 @@ const ProductSection3 = ({ dataAPI, ProductData, svgUrl }) => {
   }, [ProductData, dataAPI]);
   return (
     <>
-      <CustomHeading title={dataAPI?.title} svgUrl={svgUrl} subTitle={dataAPI?.description} />
+      <CustomHeading
+        title={dataAPI?.title}
+        svgUrl={svgUrl}
+        subTitle={dataAPI?.description}
+      />
       <div className='product-border overflow-hidden product-slider-bolder'>
         <div className='product-box-slider no-arrow'>
           <Slider {...productSliderOption}>
@@ -19,7 +23,10 @@ const ProductSection3 = ({ dataAPI, ProductData, svgUrl }) => {
               <div key={elem.id}>
                 <Row className='m-0'>
                   <Col xs='12' className='px-0'>
-                    <ProductBox1 imgUrl={elem?.product_thumbnail} productDetail={{ ...elem }} />
+                    <ProductBox1
+                      imgUrl={elem?.product_thumbnail}
+                      productDetail={{ ...elem }}
+                    />
                   </Col>
                 </Row>
               </div>

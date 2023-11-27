@@ -27,7 +27,9 @@ const SubOrders = ({ data }) => {
                 {data?.sub_orders?.map((subOrder, i) => (
                   <tr>
                     <td>
-                      <h6 className='fw-bolder'>{'#' + subOrder?.order_number}</h6>
+                      <h6 className='fw-bolder'>
+                        {'#' + subOrder?.order_number}
+                      </h6>
                     </td>
                     <td>
                       <h6>{subOrder?.created_at}</h6>
@@ -43,7 +45,9 @@ const SubOrders = ({ data }) => {
                       </h6>
                     </td>
                     <td>
-                      <Link href={`/${i18Lang}/account/order/details/${subOrder.order_number}`}>
+                      <Link
+                        href={`/${i18Lang}/account/order/details/${subOrder.order_number}`}
+                      >
                         <RiEyeLine />
                       </Link>
                     </td>

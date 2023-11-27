@@ -17,7 +17,8 @@ import OtherLogo from '../../../../public/assets/images/logo/6.png';
 
 const HeaderLogo = () => {
   const [logo, setLogo] = useState('');
-  const { themeOption, mobileSideBar, setMobileSideBar } = useContext(ThemeOptionContext);
+  const { themeOption, mobileSideBar, setMobileSideBar } =
+    useContext(ThemeOptionContext);
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const pathName = usePathname();
@@ -31,7 +32,10 @@ const HeaderLogo = () => {
       logo = { original_url: RomeLogo };
     } else if (pathName == `/${i18Lang}/theme/madrid`) {
       logo = { original_url: MadridLogo };
-    } else if (pathName == `/${i18Lang}/theme/berlin` || pathName == `/${i18Lang}/theme/denver`) {
+    } else if (
+      pathName == `/${i18Lang}/theme/berlin` ||
+      pathName == `/${i18Lang}/theme/denver`
+    ) {
       logo = { original_url: OtherLogo };
     } else {
       logo = themeOption?.logo?.header_logo;
@@ -40,13 +44,26 @@ const HeaderLogo = () => {
   }, [pathName, i18Lang, themeOption?.logo?.header_logo]);
   return (
     <>
-      <Btn className='navbar-toggler d-xl-none d-inline navbar-menu-button me-2' type='button'>
-        <span className='navbar-toggler-icon' onClick={() => setMobileSideBar(!mobileSideBar)}>
+      <Btn
+        className='navbar-toggler d-xl-none d-inline navbar-menu-button me-2'
+        type='button'
+      >
+        <span
+          className='navbar-toggler-icon'
+          onClick={() => setMobileSideBar(!mobileSideBar)}
+        >
           <RiMenuLine />
         </span>
       </Btn>
       <Link href='/' className='web-logo nav-logo'>
-        <Avatar data={logo} placeHolder={logoImage} name={'Header'} customImageClass={'img-fluid'} height={28} width={162} />
+        <Avatar
+          data={logo}
+          placeHolder={logoImage}
+          name={'Header'}
+          customImageClass={'img-fluid'}
+          height={28}
+          width={162}
+        />
       </Link>
     </>
   );

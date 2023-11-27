@@ -12,26 +12,49 @@ const ProductDetails = ({ productState }) => {
   return (
     <>
       <CustomerOrderCount productState={productState} />
-      <h2 className='name'>{productState?.selectedVariation?.name ?? productState?.product?.name}</h2>
+      <h2 className='name'>
+        {productState?.selectedVariation?.name ?? productState?.product?.name}
+      </h2>
       <div className='price-rating'>
         <h3 className='theme-color price'>
-          {productState?.selectedVariation?.sale_price ? convertCurrency(productState?.selectedVariation?.sale_price) : convertCurrency(productState?.product?.sale_price)}
-          <del className='text-content'>{productState?.selectedVariation ? convertCurrency(productState?.selectedVariation?.price) : convertCurrency(productState?.product?.price)}</del>
-          {productState?.selectedVariation?.discount || productState?.product?.discount ? (
+          {productState?.selectedVariation?.sale_price
+            ? convertCurrency(productState?.selectedVariation?.sale_price)
+            : convertCurrency(productState?.product?.sale_price)}
+          <del className='text-content'>
+            {productState?.selectedVariation
+              ? convertCurrency(productState?.selectedVariation?.price)
+              : convertCurrency(productState?.product?.price)}
+          </del>
+          {productState?.selectedVariation?.discount ||
+          productState?.product?.discount ? (
             <span className='offer-top'>
-              {productState?.selectedVariation ? productState?.selectedVariation?.discount : productState?.product?.discount}% {t('Off')}
+              {productState?.selectedVariation
+                ? productState?.selectedVariation?.discount
+                : productState?.product?.discount}
+              % {t('Off')}
             </span>
           ) : null}
         </h3>
         <div className='product-rating custom-rate'>
-          <ProductBox1Rating totalRating={productState?.selectedVariation?.rating_count ?? productState?.product?.rating_count} />
+          <ProductBox1Rating
+            totalRating={
+              productState?.selectedVariation?.rating_count ??
+              productState?.product?.rating_count
+            }
+          />
           <span className='review'>
-            {productState?.selectedVariation?.reviews_count || productState?.product?.reviews_count || 0} {t('Review')}
+            {productState?.selectedVariation?.reviews_count ||
+              productState?.product?.reviews_count ||
+              0}{' '}
+            {t('Review')}
           </span>
         </div>
       </div>
       <div className='product-contain'>
-        <p>{productState?.selectedVariation?.short_description ?? productState?.product?.short_description}</p>
+        <p>
+          {productState?.selectedVariation?.short_description ??
+            productState?.product?.short_description}
+        </p>
       </div>
     </>
   );

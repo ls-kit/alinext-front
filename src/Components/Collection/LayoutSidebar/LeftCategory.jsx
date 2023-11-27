@@ -30,7 +30,10 @@ const LeftCategory = ({ filter, setFilter }) => {
       };
     });
     if (temp.length > 0) {
-      const queryParams = new URLSearchParams({ ...layout, category: temp }).toString();
+      const queryParams = new URLSearchParams({
+        ...layout,
+        category: temp,
+      }).toString();
       router.push(`${pathname}?${queryParams}`);
     } else {
       const queryParams = new URLSearchParams({ ...layout }).toString();
@@ -43,10 +46,24 @@ const LeftCategory = ({ filter, setFilter }) => {
         <div className='shop-left-sidebar'>
           <Nav className='nav-pills mb-3 custom-nav-tab'>
             {categoryData?.map((category, i) => (
-              <NavItem onClick={() => redirectToCollection(category?.slug)} key={i}>
-                <NavLink className={filter?.category?.includes(category?.slug) ? 'active' : ''}>
+              <NavItem
+                onClick={() => redirectToCollection(category?.slug)}
+                key={i}
+              >
+                <NavLink
+                  className={
+                    filter?.category?.includes(category?.slug) ? 'active' : ''
+                  }
+                >
                   {category?.name}
-                  <Image src={category?.category_icon?.original_url || placeHolderImage} alt={category?.name} height={80} width={80} />
+                  <Image
+                    src={
+                      category?.category_icon?.original_url || placeHolderImage
+                    }
+                    alt={category?.name}
+                    height={80}
+                    width={80}
+                  />
                 </NavLink>
               </NavItem>
             ))}

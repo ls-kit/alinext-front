@@ -88,18 +88,18 @@
             align-items: center;
           }
 
-          +.breadcrumb-item {
+          + .breadcrumb-item {
             position: relative;
             padding-left: 8px;
 
-            body[dir="rtl"] & {
+            body[dir='rtl'] & {
               padding-left: unset;
               padding-right: 8px;
             }
 
             &::before {
               @include remixicon;
-              content: "\ea6e";
+              content: '\ea6e';
               color: $content-color;
               float: unset;
               font-size: 18px;
@@ -121,7 +121,10 @@
 
     .order-box {
       .order-image {
-        @include pseudowh($width: calc(170px + (250 - 170) * ((100vw - 320px) / (1920 - 320))), $height: auto);
+        @include pseudowh(
+          $width: calc(170px + (250 - 170) * ((100vw - 320px) / (1920 - 320))),
+          $height: auto
+        );
         margin: 0 auto calc(16px + (28 - 16) * ((100vw - 320px) / (1920 - 320)));
 
         .checkmark {
@@ -369,7 +372,9 @@
             position: relative;
             padding: 0;
             margin-left: 5px;
-            font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              13px + (14 - 13) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
       }
@@ -421,7 +426,10 @@
       }
 
       .form-control {
-        padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320))) calc(95px + (122 - 95) * ((100vw - 320px) / (1920 - 320))) calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320))) calc(48px + (59 - 48) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+          calc(95px + (122 - 95) * ((100vw - 320px) / (1920 - 320)))
+          calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+          calc(48px + (59 - 48) * ((100vw - 320px) / (1920 - 320)));
         border: none;
       }
 

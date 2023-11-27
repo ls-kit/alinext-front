@@ -9,8 +9,14 @@ import BankDetailForm from './BankDetailForm';
 const BankDetailsContent = () => {
   return (
     <>
-      <Breadcrumb title={'BankDetails'} subNavigation={[{ name: 'BankDetails' }]} />
-      <WrapperComponent classes={{ sectionClass: 'user-dashboard-section section-b-space' }} customCol={true}>
+      <Breadcrumb
+        title={'BankDetails'}
+        subNavigation={[{ name: 'BankDetails' }]}
+      />
+      <WrapperComponent
+        classes={{ sectionClass: 'user-dashboard-section section-b-space' }}
+        customCol={true}
+      >
         <AccountSidebar tabActive={'bank-details'} />
         <Col xxl={9} lg={8}>
           <ResponsiveMenuOpen />

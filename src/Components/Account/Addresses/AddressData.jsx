@@ -5,7 +5,13 @@ import { RiDeleteBinLine, RiEditBoxLine } from 'react-icons/ri';
 import { Col, Row } from 'reactstrap';
 import AddressTable from './AddressTable';
 
-const AddressData = ({ addressState, setAddressState, modal, setModal, setEditAddress }) => {
+const AddressData = ({
+  addressState,
+  setAddressState,
+  modal,
+  setModal,
+  setEditAddress,
+}) => {
   const [deleteId, setDeleteId] = useState('');
   const removeAddress = () => {
     // Add remove address login here
@@ -25,7 +31,8 @@ const AddressData = ({ addressState, setAddressState, modal, setModal, setEditAd
                 onClick={() => {
                   setEditAddress(address);
                   setModal('edit');
-                }}>
+                }}
+              >
                 <RiEditBoxLine />
               </Btn>
               <Btn
@@ -34,14 +41,20 @@ const AddressData = ({ addressState, setAddressState, modal, setModal, setEditAd
                 onClick={() => {
                   setDeleteId(address?.id);
                   setModal('remove');
-                }}>
+                }}
+              >
                 <RiDeleteBinLine />
               </Btn>
             </div>
           </div>
         </Col>
       ))}
-      <ConfirmDeleteModal modal={modal == 'remove'} setModal={setModal} confirmFunction={removeAddress} setDeleteId={setDeleteId} />
+      <ConfirmDeleteModal
+        modal={modal == 'remove'}
+        setModal={setModal}
+        confirmFunction={removeAddress}
+        setDeleteId={setDeleteId}
+      />
     </Row>
   );
 };

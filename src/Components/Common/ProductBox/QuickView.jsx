@@ -11,7 +11,11 @@ const QuickView = ({ productObj }) => {
           <RiEyeLine />
         </a>
       </li>
-      <VariationModal setVariationModal={setVariationModal} variationModal={variationModal} productObj={productObj} />
+      <VariationModal
+        setVariationModal={setVariationModal}
+        variationModal={variationModal}
+        productObj={productObj}
+      />
     </>
   );
 };

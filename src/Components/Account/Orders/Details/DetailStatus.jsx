@@ -10,11 +10,15 @@ import outfordeliveryImage from '../../../../../public/assets/images/svg/trackin
 import cancelledImage from '../../../../../public/assets/images/svg/tracking/cancelled.svg';
 
 const DetailStatus = ({ data }) => {
-  const { data: orderStatus } = useQuery([OrderStatusAPI], () => request({ url: OrderStatusAPI }), {
-    enabled: true,
-    refetchOnWindowFocus: false,
-    select: (res) => res?.data?.data,
-  });
+  const { data: orderStatus } = useQuery(
+    [OrderStatusAPI],
+    () => request({ url: OrderStatusAPI }),
+    {
+      enabled: true,
+      refetchOnWindowFocus: false,
+      select: (res) => res?.data?.data,
+    },
+  );
   const imageObj = {
     processing: processingImage,
     pending: pendingImage,
@@ -32,16 +36,37 @@ const DetailStatus = ({ data }) => {
               ? orderStatus?.map((elem, i) => (
                   <li
                     key={i}
-                    className={`${elem?.sequence <= data?.order_status?.sequence ? 'active' : ''} ${
-                      (elem?.sequence >= data?.order_status?.sequence && data?.order_status?.slug == 'cancelled') || elem?.slug == 'cancelled' ? 'd-none' : ''
-                    }`}>
+                    className={`${
+                      elem?.sequence <= data?.order_status?.sequence
+                        ? 'active'
+                        : ''
+                    } ${
+                      (elem?.sequence >= data?.order_status?.sequence &&
+                        data?.order_status?.slug == 'cancelled') ||
+                      elem?.slug == 'cancelled'
+                        ? 'd-none'
+                        : ''
+                    }`}
+                  >
                     <div className='panel-content'>
                       <div className='icon'>
                         {elem?.slug && (
-                          <Image src={elem?.slug == 'out-for-delivery' ? imageObj['outfordelivery'] : imageObj[elem?.slug]} className='img-fluid' alt={elem?.slug} height={40} width={40} />
+                          <Image
+                            src={
+                              elem?.slug == 'out-for-delivery'
+                                ? imageObj['outfordelivery']
+                                : imageObj[elem?.slug]
+                            }
+                            className='img-fluid'
+                            alt={elem?.slug}
+                            height={40}
+                            width={40}
+                          />
                         )}
                       </div>
-                      <div className='status'>{elem?.name?.replace('_', ' ')}</div>
+                      <div className='status'>
+                        {elem?.name?.replace('_', ' ')}
+                      </div>
                     </div>
                   </li>
                 ))
@@ -50,9 +75,17 @@ const DetailStatus = ({ data }) => {
               <li className='active cancelled-box'>
                 <div className='panel-content'>
                   <div className='icon'>
-                    <Image src={imageObj[data?.order_status?.slug] || cancelledImage} className='img-fluid' alt='image' height={40} width={40} />
+                    <Image
+                      src={imageObj[data?.order_status?.slug] || cancelledImage}
+                      className='img-fluid'
+                      alt='image'
+                      height={40}
+                      width={40}
+                    />
                   </div>
-                  <div className='status'>{data?.order_status.name.replace('_', ' ')}</div>
+                  <div className='status'>
+                    {data?.order_status.name.replace('_', ' ')}
+                  </div>
                 </div>
               </li>
             ) : null}

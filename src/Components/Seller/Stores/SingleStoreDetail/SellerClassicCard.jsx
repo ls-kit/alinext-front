@@ -15,7 +15,12 @@ const SellerClassicCard = ({ StoreData }) => {
       <Row className='g-4'>
         <Col xxl={2} md={3}>
           <div className='vendor-logo'>
-            <StoreImage customClass={'img-fluid'} elem={StoreData} height={140} width={142} />
+            <StoreImage
+              customClass={'img-fluid'}
+              elem={StoreData}
+              height={140}
+              width={142}
+            />
           </div>
         </Col>
         <Col xxl={8} md={6}>
@@ -38,7 +43,10 @@ const SellerClassicCard = ({ StoreData }) => {
               <SellerSocialCard StoreData={StoreData} />
               <div className='vendor-contect'>
                 <h5>{t('IfYouAnyQuery')}?</h5>
-                <Link href={`/${i18Lang}/contact-us`} className='btn btn-sm btn-animation'>
+                <Link
+                  href={`/${i18Lang}/contact-us`}
+                  className='btn btn-sm btn-animation'
+                >
                   {t('ContactUS')}
                 </Link>
               </div>

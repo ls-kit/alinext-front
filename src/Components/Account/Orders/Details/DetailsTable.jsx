@@ -38,18 +38,27 @@ const DetailsTable = ({ data }) => {
                         <td className='product-image'>
                           <Avatar
                             data={
-                              product?.pivot?.variation && product?.pivot?.variation?.variation_image
+                              product?.pivot?.variation &&
+                              product?.pivot?.variation?.variation_image
                                 ? product?.pivot?.variation?.variation_image
                                 : product?.product_thumbnail
-                                ? product?.product_thumbnail
-                                : placeHolderImage
+                                  ? product?.product_thumbnail
+                                  : placeHolderImage
                             }
-                            name={product?.pivot?.variation ? product?.pivot?.variation?.name : product?.name}
+                            name={
+                              product?.pivot?.variation
+                                ? product?.pivot?.variation?.name
+                                : product?.name
+                            }
                             customImageClass='img-fluid'
                           />
                         </td>
                         <td>
-                          <h6>{product?.pivot?.variation ? product?.pivot?.variation?.name : product?.name}</h6>
+                          <h6>
+                            {product?.pivot?.variation
+                              ? product?.pivot?.variation?.name
+                              : product?.name}
+                          </h6>
                         </td>
                         <td>
                           <h6>{product?.pivot?.single_price}</h6>
@@ -60,7 +69,16 @@ const DetailsTable = ({ data }) => {
                         <td>
                           <h6>{product?.pivot?.subtotal}</h6>
                         </td>
-                        <td>{product?.is_return === 1 && product?.pivot?.is_refunded === 0 ? <a onClick={() => onModalOpen(product)}>{t('AskForRefund')}</a> : '-'}</td>
+                        <td>
+                          {product?.is_return === 1 &&
+                          product?.pivot?.is_refunded === 0 ? (
+                            <a onClick={() => onModalOpen(product)}>
+                              {t('AskForRefund')}
+                            </a>
+                          ) : (
+                            '-'
+                          )}
+                        </td>
                       </tr>
                     ))
                   : null}

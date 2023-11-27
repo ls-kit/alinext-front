@@ -15,14 +15,19 @@ const CustomerQA = ({ data }) => {
                 <div className='people-box'>
                   <div>
                     <div className='people-image'>
-                      <Avatar data={elem?.consumer?.profile_image} name={elem?.consumer?.name} />
+                      <Avatar
+                        data={elem?.consumer?.profile_image}
+                        name={elem?.consumer?.name}
+                      />
                     </div>
                   </div>
 
                   <div className='people-comment'>
                     <a className='name'>{elem?.consumer?.name}</a>
                     <div className='date-time'>
-                      <h6 className='text-content'>{dateFormate(elem?.created_at)}</h6>
+                      <h6 className='text-content'>
+                        {dateFormate(elem?.created_at)}
+                      </h6>
 
                       <div className='product-rating'>
                         <ProductBox1Rating totalRating={elem?.rating} />

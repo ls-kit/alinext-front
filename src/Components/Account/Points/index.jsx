@@ -11,7 +11,10 @@ const AccountPoints = () => {
   return (
     <>
       <Breadcrumb title={'Point'} subNavigation={[{ name: 'Point' }]} />
-      <WrapperComponent classes={{ sectionClass: 'user-dashboard-section section-b-space' }} customCol={true}>
+      <WrapperComponent
+        classes={{ sectionClass: 'user-dashboard-section section-b-space' }}
+        customCol={true}
+      >
         <AccountSidebar tabActive={'point'} />
 
         <Col xxl={9} lg={8}>

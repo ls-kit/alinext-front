@@ -15,7 +15,7 @@ const StickyCompare = () => {
       <div className='compare-fix'>
         <Link href={`/${i18Lang}/compare`}>
           <h5>
-            {t("compare")} <span>{`(${compareState?.length})`}</span>
+            {t('compare')} <span>{`(${compareState?.length})`}</span>
           </h5>
         </Link>
       </div>

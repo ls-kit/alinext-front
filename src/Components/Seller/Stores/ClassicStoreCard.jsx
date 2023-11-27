@@ -32,7 +32,12 @@ const ClassicStoreCard = ({ data, isLoading, setPage }) => {
                 </Col>
               ))}
               <nav className='custome-pagination'>
-                <Pagination current_page={data?.current_page} total={data?.total} per_page={data?.per_page} setPage={setPage} />
+                <Pagination
+                  current_page={data?.current_page}
+                  total={data?.total}
+                  per_page={data?.per_page}
+                  setPage={setPage}
+                />
               </nav>
             </>
           )}

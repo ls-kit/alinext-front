@@ -17,7 +17,15 @@ const ModalProductDetail = ({ productObj }) => {
     <Row className='g-sm-4 g-2'>
       <Col lg={6}>
         <div className='slider-image'>
-          <Image src={productObj?.product_thumbnail?.original_url || placeHolderImage} className='img-fluid' alt={productObj?.name || ''} height={500} width={500} />
+          <Image
+            src={
+              productObj?.product_thumbnail?.original_url || placeHolderImage
+            }
+            className='img-fluid'
+            alt={productObj?.name || ''}
+            height={500}
+            width={500}
+          />
         </div>
       </Col>
 
@@ -36,8 +44,12 @@ const ModalProductDetail = ({ productObj }) => {
             <TextLimit value={productObj?.description} maxLength={150} />
           </div>
           <div className='modal-button'>
-            <Btn className='btn btn-md add-cart-button icon'>{t('AddToCart')}</Btn>
-            <Btn className='btn theme-bg-color view-button icon text-white fw-bold btn-md'>{t('ViewMoreDetails')}</Btn>
+            <Btn className='btn btn-md add-cart-button icon'>
+              {t('AddToCart')}
+            </Btn>
+            <Btn className='btn theme-bg-color view-button icon text-white fw-bold btn-md'>
+              {t('ViewMoreDetails')}
+            </Btn>
           </div>
         </div>
       </Col>

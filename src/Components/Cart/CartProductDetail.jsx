@@ -14,36 +14,65 @@ const CartProductDetail = ({ elem }) => {
   return (
     <td className='product-detail'>
       <div className='product border-0'>
-        <Link href={`/${i18Lang}/product/${elem?.product?.slug}`} className='product-image'>
-          <Avatar customImageClass={'img-fluid'} data={elem?.variation?.variation_image ?? elem?.product?.product_thumbnail} placeHolder={placeHolderImage} name={elem?.product?.name} />
+        <Link
+          href={`/${i18Lang}/product/${elem?.product?.slug}`}
+          className='product-image'
+        >
+          <Avatar
+            customImageClass={'img-fluid'}
+            data={
+              elem?.variation?.variation_image ??
+              elem?.product?.product_thumbnail
+            }
+            placeHolder={placeHolderImage}
+            name={elem?.product?.name}
+          />
         </Link>
         <div className='product-detail'>
           <ul>
             <li className='name'>
-              <Link href={`/${i18Lang}/product/${elem?.product?.slug}`}>{elem?.variation?.name ?? elem?.product?.name}</Link>
+              <Link href={`/${i18Lang}/product/${elem?.product?.slug}`}>
+                {elem?.variation?.name ?? elem?.product?.name}
+              </Link>
             </li>
 
             <li className='text-content'>
-              <span className='text-title'>{t('SoldBy')} : </span> {t('Fastkart')}
+              <span className='text-title'>{t('SoldBy')} : </span>{' '}
+              {t('Fastkart')}
             </li>
 
             <li className='text-content'>
-              <span className='text-title'>{t('Unit')}</span> : {elem?.variation?.unit ?? elem?.product?.unit}
+              <span className='text-title'>{t('Unit')}</span> :{' '}
+              {elem?.variation?.unit ?? elem?.product?.unit}
             </li>
 
             <li>
               <h5 className='text-content d-inline-block'>{t('Price')} :</h5>
               <span>{convertCurrency(elem?.product?.sale_price)}</span>
-              <span className='text-content'>{convertCurrency(elem?.variation?.price) ?? convertCurrency(elem?.product?.price)}</span>
+              <span className='text-content'>
+                {convertCurrency(elem?.variation?.price) ??
+                  convertCurrency(elem?.product?.price)}
+              </span>
             </li>
 
             <li>
               <h5 className='saving theme-color'>
-                {t('Saving')} : {convertCurrency(Number((elem?.variation?.price ?? elem?.product?.price) - (elem?.variation?.sale_price ?? elem?.product?.sale_price)))}
+                {t('Saving')} :{' '}
+                {convertCurrency(
+                  Number(
+                    (elem?.variation?.price ?? elem?.product?.price) -
+                      (elem?.variation?.sale_price ??
+                        elem?.product?.sale_price),
+                  ),
+                )}
               </h5>
             </li>
 
-            <HandleQuantity productObj={elem?.product} elem={elem} classes={{ customClass: 'quantity-price-box' }} />
+            <HandleQuantity
+              productObj={elem?.product}
+              elem={elem}
+              classes={{ customClass: 'quantity-price-box' }}
+            />
 
             <li>
               <h5>

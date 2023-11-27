@@ -1,4 +1,12 @@
-import { RiBankLine, RiCoinLine, RiFileTextLine, RiHomeLine, RiNotificationLine, RiWalletLine, RiMapPinLine } from 'react-icons/ri';
+import {
+  RiBankLine,
+  RiCoinLine,
+  RiFileTextLine,
+  RiHomeLine,
+  RiNotificationLine,
+  RiWalletLine,
+  RiMapPinLine,
+} from 'react-icons/ri';
 
 export const sidebarMenu = [
   {

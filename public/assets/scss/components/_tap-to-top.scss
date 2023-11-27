@@ -27,7 +27,10 @@
     a {
       cursor: pointer;
       @include flex_common;
-      @include pseudowh($width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))), $height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))),
+        $height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)))
+      );
 
       svg {
         color: #fff;
@@ -64,7 +67,9 @@
 
   footer {
     @include mq-max(md) {
-      margin-bottom: calc(120px + (139 - 120) * ((100vw - 320px) / (767 - 320)));
+      margin-bottom: calc(
+        120px + (139 - 120) * ((100vw - 320px) / (767 - 320))
+      );
     }
   }
 

@@ -10,7 +10,10 @@ const Breadcrumb = ({ title, subNavigation }) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   return (
-    <WrapperComponent classes={{ sectionClass: 'breadscrumb-section pt-0' }} colProps={{ md: 12 }}>
+    <WrapperComponent
+      classes={{ sectionClass: 'breadscrumb-section pt-0' }}
+      colProps={{ md: 12 }}
+    >
       <div className='breadscrumb-contain'>
         <h2>{t(title)}</h2>
         <nav>

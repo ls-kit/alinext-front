@@ -10,7 +10,10 @@ const WalletContent = () => {
   return (
     <>
       <Breadcrumb title={'Wallet'} subNavigation={[{ name: 'Wallet' }]} />
-      <WrapperComponent classes={{ sectionClass: 'user-dashboard-section section-b-space' }} customCol={true}>
+      <WrapperComponent
+        classes={{ sectionClass: 'user-dashboard-section section-b-space' }}
+        customCol={true}
+      >
         <AccountSidebar tabActive={'wallet'} />
 
         <Col xxl={9} lg={8}>

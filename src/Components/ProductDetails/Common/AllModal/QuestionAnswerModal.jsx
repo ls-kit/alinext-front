@@ -11,7 +11,13 @@ import SettingContext from '@/Helper/SettingContext';
 import Image from 'next/image';
 import SimpleInputField from '@/Components/Common/InputFields/SimpleInputField';
 
-const QuestionAnswerModal = ({ modal, setModal, productState, update, refetch }) => {
+const QuestionAnswerModal = ({
+  modal,
+  setModal,
+  productState,
+  update,
+  refetch,
+}) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const { convertCurrency } = useContext(SettingContext);
@@ -19,7 +25,15 @@ const QuestionAnswerModal = ({ modal, setModal, productState, update, refetch })
     setModal((prev) => prev !== prev);
   };
   return (
-    <CustomModal modal={modal ? true : false} setModal={setModal} classes={{ modalClass: 'theme-modal', modalHeaderClass: 'p-0', customChildren: true }}>
+    <CustomModal
+      modal={modal ? true : false}
+      setModal={setModal}
+      classes={{
+        modalClass: 'theme-modal',
+        modalHeaderClass: 'p-0',
+        customChildren: true,
+      }}
+    >
       <ModalHeader toggle={toggle}>
         {t('Askaquestions')}
         <RiCloseLine className='modal-close-btn' />
@@ -27,7 +41,10 @@ const QuestionAnswerModal = ({ modal, setModal, productState, update, refetch })
       <ModalBody>
         <Formik
           initialValues={{
-            question: update?.editData && update?.editData !== 'Add' ? update?.editData?.question : '',
+            question:
+              update?.editData && update?.editData !== 'Add'
+                ? update?.editData?.question
+                : '',
             product_id: productState?.product?.id,
           }}
           onSubmit={(values) => {
@@ -36,16 +53,21 @@ const QuestionAnswerModal = ({ modal, setModal, productState, update, refetch })
               setModal('');
             } else {
               // Add your logic here
-              setModal('')
+              setModal('');
             }
-          }}>
+          }}
+        >
           {() => (
             <Form>
               <div className='product-review-form'>
                 <div className='product-wrapper'>
                   <div className='product-image'>
                     <Image
-                      src={productState?.product.product_thumbnail ? productState?.product.product_thumbnail.original_url : placeHolderImage}
+                      src={
+                        productState?.product.product_thumbnail
+                          ? productState?.product.product_thumbnail.original_url
+                          : placeHolderImage
+                      }
                       className='img-fluid'
                       height={80}
                       width={80}
@@ -56,7 +78,9 @@ const QuestionAnswerModal = ({ modal, setModal, productState, update, refetch })
                     <h5 className='name'>{productState?.product?.name}</h5>
                     <div className='product-review-rating'>
                       <div className='product-rating'>
-                        <h6 className='price-number'>{convertCurrency(productState?.product?.sale_price)}</h6>
+                        <h6 className='price-number'>
+                          {convertCurrency(productState?.product?.sale_price)}
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -64,13 +88,32 @@ const QuestionAnswerModal = ({ modal, setModal, productState, update, refetch })
 
                 <div className='review-box'>
                   <SimpleInputField
-                    nameList={[{ name: 'question', type: 'textarea', placeholder: t('EnterYourQuestions'), rows: '3', toplabel: 'YourQuestions', require: 'true', colprops: { xs: 12 } }]}
+                    nameList={[
+                      {
+                        name: 'question',
+                        type: 'textarea',
+                        placeholder: t('EnterYourQuestions'),
+                        rows: '3',
+                        toplabel: 'YourQuestions',
+                        require: 'true',
+                        colprops: { xs: 12 },
+                      },
+                    ]}
                   />
                 </div>
               </div>
               <ModalFooter className='p-0'>
-                <Btn title='Cancel' type='button' className='btn-md btn-theme-outline fw-bold' onClick={() => setModal(false)} />
-                <Btn title='Submit' className='btn-md fw-bold text-light theme-bg-color' type='submit' />
+                <Btn
+                  title='Cancel'
+                  type='button'
+                  className='btn-md btn-theme-outline fw-bold'
+                  onClick={() => setModal(false)}
+                />
+                <Btn
+                  title='Submit'
+                  className='btn-md fw-bold text-light theme-bg-color'
+                  type='submit'
+                />
               </ModalFooter>
             </Form>
           )}

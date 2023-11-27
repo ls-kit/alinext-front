@@ -2,7 +2,6 @@
      Form scss
   ==========================**/
 input[type='number'] {
-
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     appearance: none;
@@ -71,11 +70,10 @@ input[type='number'] {
 }
 
 .theme-form-floating {
-
-  >.form-control:focus,
-  >.form-control:not(:placeholder-shown),
-  >.form-select {
-    ~label {
+  > .form-control:focus,
+  > .form-control:not(:placeholder-shown),
+  > .form-select {
+    ~ label {
       @include flex_common;
       font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
       opacity: 0.95;
@@ -94,8 +92,7 @@ input[type='number'] {
     line-height: normal;
   }
 
-  >.form-control {
-
+  > .form-control {
     &:focus,
     &:not(:placeholder-shown) {
       padding-top: 17px;
@@ -105,7 +102,7 @@ input[type='number'] {
     }
   }
 
-  >.form-select {
+  > .form-select {
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
@@ -133,11 +130,10 @@ input[type='number'] {
 }
 
 .theme-form-floating-2 {
-
-  >.form-control:focus,
-  >.form-control:not(:placeholder-shown),
-  >.form-select {
-    ~label {
+  > .form-control:focus,
+  > .form-control:not(:placeholder-shown),
+  > .form-select {
+    ~ label {
       @include flex_common;
       font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
       opacity: 0.95;
@@ -150,8 +146,7 @@ input[type='number'] {
     }
   }
 
-  >.form-control {
-
+  > .form-control {
     &:focus,
     &:not(:placeholder-shown) {
       padding-top: 12px;
@@ -161,7 +156,7 @@ input[type='number'] {
     }
   }
 
-  >.form-select {
+  > .form-select {
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
@@ -181,12 +176,12 @@ input[type='number'] {
     }
   }
 
-  >.form-control,
-  >.form-select {
+  > .form-control,
+  > .form-select {
     height: 46px;
   }
 
-  >label {
+  > label {
     @include center(vertical);
     left: 9px;
     padding: 0;
@@ -194,7 +189,7 @@ input[type='number'] {
     height: auto;
   }
 
-  >.form-control {
+  > .form-control {
     padding: 14px 10px;
   }
 
@@ -254,7 +249,10 @@ input[type='number'] {
   }
 
   .form-check-input {
-    @include pseudowh($width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))), $height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)))
+    );
     margin-top: 0;
 
     &:checked {
@@ -270,7 +268,8 @@ input[type='number'] {
 
 .form-control {
   font-size: 14px;
-  padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320))) calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
+  padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+    calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
 
   &::placeholder {
     color: rgba($content-color, 0.3215686275);
@@ -317,7 +316,11 @@ input[type='number'] {
       padding-left: 15px;
       letter-spacing: 41px;
       border: 0;
-      background-image: linear-gradient(to left, rgb(189, 189, 189) 70%, rgba(255, 255, 255, 0) 0%);
+      background-image: linear-gradient(
+        to left,
+        rgb(189, 189, 189) 70%,
+        rgba(255, 255, 255, 0) 0%
+      );
       background-position: bottom;
       background-size: 50px 1px;
       background-repeat: repeat-x;
@@ -341,7 +344,7 @@ input[type='number'] {
 select {
   html.dark & {
     background-size: 12px;
-    --bs-form-select-bg-img: url("../../images/light-down-arrow.svg");
+    --bs-form-select-bg-img: url('../../images/light-down-arrow.svg');
   }
 }
 
@@ -402,7 +405,7 @@ select {
           padding-bottom: 0;
         }
 
-        +li {
+        + li {
           margin-top: 3px;
           border-top: 1px solid rgba(221, 221, 221, 0.3215686275);
         }
@@ -489,7 +492,11 @@ select {
       padding-left: 15px;
       letter-spacing: 41px;
       border: 0;
-      background-image: linear-gradient(to left, rgb(189, 189, 189) 70%, rgba(255, 255, 255, 0) 0%);
+      background-image: linear-gradient(
+        to left,
+        rgb(189, 189, 189) 70%,
+        rgba(255, 255, 255, 0) 0%
+      );
       background-position: bottom;
       background-size: 50px 1px;
       background-repeat: repeat-x;
@@ -510,13 +517,15 @@ select {
 
 textarea {
   &.form-control {
-
     &:valid,
     &.is-valid {
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         padding-left: calc(1.5em + 0.75rem);
-        padding-right: calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
-        background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem);
+        padding-right: calc(
+          12px + (15 - 12) * ((100vw - 320px) / (1920 - 320))
+        );
+        background-position: top calc(0.375em + 0.1875rem) left
+          calc(0.375em + 0.1875rem);
       }
     }
   }

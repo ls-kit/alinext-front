@@ -13,7 +13,13 @@ const SupportBox = () => {
     <div className='rightside-menu support-sidemenu'>
       <div className='support-box'>
         <div className='support-image'>
-          <Image src={supportImage} className='img-fluid' alt='support image' height={33} width={33} />
+          <Image
+            src={supportImage}
+            className='img-fluid'
+            alt='support image'
+            height={33}
+            width={33}
+          />
         </div>
         <div className='support-number'>
           <h2>{themeOption?.header?.support_number}</h2>

@@ -18,7 +18,10 @@ const AddToWishlist = ({ productObj, customClass }) => {
   return (
     <>
       {customClass ? (
-        <Btn className={customClass ? customClass : ''} onClick={() => handelWishlist(productObj)}>
+        <Btn
+          className={customClass ? customClass : ''}
+          onClick={() => handelWishlist(productObj)}
+        >
           <RiHeartLine />
         </Btn>
       ) : (

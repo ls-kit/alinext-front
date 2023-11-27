@@ -7,7 +7,10 @@ import SellerSteps from './SellerSteps';
 const SellerBusiness = () => {
   const { themeOption } = useContext(ThemeOptionContext);
   return (
-    <WrapperComponent classes={{ sectionClass: 'business-section section-b-space' }} noRowCol={true}>
+    <WrapperComponent
+      classes={{ sectionClass: 'business-section section-b-space' }}
+      noRowCol={true}
+    >
       <div className='vendor-title mb-5'>
         <h5>{themeOption?.seller?.steps?.title}</h5>
       </div>
