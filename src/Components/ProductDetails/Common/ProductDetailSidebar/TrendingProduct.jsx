@@ -15,14 +15,19 @@ const TrendingProduct = ({ productState }) => {
   const categoryId = useMemo(() => {
     return productState?.product?.categories?.map((elem) => elem?.id);
   }, [productState?.product?.categories]);
-  const {
-    data: productData,
-    refetch: productRefetch,
-  } = useQuery([categoryId], () => request({ url: ProductAPI, params: { status: 1, trending: 1, category_ids: categoryId?.join() } }), {
-    enabled: false,
-    refetchOnWindowFocus: false,
-    select: (data) => data.data,
-  });
+  const { data: productData, refetch: productRefetch } = useQuery(
+    [categoryId],
+    () =>
+      request({
+        url: ProductAPI,
+        params: { status: 1, trending: 1, category_ids: categoryId?.join() },
+      }),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+      select: (data) => data.data,
+    },
+  );
   useEffect(() => {
     categoryId?.length > 0 && productRefetch();
   }, [categoryId]);
@@ -36,8 +41,19 @@ const TrendingProduct = ({ productState }) => {
           {productData?.slice(0, 4)?.map((elem, i) => (
             <li key={i}>
               <div className='offer-product'>
-                <Link href={`/${i18Lang}/product/${elem?.slug}`} className='offer-image'>
-                  {elem?.product_thumbnail?.original_url && <Image src={elem?.product_thumbnail?.original_url} className='img-fluid' alt={elem?.name} height={80} width={80} />}
+                <Link
+                  href={`/${i18Lang}/product/${elem?.slug}`}
+                  className='offer-image'
+                >
+                  {elem?.product_thumbnail?.original_url && (
+                    <Image
+                      src={elem?.product_thumbnail?.original_url}
+                      className='img-fluid'
+                      alt={elem?.name}
+                      height={80}
+                      width={80}
+                    />
+                  )}
                 </Link>
 
                 <div className='offer-detail'>
@@ -48,7 +64,10 @@ const TrendingProduct = ({ productState }) => {
                     <span>{elem?.unit}</span>
                     <div className='vertical-price'>
                       <h5 className='price theme-color'>
-                        {convertCurrency(elem?.sale_price)} <del className='text-content'>{convertCurrency(elem?.price)}</del>
+                        {convertCurrency(elem?.sale_price)}{' '}
+                        <del className='text-content'>
+                          {convertCurrency(elem?.price)}
+                        </del>
                       </h5>
                     </div>
                   </div>

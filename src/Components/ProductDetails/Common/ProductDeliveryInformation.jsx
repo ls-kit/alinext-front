@@ -14,7 +14,8 @@ const ProductDeliveryInformation = ({ productState }) => {
       <ul>
         {productState?.product?.estimated_delivery_text ? (
           <li>
-            <RiTruckLine className='me-2' /> {productState?.product?.estimated_delivery_text}
+            <RiTruckLine className='me-2' />{' '}
+            {productState?.product?.estimated_delivery_text}
           </li>
         ) : null}
         {productState?.product?.return_policy_text ? (

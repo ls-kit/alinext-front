@@ -13,16 +13,31 @@ const RightVariationModal = ({ cloneVariation }) => {
   const { t } = useTranslation(i18Lang, 'common');
   return (
     <>
-      <h4 className='title-name'>{cloneVariation?.selectedVariation ? cloneVariation?.selectedVariation?.name : cloneVariation?.product?.name}</h4>
+      <h4 className='title-name'>
+        {cloneVariation?.selectedVariation
+          ? cloneVariation?.selectedVariation?.name
+          : cloneVariation?.product?.name}
+      </h4>
       <h4 className='price'>
-        {cloneVariation?.selectedVariation ? convertCurrency(cloneVariation?.selectedVariation?.sale_price) : convertCurrency(cloneVariation?.product?.sale_price)}
-        <del>{cloneVariation?.selectedVariation ? convertCurrency(cloneVariation?.selectedVariation?.price) : convertCurrency(cloneVariation?.product?.price)}</del>
+        {cloneVariation?.selectedVariation
+          ? convertCurrency(cloneVariation?.selectedVariation?.sale_price)
+          : convertCurrency(cloneVariation?.product?.sale_price)}
+        <del>
+          {cloneVariation?.selectedVariation
+            ? convertCurrency(cloneVariation?.selectedVariation?.price)
+            : convertCurrency(cloneVariation?.product?.price)}
+        </del>
         <Label className='modal-label mb-0'>
-          {cloneVariation?.selectedVariation ? cloneVariation?.selectedVariation?.discount : cloneVariation?.product?.discount}% {t('Off')}
+          {cloneVariation?.selectedVariation
+            ? cloneVariation?.selectedVariation?.discount
+            : cloneVariation?.product?.discount}
+          % {t('Off')}
         </Label>
       </h4>
       <div className='product-rating'>
-        <ProductBox1Rating totalRating={cloneVariation?.product?.rating_count} />
+        <ProductBox1Rating
+          totalRating={cloneVariation?.product?.rating_count}
+        />
         <div className='fs-14 ms-2'>
           {cloneVariation?.product?.reviews_count} {t('Reviews')}
         </div>
@@ -30,7 +45,11 @@ const RightVariationModal = ({ cloneVariation }) => {
       <div className='product-detail'>
         <h4>{t('ProductDetails')}:</h4>
         <div className='mt-2'>
-          <TextLimit value={cloneVariation?.product?.short_description} maxLength={200} tag={'p'}/>
+          <TextLimit
+            value={cloneVariation?.product?.short_description}
+            maxLength={200}
+            tag={'p'}
+          />
         </div>
       </div>
       <div className='pickup-box'>
@@ -40,16 +59,29 @@ const RightVariationModal = ({ cloneVariation }) => {
         <div className='product-info'>
           <ul className='product-info-list'>
             <li>
-              {t('SKU')} : {cloneVariation?.selectedVariation?.sku ?? cloneVariation?.product?.sku}
+              {t('SKU')} :{' '}
+              {cloneVariation?.selectedVariation?.sku ??
+                cloneVariation?.product?.sku}
             </li>
             <li>
               {t('StockStatus')} :
               {cloneVariation?.selectedVariation?.stock_status
-                ? ModifyString(cloneVariation?.selectedVariation?.stock_status, false, '_')
-                : ModifyString(cloneVariation?.product?.stock_status, false, '_')}
+                ? ModifyString(
+                    cloneVariation?.selectedVariation?.stock_status,
+                    false,
+                    '_',
+                  )
+                : ModifyString(
+                    cloneVariation?.product?.stock_status,
+                    false,
+                    '_',
+                  )}
             </li>
             <li>
-              {t('Quantity')} : {cloneVariation?.selectedVariation?.quantity ?? cloneVariation?.product?.quantity} {t('ItemsLeft')}
+              {t('Quantity')} :{' '}
+              {cloneVariation?.selectedVariation?.quantity ??
+                cloneVariation?.product?.quantity}{' '}
+              {t('ItemsLeft')}
             </li>
           </ul>
         </div>

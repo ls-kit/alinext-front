@@ -1,4 +1,9 @@
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+  AccordionItem,
+} from 'reactstrap';
 import { blogSkeleton } from '../../../../../Data/CustomData';
 
 const SKBlogSidebar = () => {

@@ -1,61 +1,10 @@
-import paris from '../public/assets/images/themes/01.jpg';
-import tokyo from '../public/assets/images/themes/02.jpg';
-import osaka from '../public/assets/images/themes/03.jpg';
-import rome from '../public/assets/images/themes/04.jpg';
-import madrid from '../public/assets/images/themes/05.jpg';
-import berlin from '../public/assets/images/themes/06.jpg';
-import denver from '../public/assets/images/themes/07.jpg';
-import commingSoon from '../public/assets/images/themes/08.jpg';
-
 export const headerMenu = [
-  {
-    id: 1,
-    title: 'Home',
-    styleType: 'image',
-    customChildren: true,
-    children: [
-      {
-        title: 'Paris',
-        path: '/theme/paris',
-        image: paris,
-      },
-      {
-        title: 'Tokyo',
-        path: '/theme/tokyo',
-        image: tokyo,
-      },
-      {
-        title: 'Osaka',
-        path: '/theme/osaka',
-        image: osaka,
-      },
-      {
-        title: 'Rome',
-        path: '/theme/rome',
-        image: rome,
-      },
-      {
-        title: 'Madrid',
-        path: '/theme/madrid',
-        image: madrid,
-      },
-      {
-        title: 'Berlin',
-        path: '/theme/berlin',
-        image: berlin,
-      },
-      {
-        title: 'Denver',
-        path: '/theme/denver',
-        image: denver,
-      },
-      {
-        title: '',
-        path: '',
-        image: commingSoon,
-      },
-    ],
-  },
+  // {
+  //   id: 1,
+  //   title: 'Home',
+  //   styleType: 'image',
+  //   customChildren: true,
+  // },
   {
     id: 2,
     title: 'Collection',

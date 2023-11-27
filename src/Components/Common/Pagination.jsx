@@ -1,11 +1,25 @@
-"use client"
+'use client';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 const Pagination = ({ current_page, total, per_page, setPage }) => {
   let pages = [];
   let totalPages = Math.ceil(total / per_page);
-  let startpage = totalPages === 4 ? 1 : current_page === 1 || current_page - 2 === 0 ? 1 : current_page === totalPages ? current_page - 2 : current_page - 1;
-  let endPage = totalPages === 4 ? 4 : current_page === 1 ? current_page + 2 : current_page + 1 <= totalPages ? current_page + 1 : current_page;
+  let startpage =
+    totalPages === 4
+      ? 1
+      : current_page === 1 || current_page - 2 === 0
+        ? 1
+        : current_page === totalPages
+          ? current_page - 2
+          : current_page - 1;
+  let endPage =
+    totalPages === 4
+      ? 4
+      : current_page === 1
+        ? current_page + 2
+        : current_page + 1 <= totalPages
+          ? current_page + 1
+          : current_page;
   for (let i = startpage; i <= endPage; i++) {
     i <= totalPages && pages.push(i);
   }
@@ -18,7 +32,8 @@ const Pagination = ({ current_page, total, per_page, setPage }) => {
               className='page-link'
               onClick={() => {
                 setPage(current_page - 1);
-              }}>
+              }}
+            >
               <RiArrowLeftSLine />
             </a>
           </li>
@@ -36,7 +51,10 @@ const Pagination = ({ current_page, total, per_page, setPage }) => {
           )}
           {pages.map((i) => (
             <li className='page-item ' key={i}>
-              <a className={`page-link ${current_page === i ? 'active' : ''}`} onClick={() => setPage(i)}>
+              <a
+                className={`page-link ${current_page === i ? 'active' : ''}`}
+                onClick={() => setPage(i)}
+              >
                 {i}
               </a>
             </li>
@@ -56,12 +74,17 @@ const Pagination = ({ current_page, total, per_page, setPage }) => {
             </>
           )}
 
-          <li className={`page-item ${current_page === totalPages ? 'disabled' : ''}`}>
+          <li
+            className={`page-item ${
+              current_page === totalPages ? 'disabled' : ''
+            }`}
+          >
             <a
               className='page-link'
               onClick={() => {
                 setPage(current_page + 1);
-              }}>
+              }}
+            >
               <RiArrowRightSLine />
             </a>
           </li>

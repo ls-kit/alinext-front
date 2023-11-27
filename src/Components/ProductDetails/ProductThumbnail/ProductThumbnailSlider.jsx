@@ -34,11 +34,20 @@ const ProductThumbnailSlider = ({ productState }) => {
                   <span>{t('Featured')}</span>
                 </div>
               ) : null}
-              <Slider asNavFor={nav2} ref={(slider) => (slider1.current = slider)}>
+              <Slider
+                asNavFor={nav2}
+                ref={(slider) => (slider1.current = slider)}
+              >
                 {productState?.product?.product_galleries?.map((elem, i) => (
                   <div key={i}>
                     <div className='slider-image'>
-                      <Image height={580} width={580} src={elem?.original_url} className='img-fluid' alt={elem?.name} />
+                      <Image
+                        height={580}
+                        width={580}
+                        src={elem?.original_url}
+                        className='img-fluid'
+                        alt={elem?.name}
+                      />
                     </div>
                   </div>
                 ))}
@@ -49,14 +58,29 @@ const ProductThumbnailSlider = ({ productState }) => {
           <Col xs={12}>
             <div className='bottom-slider-image left-slider slick-top no-arrow'>
               <Slider
-                {...productDetailSlider(productState?.product?.product_galleries?.length < 3 ? productState?.product?.product_galleries?.length : 3)}
-                slidesToShow={productState?.product?.product_galleries?.length < 3 ? productState?.product?.product_galleries?.length : 3}
+                {...productDetailSlider(
+                  productState?.product?.product_galleries?.length < 3
+                    ? productState?.product?.product_galleries?.length
+                    : 3,
+                )}
+                slidesToShow={
+                  productState?.product?.product_galleries?.length < 3
+                    ? productState?.product?.product_galleries?.length
+                    : 3
+                }
                 asNavFor={nav1}
-                ref={(slider) => (slider2.current = slider)}>
+                ref={(slider) => (slider2.current = slider)}
+              >
                 {productState?.product?.product_galleries?.map((elem, i) => (
                   <div key={i}>
                     <div className='sidebar-image'>
-                      <Image height={130} width={130} src={elem?.original_url} className='img-fluid' alt={elem?.name} />
+                      <Image
+                        height={130}
+                        width={130}
+                        src={elem?.original_url}
+                        className='img-fluid'
+                        alt={elem?.name}
+                      />
                     </div>
                   </div>
                 ))}

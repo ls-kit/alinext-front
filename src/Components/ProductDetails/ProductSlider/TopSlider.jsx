@@ -11,7 +11,13 @@ const TopSlider = ({ productState }) => {
           {productState?.product?.product_galleries?.map((elem, i) => (
             <div key={i}>
               <div className='product-slider-image'>
-                <Image src={elem?.original_url} alt={elem?.name} className='img-fluid' height={264} width={264} />
+                <Image
+                  src={elem?.original_url}
+                  alt={elem?.name}
+                  className='img-fluid'
+                  height={264}
+                  width={264}
+                />
               </div>
             </div>
           ))}

@@ -25,8 +25,18 @@ const SearchBox = () => {
           <Btn className='btn search-icon' type='button'>
             <RiSearchLine />
           </Btn>
-          <Input type='text' className='form-control' placeholder='Search for products, styles,brands...' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
-          <Btn className='btn search-button' type='button' onClick={onHandleSearch}>
+          <Input
+            type='text'
+            className='form-control'
+            placeholder='Search for products, styles,brands...'
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <Btn
+            className='btn search-button'
+            type='button'
+            onClick={onHandleSearch}
+          >
             {t('Search')}
           </Btn>
         </div>

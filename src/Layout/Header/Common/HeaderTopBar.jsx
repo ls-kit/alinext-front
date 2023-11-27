@@ -23,7 +23,12 @@ const HeaderTopBar = () => {
     };
   }, [i18Lang, pathName]);
   return (
-    <div className={`header-top${themeOption?.header?.page_top_bar_dark ? ' bg-dark' : ''}`} ref={addClass}>
+    <div
+      className={`header-top${
+        themeOption?.header?.page_top_bar_dark ? ' bg-dark' : ''
+      }`}
+      ref={addClass}
+    >
       <div className='container-fluid-lg'>
         <Row>
           <TopbarLeft />

@@ -6,11 +6,9 @@
   $return: ();
 
   @each $value in $radius {
-    @if type-of($value)==number {
+    @if type-of($value) ==number {
       $return: append($return, max($value, 0));
-    }
-
-    @else {
+    } @else {
       $return: append($return, $value);
     }
   }
@@ -22,9 +20,7 @@
 @mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
   @if $enable-rounded {
     border-radius: valid-radius($radius);
-  }
-
-  @else if $fallback-border-radius !=false {
+  } @else if $fallback-border-radius !=false {
     border-radius: $fallback-border-radius;
   }
 }

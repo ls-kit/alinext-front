@@ -22,17 +22,34 @@ const LeftSideModal = ({ cloneVariation, productObj }) => {
         <Slider asNavFor={nav2} ref={(slider) => (slider1.current = slider)}>
           {cloneVariation?.product?.product_galleries?.map((item, i) => (
             <div className='slider-image' key={i}>
-              <Image src={item ? item?.original_url : placeHolderImage} className='img-fluid' alt={cloneVariation?.product?.name} width={500} height={500} />
+              <Image
+                src={item ? item?.original_url : placeHolderImage}
+                className='img-fluid'
+                alt={cloneVariation?.product?.name}
+                width={500}
+                height={500}
+              />
             </div>
           ))}
         </Slider>
       </div>
-      <div className="thumbnail-slider">
-        <Slider {...viewModalSliderOption} slidesToShow={cloneVariation?.product?.product_galleries?.length - 1} asNavFor={nav1} ref={(slider) => (slider2.current = slider)}>
+      <div className='thumbnail-slider'>
+        <Slider
+          {...viewModalSliderOption}
+          slidesToShow={cloneVariation?.product?.product_galleries?.length - 1}
+          asNavFor={nav1}
+          ref={(slider) => (slider2.current = slider)}
+        >
           {cloneVariation?.product?.product_galleries?.map((item, i) => (
             <div className='slider-image' key={i}>
-              <div className="thumbnail-image">
-                <Image src={item ? item?.original_url : placeHolderImage} className='img-fluid' alt={cloneVariation?.product?.name} width={500} height={500} />
+              <div className='thumbnail-image'>
+                <Image
+                  src={item ? item?.original_url : placeHolderImage}
+                  className='img-fluid'
+                  alt={cloneVariation?.product?.name}
+                  width={500}
+                  height={500}
+                />
               </div>
             </div>
           ))}

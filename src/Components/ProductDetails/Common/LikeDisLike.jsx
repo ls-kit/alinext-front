@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { RiThumbDownFill, RiThumbDownLine, RiThumbUpFill, RiThumbUpLine } from 'react-icons/ri';
+import {
+  RiThumbDownFill,
+  RiThumbDownLine,
+  RiThumbUpFill,
+  RiThumbUpLine,
+} from 'react-icons/ri';
 
 const LikeDisLike = ({ qna }) => {
   const [likeUnLike, setLikeUnLike] = useState('');
@@ -47,7 +52,16 @@ const LikeDisLike = ({ qna }) => {
         <li>
           <a onClick={() => feedBack('liked')}>
             <span>
-              {isLogin ? likeUnLike == 'liked' ? <RiThumbUpFill className='theme-color' /> : <RiThumbUpLine /> : <RiThumbUpFill />} {likeCount}
+              {isLogin ? (
+                likeUnLike == 'liked' ? (
+                  <RiThumbUpFill className='theme-color' />
+                ) : (
+                  <RiThumbUpLine />
+                )
+              ) : (
+                <RiThumbUpFill />
+              )}{' '}
+              {likeCount}
             </span>
           </a>
         </li>
@@ -56,7 +70,16 @@ const LikeDisLike = ({ qna }) => {
         <li>
           <a onClick={() => feedBack('disliked')}>
             <span>
-              {isLogin ? likeUnLike == 'disliked' ? <RiThumbDownFill className='theme-color' /> : <RiThumbDownLine /> : <RiThumbDownFill />} {unLikeCount}
+              {isLogin ? (
+                likeUnLike == 'disliked' ? (
+                  <RiThumbDownFill className='theme-color' />
+                ) : (
+                  <RiThumbDownLine />
+                )
+              ) : (
+                <RiThumbDownFill />
+              )}{' '}
+              {unLikeCount}
             </span>
           </a>
         </li>

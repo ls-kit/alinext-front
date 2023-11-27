@@ -55,7 +55,7 @@
         background-color: var(--theme-color);
         width: 2px;
 
-        body[dir="rtl"] & {
+        body[dir='rtl'] & {
           left: unset;
           right: 0;
         }
@@ -169,7 +169,7 @@
 
   img {
     @include pseudowh;
-    object-fit: contain
+    object-fit: contain;
   }
 }
 
@@ -192,7 +192,6 @@
       font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1920 - 320)));
       margin-top: -4px;
       margin-bottom: -5px;
-
 
       @include mq-max(sm) {
         line-height: 1.3;

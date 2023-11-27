@@ -12,23 +12,46 @@ const MinimalRightSidebar = () => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const { cartProducts } = useContext(CartContext);
-  const { themeOption, cartCanvas, setCartCanvas } = useContext(ThemeOptionContext);
+  const { themeOption, cartCanvas, setCartCanvas } =
+    useContext(ThemeOptionContext);
   const cartStyle = useMemo(() => {
-    return themeOption?.general?.cart_style ? themeOption?.general?.cart_style : 'cart_sidebar';
+    return themeOption?.general?.cart_style
+      ? themeOption?.general?.cart_style
+      : 'cart_sidebar';
   });
   return (
     <div className='rightside-menu'>
       <ul className='option-list-2'>
         {optionListMinimal.map((elem) => (
           <Fragment key={elem.id}>
-            <li className='onhover-dropdown' onClick={() => elem?.isBadge && cartStyle == 'cart_sidebar' && setCartCanvas(!cartCanvas)}>
+            <li
+              className='onhover-dropdown'
+              onClick={() =>
+                elem?.isBadge &&
+                cartStyle == 'cart_sidebar' &&
+                setCartCanvas(!cartCanvas)
+              }
+            >
               {elem?.path ? (
-                <Link href={`/${i18Lang}${elem?.path}`} className={`header-icon ${elem?.customClass ? elem?.customClass : ''}`}>
+                <Link
+                  href={`/${i18Lang}${elem?.path}`}
+                  className={`header-icon ${
+                    elem?.customClass ? elem?.customClass : ''
+                  }`}
+                >
                   {elem.icon}
                 </Link>
               ) : (
-                <a className={`header-icon ${elem?.customClass ? elem?.customClass : ''}`}>
-                  {elem?.isBadge && cartProducts?.length > 0 && <small className='badge-number badge-light'>{cartProducts?.length}</small>}
+                <a
+                  className={`header-icon ${
+                    elem?.customClass ? elem?.customClass : ''
+                  }`}
+                >
+                  {elem?.isBadge && cartProducts?.length > 0 && (
+                    <small className='badge-number badge-light'>
+                      {cartProducts?.length}
+                    </small>
+                  )}
                   {elem.icon}
                 </a>
               )}

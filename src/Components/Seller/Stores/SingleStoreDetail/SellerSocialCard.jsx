@@ -2,7 +2,13 @@ import I18NextContext from '@/Helper/I18NextContext';
 import { useTranslation } from '@/app/i18n/client';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { RiFacebookFill, RiInstagramLine, RiPinterestLine, RiTwitterFill, RiYoutubeFill } from 'react-icons/ri';
+import {
+  RiFacebookFill,
+  RiInstagramLine,
+  RiPinterestLine,
+  RiTwitterFill,
+  RiYoutubeFill,
+} from 'react-icons/ri';
 
 const SellerSocialCard = ({ StoreData }) => {
   const { i18Lang } = useContext(I18NextContext);

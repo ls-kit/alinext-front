@@ -23,7 +23,14 @@ const CollectionFilter = ({ filter, setFilter }) => {
     rating: splitFilter('rating'),
   };
   const mergeFilter = () => {
-    setSelectedFilters([...filterObj['category'], ...filterObj['attribute'], ...filterObj['price'], ...filterObj['rating'].map((val) => (val.startsWith('rating ') ? val : `rating ${val}`))]);
+    setSelectedFilters([
+      ...filterObj['category'],
+      ...filterObj['attribute'],
+      ...filterObj['price'],
+      ...filterObj['rating'].map((val) =>
+        val.startsWith('rating ') ? val : `rating ${val}`,
+      ),
+    ]);
   };
   useEffect(() => {
     mergeFilter();
@@ -45,7 +52,10 @@ const CollectionFilter = ({ filter, setFilter }) => {
           params[key] = filterObj[key].join(',');
         }
       });
-      const queryParams = new URLSearchParams({ ...params, ...layout }).toString();
+      const queryParams = new URLSearchParams({
+        ...params,
+        ...layout,
+      }).toString();
       router.push(`${pathname}?${queryParams}`);
     });
   };
@@ -64,7 +74,7 @@ const CollectionFilter = ({ filter, setFilter }) => {
       <ul>
         {selectedFilters?.map((elem, i) => (
           <li key={i}>
-            <a>{ModifyString(elem, false,'-')}</a>
+            <a>{ModifyString(elem, false, '-')}</a>
             <span onClick={() => removeParams(elem)}>
               <RiCloseLine />
             </span>

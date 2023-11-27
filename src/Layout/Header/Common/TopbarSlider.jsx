@@ -33,7 +33,9 @@ const TopbarSlider = ({ customClass }) => {
                     <div key={i}>
                       <div className={`timer-notification`}>
                         <h6>
-                          <div dangerouslySetInnerHTML={{ __html: elem?.content }} />
+                          <div
+                            dangerouslySetInnerHTML={{ __html: elem?.content }}
+                          />
                         </h6>
                       </div>
                     </div>

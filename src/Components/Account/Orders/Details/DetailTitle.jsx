@@ -16,16 +16,24 @@ const DetailTitle = ({ params, data }) => {
           <h5>{`${t('OrderNumber')}: #${params}`}</h5>
           <div className='right-option'>
             {data?.payment_status === 'FAILED' && (
-              <a className='btn btn-md fw-bold text-light theme-bg-color' onClick={() => setModal(true)}>
+              <a
+                className='btn btn-md fw-bold text-light theme-bg-color'
+                onClick={() => setModal(true)}
+              >
                 {t('PayNow')}
                 <RiRefreshLine className='ms-2' />
               </a>
             )}
-            {data?.invoice_url && data?.payment_status && data?.payment_status === 'COMPLETED' && (
-              <Link href={data?.invoice_url} className='btn btn-md fw-bold text-light theme-bg-color ms-auto'>
-                {t('Invoice')} <RiDownload2Fill className='ms-2' />
-              </Link>
-            )}
+            {data?.invoice_url &&
+              data?.payment_status &&
+              data?.payment_status === 'COMPLETED' && (
+                <Link
+                  href={data?.invoice_url}
+                  className='btn btn-md fw-bold text-light theme-bg-color ms-auto'
+                >
+                  {t('Invoice')} <RiDownload2Fill className='ms-2' />
+                </Link>
+              )}
           </div>
         </div>
       </div>

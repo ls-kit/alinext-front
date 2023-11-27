@@ -13,13 +13,18 @@ import ProductIdsContext from '@/Helper/ProductIdsContext';
 import Loader from '@/Layout/Loader';
 
 const ParisTheme = () => {
-  const { setGetProductIds, isLoading: productLoader } = useContext(ProductIdsContext);
+  const { setGetProductIds, isLoading: productLoader } =
+    useContext(ProductIdsContext);
   const { themeOption } = useContext(ThemeOptionContext);
-  const { data, isLoading, refetch, fetchStatus } = useQuery(['paris'], () => request({ url: `${HomePageAPI}/paris` }), {
-    enabled: false,
-    refetchOnWindowFocus: false,
-    select: (res) => res?.data,
-  });
+  const { data, isLoading, refetch, fetchStatus } = useQuery(
+    ['paris'],
+    () => request({ url: `${HomePageAPI}/paris` }),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+      select: (res) => res?.data,
+    },
+  );
   useEffect(() => {
     refetch();
   }, []);
@@ -32,7 +37,9 @@ const ParisTheme = () => {
     }
 
     if (data?.content?.products_ids?.length > 0) {
-      setGetProductIds({ ids: Array.from(new Set(data?.content?.products_ids))?.join(',') });
+      setGetProductIds({
+        ids: Array.from(new Set(data?.content?.products_ids))?.join(','),
+      });
     }
   }, [fetchStatus == 'fetching', !isLoading]);
   if (isLoading) return <Loader />;
@@ -40,12 +47,17 @@ const ParisTheme = () => {
     <>
       <TopBanner dataAPI={data?.content} />
 
-      {data?.content?.featured_banners?.status && <HomeBanner bannersData={data?.content?.featured_banners?.banners} />}
+      {data?.content?.featured_banners?.status && (
+        <HomeBanner bannersData={data?.content?.featured_banners?.banners} />
+      )}
 
       <ProductSection dataAPI={data?.content} />
 
-      {data?.content?.news_letter?.status && <NewsLetter dataAPI={data?.content?.news_letter} />}
-      {themeOption?.general?.sticky_cart_enable && themeOption?.general?.cart_style !== 'cart_sidebar' && <StickyCart />}
+      {data?.content?.news_letter?.status && (
+        <NewsLetter dataAPI={data?.content?.news_letter} />
+      )}
+      {themeOption?.general?.sticky_cart_enable &&
+        themeOption?.general?.cart_style !== 'cart_sidebar' && <StickyCart />}
     </>
   );
 };

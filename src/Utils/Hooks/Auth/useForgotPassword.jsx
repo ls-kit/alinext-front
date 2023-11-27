@@ -10,14 +10,17 @@ export const ForgotPasswordSchema = YupObject({ email: emailSchema });
 
 const useHandleForgotPassword = () => {
   const router = useRouter();
-  return useMutation((data) => request({ url: ForgotPasswordAPI, method: 'post', data }), {
-    onSuccess: (responseData, requestData) => {
-      if (responseData.status === 200 || responseData.status === 201) {
-        ToastNotification('success', responseData.data.message);
-        Cookies.set('ue', requestData.email);
-        router.push('/auth/otp-verification');
-      }
+  return useMutation(
+    (data) => request({ url: ForgotPasswordAPI, method: 'post', data }),
+    {
+      onSuccess: (responseData, requestData) => {
+        if (responseData.status === 200 || responseData.status === 201) {
+          ToastNotification('success', responseData.data.message);
+          Cookies.set('ue', requestData.email);
+          router.push('/auth/otp-verification');
+        }
+      },
     },
-  });
+  );
 };
 export default useHandleForgotPassword;

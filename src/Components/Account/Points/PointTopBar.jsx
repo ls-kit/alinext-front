@@ -14,18 +14,22 @@ const PointTopBar = () => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const [page, setPage] = useState(1);
-  const { data, isLoading, refetch } = useQuery([PointAPI], () => request({ url: PointAPI, params: { page, paginate: 10 } }), {
-    enabled: false,
-    refetchOnWindowFocus: false,
-    select: (res) => res?.data,
-  });
+  const { data, isLoading, refetch } = useQuery(
+    [PointAPI],
+    () => request({ url: PointAPI, params: { page, paginate: 10 } }),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+      select: (res) => res?.data,
+    },
+  );
   useEffect(() => {
     refetch();
   }, [page]);
   if (isLoading) return <Loader />;
   return (
     <>
-      <AccountHeading title="Points" />
+      <AccountHeading title='Points' />
       {data?.transactions?.data?.length > 0 ? (
         <PointTable data={data} setPage={setPage} />
       ) : (

@@ -25,7 +25,11 @@ const FeatureBlog = ({ classes = {}, dataAPI }) => {
         <Slider {...classes?.sliderOption}>
           {filterBlogs?.map((elem) => (
             <div key={elem.id}>
-              <div className={`blog-box ${elem?.is_sticky == 1 ? 'sticky-blog-box' : ''} ${classes?.ratioClass ? classes?.ratioClass : ''}`}>
+              <div
+                className={`blog-box ${
+                  elem?.is_sticky == 1 ? 'sticky-blog-box' : ''
+                } ${classes?.ratioClass ? classes?.ratioClass : ''}`}
+              >
                 {elem?.is_featured ? (
                   <div className='blog-label-tag'>
                     <span>{t('Featured')}</span>
@@ -33,7 +37,13 @@ const FeatureBlog = ({ classes = {}, dataAPI }) => {
                 ) : null}
                 <div className='blog-box-image'>
                   <Link href={`/blogs/${elem?.slug}`} className='blog-image'>
-                    <RatioImage src={elem?.blog_thumbnail?.original_url} className='bg-img' alt='blog' height={classes?.height} width={classes?.width}/>
+                    <RatioImage
+                      src={elem?.blog_thumbnail?.original_url}
+                      className='bg-img'
+                      alt='blog'
+                      height={classes?.height}
+                      width={classes?.width}
+                    />
                   </Link>
                 </div>
 

@@ -42,14 +42,21 @@ const CartSidebar = () => {
         <ul className='summery-total'>
           <li className='list-total border-top-0'>
             <h4>{t('Total')}</h4>
-            <h4 className='price theme-color'>${getTotal(cartProducts)?.toFixed(2)}</h4>
+            <h4 className='price theme-color'>
+              ${getTotal(cartProducts)?.toFixed(2)}
+            </h4>
           </li>
         </ul>
 
         <div className='button-group cart-button'>
           <ul>
             <li>
-              <Link href={isAuth ? `/${i18Lang}/checkout` : `/${i18Lang}/auth/login`} className='btn btn-animation proceed-btn fw-bold'>
+              <Link
+                href={
+                  isAuth ? `/${i18Lang}/checkout` : `/${i18Lang}/auth/login`
+                }
+                className='btn btn-animation proceed-btn fw-bold'
+              >
                 {t('ProcessToCheckout')}
               </Link>
             </li>

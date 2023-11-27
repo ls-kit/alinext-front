@@ -5,7 +5,13 @@ import { useContext } from 'react';
 import ThemeOptionContext from '@/Helper/ThemeOptionsContext';
 import I18NextContext from '@/Helper/I18NextContext';
 import { useTranslation } from '@/app/i18n/client';
-import { RiBuildingLine, RiMailLine, RiMapPin2Line, RiPhoneLine, RiSmartphoneLine } from 'react-icons/ri';
+import {
+  RiBuildingLine,
+  RiMailLine,
+  RiMapPin2Line,
+  RiPhoneLine,
+  RiSmartphoneLine,
+} from 'react-icons/ri';
 
 const ContactLeftSideBox = () => {
   const { themeOption } = useContext(ThemeOptionContext);
@@ -17,7 +23,13 @@ const ContactLeftSideBox = () => {
         <Row>
           <Col xl={12}>
             <div className='contact-image'>
-              <Image src={themeOption?.contact_us?.imageUrl || contactUsImage} className='img-fluid' alt='contact' height={461} width={386} />
+              <Image
+                src={themeOption?.contact_us?.imageUrl || contactUsImage}
+                className='img-fluid'
+                alt='contact'
+                height={461}
+                width={386}
+              />
             </div>
           </Col>
           <Col xl={12}>

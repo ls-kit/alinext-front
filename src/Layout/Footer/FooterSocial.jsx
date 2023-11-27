@@ -3,13 +3,23 @@ import ThemeOptionContext from '@/Helper/ThemeOptionsContext';
 import Link from 'next/link';
 import I18NextContext from '@/Helper/I18NextContext';
 import { useTranslation } from '@/app/i18n/client';
-import { RiFacebookFill, RiInstagramLine, RiPinterestLine, RiTwitterFill } from 'react-icons/ri';
+import {
+  RiFacebookFill,
+  RiInstagramLine,
+  RiPinterestLine,
+  RiTwitterFill,
+} from 'react-icons/ri';
 
 const FooterSocial = () => {
   const { themeOption } = useContext(ThemeOptionContext);
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
-  const isFooterSocial = themeOption?.footer?.social_media_enable || themeOption?.footer?.facebook || themeOption?.footer?.twitter || themeOption?.footer?.instagram || themeOption?.footer?.pinterest;
+  const isFooterSocial =
+    themeOption?.footer?.social_media_enable ||
+    themeOption?.footer?.facebook ||
+    themeOption?.footer?.twitter ||
+    themeOption?.footer?.instagram ||
+    themeOption?.footer?.pinterest;
   return (
     <>
       {isFooterSocial ? (

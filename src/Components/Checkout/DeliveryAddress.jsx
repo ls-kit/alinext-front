@@ -8,7 +8,15 @@ import AddAddressForm from './common/AddAddressForm';
 import I18NextContext from '@/Helper/I18NextContext';
 import ShowAddress from './ShowAddress';
 
-const DeliveryAddress = ({ type, title, address, modal, mutate, setModal, setFieldValue }) => {
+const DeliveryAddress = ({
+  type,
+  title,
+  address,
+  modal,
+  mutate,
+  setModal,
+  setFieldValue,
+}) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
 
@@ -22,7 +30,10 @@ const DeliveryAddress = ({ type, title, address, modal, mutate, setModal, setFie
           <h4>
             {t(title)} {t('Address')}
           </h4>
-          <a className='d-flex align-items-center fw-bold' onClick={() => setModal(type)}>
+          <a
+            className='d-flex align-items-center fw-bold'
+            onClick={() => setModal(type)}
+          >
             <RiAddLine className='me-1'></RiAddLine>
             {t('AddNew')}
           </a>
@@ -43,7 +54,14 @@ const DeliveryAddress = ({ type, title, address, modal, mutate, setModal, setFie
               )}
             </>
           }
-          <CustomModal modal={modal == type ? true : false} setModal={setModal} classes={{ modalClass: 'theme-modal view-modal modal-lg', modalHeaderClass: 'p-0' }}>
+          <CustomModal
+            modal={modal == type ? true : false}
+            setModal={setModal}
+            classes={{
+              modalClass: 'theme-modal view-modal modal-lg',
+              modalHeaderClass: 'p-0',
+            }}
+          >
             <div className='right-sidebar-box'>
               <AddAddressForm mutate={mutate} setModal={setModal} type={type} />
             </div>

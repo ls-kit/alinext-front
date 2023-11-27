@@ -8,7 +8,11 @@ const ResponsiveSearch = () => {
         <InputGroupText>
           <RiSearchLine className='font-light' />
         </InputGroupText>
-        <Input type='text' className='form-control search-type' placeholder='Search here..' />
+        <Input
+          type='text'
+          className='form-control search-type'
+          placeholder='Search here..'
+        />
         <InputGroupText className='close-search'>
           <RiCloseLine className='font-light' />
         </InputGroupText>

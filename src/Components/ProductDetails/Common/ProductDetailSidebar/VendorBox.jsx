@@ -12,8 +12,15 @@ const VendorBox = ({ productState }) => {
     <div className='vendor-box'>
       <div className='vendor-contain'>
         <div className='vendor-image'>
-          <Link href={`/${i18Lang}/seller/stores/${productState?.product?.store?.slug}`}>
-            <Avatar data={productState?.product?.store?.store_logo} height={64} width={64} name={productState?.product?.store?.store_name} />
+          <Link
+            href={`/${i18Lang}/seller/stores/${productState?.product?.store?.slug}`}
+          >
+            <Avatar
+              data={productState?.product?.store?.store_logo}
+              height={64}
+              width={64}
+              name={productState?.product?.store?.store_name}
+            />
           </Link>
         </div>
 
@@ -21,13 +28,19 @@ const VendorBox = ({ productState }) => {
           <h5 className='fw-500'>{productState?.product?.store?.store_name}</h5>
 
           <div className='product-rating mt-1'>
-            <ProductBox1Rating totalRating={productState?.product?.store?.rating_count} />
-            <span>{`(${productState?.product?.store?.reviews_count ?? 0} Reviews)`}</span>
+            <ProductBox1Rating
+              totalRating={productState?.product?.store?.rating_count}
+            />
+            <span>{`(${
+              productState?.product?.store?.reviews_count ?? 0
+            } Reviews)`}</span>
           </div>
         </div>
       </div>
 
-      <p className='vendor-detail'>{productState?.product?.store?.description}</p>
+      <p className='vendor-detail'>
+        {productState?.product?.store?.description}
+      </p>
 
       <div className='vendor-list'>
         <ul>

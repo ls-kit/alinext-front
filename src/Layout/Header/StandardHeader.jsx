@@ -13,7 +13,11 @@ const StandardHeader = () => {
   const { themeOption } = useContext(ThemeOptionContext);
   const UpScroll = useHeaderScroll(false);
   return (
-    <header className={`header-2 ${themeOption?.header?.sticky_header_enable && UpScroll ? 'active' : ''}`}>
+    <header
+      className={`header-2 ${
+        themeOption?.header?.sticky_header_enable && UpScroll ? 'active' : ''
+      }`}
+    >
       {themeOption?.header?.page_top_bar_enable && <HeaderTopBar />}
       <div className='top-nav top-header sticky-header sticky-header-3'>
         <div className='container-fluid-lg'>

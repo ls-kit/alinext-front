@@ -61,7 +61,8 @@
         @include flex_common;
         background-color: $danger-color;
         color: $white;
-        padding: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))) calc(9px + (11 - 9) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))
+          calc(9px + (11 - 9) * ((100vw - 320px) / (1920 - 320)));
         border-radius: 5px;
 
         @media (max-width: 1265px) {
@@ -95,7 +96,7 @@
               position: relative;
               line-height: 1;
 
-              +li {
+              + li {
                 margin-left: 15px;
 
                 &::after {
@@ -159,7 +160,7 @@
         }
       }
 
-      +.nav-item {
+      + .nav-item {
         margin-left: 10px;
 
         &::before {
@@ -186,7 +187,7 @@
 .vendor-title {
   h5 {
     font-weight: 700;
-    font-size: calc(18px + .005*(100vw - 320px));
+    font-size: calc(18px + 0.005 * (100vw - 320px));
     margin-bottom: 10px;
     letter-spacing: 0.5px;
   }
@@ -230,7 +231,8 @@
       @include flex_common;
       background-color: $danger-color;
       color: $white;
-      padding: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))) calc(9px + (11 - 9) * ((100vw - 320px) / (1920 - 320)));
+      padding: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))
+        calc(9px + (11 - 9) * ((100vw - 320px) / (1920 - 320)));
       border-radius: 5px;
 
       @media (max-width: 850px) {
@@ -268,7 +270,7 @@
     height: 26px;
     background-color: var(--theme-color);
 
-    body[dir="rtl"] & {
+    body[dir='rtl'] & {
       left: unset;
       right: -20px;
     }

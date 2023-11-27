@@ -1,11 +1,14 @@
 'use client';
-import React, { useContext, useEffect, useState } from 'react';
-import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React, { useState } from 'react';
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 import SubLayout from './SubLayout';
 import ThemeOptionProvider from '@/Helper/ThemeOptionsContext/ThemeOptionProvider';
 import SettingProvider from '@/Helper/SettingContext/SettingProvider';
 import ProductProvider from '@/Helper/ProductContext/ProductProvider';
-import I18NextContext from '@/Helper/I18NextContext';
 import CategoryProvider from '@/Helper/CategoryContext/CategoryProvider';
 import AccountProvider from '@/Helper/AccountContext/AccountProvider';
 import CartProvider from '@/Helper/CartContext/CartProvider';
@@ -15,14 +18,9 @@ import CompareProvider from '@/Helper/CompareContext/CompareProvider';
 import ProductIdsProvider from '@/Helper/ProductIdsContext/ProductIdsProvider';
 import CurrencyProvider from '@/Helper/CurrencyContext/CurrencyProvider';
 
-const MainLayout = ({ children, lng  }) => {
-  const { i18Lang, setI18Lang } = useContext(I18NextContext);
+const MainLayout = ({ children }) => {
   const [queryClient] = useState(() => new QueryClient());
-  useEffect(() => {
-    if (i18Lang == '') {
-      setI18Lang(lng);
-    }
-  }, [lng]);
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -37,7 +35,7 @@ const MainLayout = ({ children, lng  }) => {
                         <ProductProvider>
                           <SettingProvider>
                             <CurrencyProvider>
-                              <SubLayout children={children}  />
+                              <SubLayout children={children} />
                             </CurrencyProvider>
                           </SettingProvider>
                         </ProductProvider>

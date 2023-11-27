@@ -17,16 +17,31 @@ const LoginContent = () => {
   return (
     <>
       <Breadcrumb title={'Login'} subNavigation={[{ name: 'Login' }]} />
-      <WrapperComponent classes={{ sectionClass: 'log-in-section background-image-2 section-b-space', fluidClass: 'w-100' }} customCol={true}>
+      <WrapperComponent
+        classes={{
+          sectionClass: 'log-in-section background-image-2 section-b-space',
+          fluidClass: 'w-100',
+        }}
+        customCol={true}
+      >
         <Col xxl={6} xl={5} lg={6} className='d-lg-block d-none ms-auto'>
           <div className='image-contain'>
-            <Image src={loginImage} className='img-fluid' alt='loginImage' height={465} width={550} />
+            <Image
+              src={loginImage}
+              className='img-fluid'
+              alt='loginImage'
+              height={465}
+              width={550}
+            />
           </div>
         </Col>
 
         <Col xxl={4} xl={5} lg={6} sm={8} className='mx-auto'>
           <div className='log-in-box'>
-            <AuthHeadings heading1={'WelcomeToFastkart'} heading2={'LogInYourAccount'} />
+            <AuthHeadings
+              heading1={'WelcomeToFastkart'}
+              heading2={'LogInYourAccount'}
+            />
 
             <div className='input-box'>
               <LoginForm />

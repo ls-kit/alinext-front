@@ -1,7 +1,5 @@
-import ActiveTheme from "@/Components/ActiveTheme"
+import ParisTheme from '@/Components/ParisTheme';
 
-export default function Home({ params }) {
-  return (
-    <ActiveTheme />
-  )
+export default function Home() {
+  return <ParisTheme />;
 }

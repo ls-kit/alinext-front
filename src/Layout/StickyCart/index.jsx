@@ -27,12 +27,18 @@ const StickyCart = () => {
   return (
     <>
       <div className='button-item'>
-        <Btn className='item-btn text-white' onClick={() => setOpenCart((prev) => !prev)}>
+        <Btn
+          className='item-btn text-white'
+          onClick={() => setOpenCart((prev) => !prev)}
+        >
           <RiShoppingBasketLine />
         </Btn>
       </div>
       <div className={`item-section ${openCart ? 'active' : ''}`}>
-        <Btn className='close-button' onClick={() => setOpenCart((prev) => !prev)}>
+        <Btn
+          className='close-button'
+          onClick={() => setOpenCart((prev) => !prev)}
+        >
           <RiCloseLine />
         </Btn>
         <h6>
@@ -44,12 +50,23 @@ const StickyCart = () => {
         <ul className='items-image'>
           {cartProducts?.slice(0, 2)?.map((elem, i) => (
             <li key={i}>
-              <Avatar data={elem?.product?.product_thumbnail} placeHolder={placeHolderImage} name={elem?.product?.name} height={20} width={20} />
+              <Avatar
+                data={elem?.product?.product_thumbnail}
+                placeHolder={placeHolderImage}
+                name={elem?.product?.name}
+                height={20}
+                width={20}
+              />
             </li>
           ))}
-          {cartProducts?.length > 2 && <li>+{Number(cartProducts?.length - 2)}</li>}
+          {cartProducts?.length > 2 && (
+            <li>+{Number(cartProducts?.length - 2)}</li>
+          )}
         </ul>
-        <Link href={`/${i18Lang}/cart`} className='btn item-button btn-sm fw-bold'>
+        <Link
+          href={`/${i18Lang}/cart`}
+          className='btn item-button btn-sm fw-bold'
+        >
           {convertCurrency(getTotal(cartProducts))}
         </Link>
       </div>

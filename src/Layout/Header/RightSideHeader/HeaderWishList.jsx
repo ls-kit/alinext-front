@@ -7,7 +7,10 @@ const HeaderWishList = ({ wishListIcon }) => {
   const { i18Lang } = useContext(I18NextContext);
   return (
     <li className='right-side'>
-      <Link href={`/${i18Lang}/wishlist`} className='btn p-0 position-relative header-wishlist'>
+      <Link
+        href={`/${i18Lang}/wishlist`}
+        className='btn p-0 position-relative header-wishlist'
+      >
         {wishListIcon ? wishListIcon : <RiHeartLine />}
       </Link>
     </li>

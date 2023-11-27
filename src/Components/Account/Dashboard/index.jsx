@@ -9,8 +9,14 @@ import ResponsiveMenuOpen from '../Common/ResponsiveMenuOpen';
 const AccountDashboard = () => {
   return (
     <>
-      <Breadcrumb title={'UserDashboard'} subNavigation={[{ name: 'UserDashboard' }]} />
-      <WrapperComponent classes={{ sectionClass: 'user-dashboard-section section-b-space' }} customCol={true}>
+      <Breadcrumb
+        title={'UserDashboard'}
+        subNavigation={[{ name: 'UserDashboard' }]}
+      />
+      <WrapperComponent
+        classes={{ sectionClass: 'user-dashboard-section section-b-space' }}
+        customCol={true}
+      >
         <AccountSidebar tabActive={'dashboard'} />
         <Col xxl={9} lg={8}>
           <ResponsiveMenuOpen />

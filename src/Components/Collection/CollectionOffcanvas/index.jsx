@@ -16,13 +16,28 @@ const CollectionOffCanvas = ({ filter, setFilter }) => {
   };
   return (
     <>
-      <WrapperComponent classes={{ sectionClass: 'section-b-space shop-section' }} customCol={true}>
-        <MainCollection filter={filter} setFilter={setFilter} isOffcanvas={true} />
+      <WrapperComponent
+        classes={{ sectionClass: 'section-b-space shop-section' }}
+        customCol={true}
+      >
+        <MainCollection
+          filter={filter}
+          setFilter={setFilter}
+          isOffcanvas={true}
+        />
       </WrapperComponent>
-      <Offcanvas toggle={toggle} isOpen={openOffCanvas} className='shop-offcanvas-filter'>
+      <Offcanvas
+        toggle={toggle}
+        isOpen={openOffCanvas}
+        className='shop-offcanvas-filter'
+      >
         <OffcanvasHeader toggle={toggle}>{t('Back')}</OffcanvasHeader>
         <OffcanvasBody>
-          <CollectionSidebar filter={filter} setFilter={setFilter} isOffcanvas={true} />
+          <CollectionSidebar
+            filter={filter}
+            setFilter={setFilter}
+            isOffcanvas={true}
+          />
         </OffcanvasBody>
       </Offcanvas>
     </>

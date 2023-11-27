@@ -25,15 +25,35 @@ const NewsLetterModal = () => {
   };
   return (
     <>
-      <CustomModal extraFunction={extraFunction} modal={modal} setModal={setModal} classes={{ customChildren: true, modalClass: 'modal-lg newsletter-modal theme-modal' }}>
+      <CustomModal
+        extraFunction={extraFunction}
+        modal={modal}
+        setModal={setModal}
+        classes={{
+          customChildren: true,
+          modalClass: 'modal-lg newsletter-modal theme-modal',
+        }}
+      >
         <ModalHeader className='p-0' toggle={extraFunction} />
         <div className='modal-box'>
           <div className='modal-image'>
-            <Image src={newsLetterImage} className='img-fluid' alt='NewsLetter Image' width={400} height={361} />
+            <Image
+              src={newsLetterImage}
+              className='img-fluid'
+              alt='NewsLetter Image'
+              width={400}
+              height={361}
+            />
           </div>
           <div className='modal-content content-padding'>
             <div>
-              <Image src={Logo} className='modal-logo' alt='newsletter' height={17} width={100} />
+              <Image
+                src={Logo}
+                className='modal-logo'
+                alt='newsletter'
+                height={17}
+                width={100}
+              />
               <h2>
                 15% <span>off</span>
               </h2>
@@ -42,7 +62,12 @@ const NewsLetterModal = () => {
               <Form className='modal-form'>
                 <InputGroup className='modal-form-box'>
                   <Input type='email' placeholder='Your email here' />
-                  <Btn className='input-group-text' type='button' title='Submit' onClick={() => setModal(false)} />
+                  <Btn
+                    className='input-group-text'
+                    type='button'
+                    title='Submit'
+                    onClick={() => setModal(false)}
+                  />
                 </InputGroup>
               </Form>
             </div>

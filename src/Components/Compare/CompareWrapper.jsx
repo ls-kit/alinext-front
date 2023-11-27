@@ -11,7 +11,9 @@ const CompareWrapper = ({ data = {}, children }) => {
         <div className='title-detail'>
           <h5>{t(data?.title)}</h5>
         </div>
-        <div className='inner-detail'>{children ? children : <p>{data?.value}</p>}</div>
+        <div className='inner-detail'>
+          {children ? children : <p>{data?.value}</p>}
+        </div>
       </div>
     </>
   );

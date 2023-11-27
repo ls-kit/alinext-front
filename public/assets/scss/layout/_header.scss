@@ -54,7 +54,11 @@
   }
 
   ul {
-    @include flex_wrap($dis: flex, $wrap: wrap, $gap: calc(4px + (11 - 4) * ((100vw - 320px) / (1920 - 320))));
+    @include flex_wrap(
+      $dis: flex,
+      $wrap: wrap,
+      $gap: calc(4px + (11 - 4) * ((100vw - 320px) / (1920 - 320)))
+    );
 
     li {
       position: relative;
@@ -238,7 +242,11 @@ header {
       }
 
       ul {
-        @include flex_wrap($dis: flex, $wrap: wrap, $gap: calc(4px + (11 - 4) * ((100vw - 320px) / (1920 - 320))));
+        @include flex_wrap(
+          $dis: flex,
+          $wrap: wrap,
+          $gap: calc(4px + (11 - 4) * ((100vw - 320px) / (1920 - 320)))
+        );
 
         li {
           position: relative;
@@ -305,7 +313,7 @@ header {
         display: flex;
         align-items: center;
 
-        +li {
+        + li {
           margin-left: 25px;
           position: relative;
 
@@ -403,7 +411,7 @@ header {
               right: 0 !important;
               left: unset !important;
 
-              body[dir="rtl"] & {
+              body[dir='rtl'] & {
                 right: unset !important;
                 left: 0 !important;
               }
@@ -431,7 +439,7 @@ header {
             }
 
             li {
-              +li {
+              + li {
                 margin-left: 0;
               }
 
@@ -457,20 +465,20 @@ header {
               }
             }
 
-            >a {
-              >.dropdown-item {
+            > a {
+              > .dropdown-item {
                 display: flex;
                 align-items: center;
                 font-size: 14px;
                 gap: 10px;
 
                 &:active {
-                  >span {
+                  > span {
                     color: #fff;
                   }
                 }
 
-                >span {
+                > span {
                   margin-top: 0;
                   font-weight: 500;
                   font-size: 14px;
@@ -516,7 +524,10 @@ header {
 
       .web-logo {
         img {
-          @include pseudowh($width: calc(120px + (162 - 120) * ((100vw - 320px) / (1920 - 320))), $height: auto);
+          @include pseudowh(
+            $width: calc(120px + (162 - 120) * ((100vw - 320px) / (1920 - 320))),
+            $height: auto
+          );
           object-fit: contain;
 
           @include mq-max(md) {
@@ -889,12 +900,14 @@ header {
       width: 360px;
       border-radius: 10px;
       padding: 0;
-      box-shadow: -1px 0 10px 0 rgba($title-color, 0.07), 5px 20px 40px 0 rgba($title-color, 0.04);
+      box-shadow:
+        -1px 0 10px 0 rgba($title-color, 0.07),
+        5px 20px 40px 0 rgba($title-color, 0.04);
       opacity: 0;
       transition: all 0.3s ease-in-out;
       visibility: hidden;
 
-      body[dir="rtl"] & {
+      body[dir='rtl'] & {
         right: unset;
         left: -10px;
       }
@@ -906,7 +919,7 @@ header {
       }
 
       .cart-list {
-        >li {
+        > li {
           .drop-cart {
             .drop-contain {
               h5 {
@@ -954,7 +967,7 @@ header {
         width: 400px;
         z-index: 10;
 
-        body[dir="rtl"] & {
+        body[dir='rtl'] & {
           right: unset;
           left: -420px;
         }
@@ -983,7 +996,7 @@ header {
         &.show {
           right: 0;
 
-          body[dir="rtl"] & {
+          body[dir='rtl'] & {
             right: unset;
             left: 0;
           }
@@ -1086,7 +1099,9 @@ header {
             border-radius: 100px;
             position: relative;
             overflow: unset;
-            margin-bottom: calc(18px + (31 - 18) * ((100vw - 320px) / (1920 - 320)));
+            margin-bottom: calc(
+              18px + (31 - 18) * ((100vw - 320px) / (1920 - 320))
+            );
 
             .progress-bar {
               height: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320)));
@@ -1105,7 +1120,9 @@ header {
               @include flex_common;
               background-color: var(--theme-color);
               color: $white;
-              font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+              );
             }
           }
         }
@@ -1116,7 +1133,9 @@ header {
         }
 
         .price-box {
-          padding-block: calc(7px + (11 - 7) * ((100vw - 320px) / (1920 - 320)));
+          padding-block: calc(
+            7px + (11 - 7) * ((100vw - 320px) / (1920 - 320))
+          );
         }
 
         .progress {
@@ -1127,7 +1146,9 @@ header {
           border-radius: 100px;
           position: relative;
           overflow: unset;
-          margin-bottom: calc(18px + (31 - 18) * ((100vw - 320px) / (1920 - 320)));
+          margin-bottom: calc(
+            18px + (31 - 18) * ((100vw - 320px) / (1920 - 320))
+          );
 
           .progress-bar {
             height: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320)));
@@ -1149,14 +1170,16 @@ header {
               background-color: var(--theme-color);
               color: #ffffff;
 
-              body[dir="rtl"] & {
+              body[dir='rtl'] & {
                 right: unset;
                 left: -16px;
                 transform: translateY(-50%) rotateY(180deg);
               }
 
               svg {
-                font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+                );
               }
             }
 
@@ -1211,7 +1234,7 @@ header {
             display: block;
             width: 100%;
 
-            +li {
+            + li {
               padding-top: 8px;
               margin-top: 8px;
               border-top: 1px solid #eee;
@@ -1240,7 +1263,7 @@ header {
                 transition: all 0.3s ease-in-out;
                 z-index: -1;
 
-                body[dir="rtl"] & {
+                body[dir='rtl'] & {
                   left: unset;
                   right: 0;
                 }
@@ -1274,11 +1297,11 @@ header {
           opacity: 0.44;
         }
 
-        >li {
+        > li {
           margin: 0;
           width: 100%;
 
-          +li {
+          + li {
             margin-left: 0;
             margin-top: 10px;
             padding-top: 10px;
@@ -1312,7 +1335,7 @@ header {
               width: calc(100% - 87px - 15px);
               padding-right: 40px;
 
-              body[dir="rtl"] & {
+              body[dir='rtl'] & {
                 padding-right: unset;
                 padding-left: 40px;
               }
@@ -1320,7 +1343,9 @@ header {
               h5 {
                 @include line;
                 margin-bottom: 5px;
-                font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                );
                 color: $title-color;
                 font-weight: 500;
               }
@@ -1381,7 +1406,7 @@ header {
                 align-items: center;
                 gap: 6px;
 
-                body[dir="rtl"] & {
+                body[dir='rtl'] & {
                   right: unset;
                   left: 0;
                 }
@@ -1439,7 +1464,6 @@ header {
           }
 
           .progress {
-
             .progress-bar,
             i {
               background-color: #ff4f4f;
@@ -1457,7 +1481,6 @@ header {
           }
 
           .progress {
-
             .progress-bar,
             i {
               background-color: #ffa53b;
@@ -1475,7 +1498,6 @@ header {
           }
 
           .progress {
-
             .progress-bar,
             i {
               background-color: var(--theme-color);
@@ -1504,7 +1526,11 @@ header {
       }
 
       .price-box {
-        @include flex_common($dis: flex, $align: center, $justify: space-between);
+        @include flex_common(
+          $dis: flex,
+          $align: center,
+          $justify: space-between
+        );
         margin: 0;
         padding: 0;
         border: unset;
@@ -1585,7 +1611,8 @@ header {
 
       .dropdown-category {
         @include flex_common;
-        padding: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320))) calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)))
+          calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320)));
         background: var(--theme-color);
         color: #ffffff;
         border-radius: 5px;
@@ -1605,7 +1632,9 @@ header {
 
           body[dir='rtl'] & {
             margin-right: unset;
-            margin-left: calc(9px + (16 - 9) * ((100vw - 320px) / (1920 - 320)));
+            margin-left: calc(
+              9px + (16 - 9) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
 
@@ -1712,13 +1741,16 @@ header {
         visibility: hidden;
         transition: all 0.3s ease-in-out;
 
-        body[dir="rtl"] & {
+        body[dir='rtl'] & {
           left: unset;
           right: 0;
         }
 
         @include mq-max(md) {
-          @include pseudowh($width: calc(300px + (320 - 300) * ((100vw - 320px) / (1920 - 320))), $height: 100vh);
+          @include pseudowh(
+            $width: calc(300px + (320 - 300) * ((100vw - 320px) / (1920 - 320))),
+            $height: 100vh
+          );
           position: fixed;
           top: 0;
           left: -320px;
@@ -1750,7 +1782,11 @@ header {
           display: none;
 
           @include mq-max(md) {
-            @include flex_common($dis: flex, $align: center, $justify: space-between);
+            @include flex_common(
+              $dis: flex,
+              $align: center,
+              $justify: space-between
+            );
             padding: 20px 24px;
             border-bottom: 1px solid $border-color;
             box-shadow: 0 2px 10px -3px rgba($title-color, 0.1);
@@ -1803,7 +1839,7 @@ header {
                   opacity: 0.5;
                   transition: all 0.3s ease-in-out;
 
-                  body[dir="rtl"] & {
+                  body[dir='rtl'] & {
                     left: unset;
                     right: 0;
                   }
@@ -1834,7 +1870,8 @@ header {
 
       .deal-button {
         color: var(--theme-color);
-        padding: calc(6px + (15 - 6) * ((100vw - 320px) / (1920 - 320))) calc(11px + (20 - 11) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(6px + (15 - 6) * ((100vw - 320px) / (1920 - 320)))
+          calc(11px + (20 - 11) * ((100vw - 320px) / (1920 - 320)));
         position: relative;
         border-radius: 5px;
         overflow: hidden;
@@ -2206,7 +2243,7 @@ header {
         margin-right: 16px;
         font-size: 25px;
 
-        body[dir="rtl"] & {
+        body[dir='rtl'] & {
           margin-right: unset;
           margin-left: 16px;
         }
@@ -2219,7 +2256,7 @@ header {
       color: var(--theme-color);
       font-weight: bolder;
 
-      >div {
+      > div {
         margin-top: -6px;
       }
 
@@ -2307,7 +2344,11 @@ header {
       }
 
       @include mq-max(2xl) {
-        @include flex_common($dis: flex, $align: center, $justify: space-between);
+        @include flex_common(
+          $dis: flex,
+          $align: center,
+          $justify: space-between
+        );
         margin-left: 25px;
         float: right;
 
@@ -2357,7 +2398,7 @@ header {
           z-index: 0;
           cursor: pointer;
 
-          :not(.btn-check)+&:active {
+          :not(.btn-check) + &:active {
             background-color: transparent;
             color: $content-color;
           }
@@ -2505,7 +2546,7 @@ header {
           }
         }
 
-        +.dropdown {
+        + .dropdown {
           margin-left: 23px;
 
           &::after {
@@ -2532,7 +2573,10 @@ header {
       align-items: center;
 
       .header-icon {
-        @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+        @include pseudowh(
+          $width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+          $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+        );
         @include flex_common;
         font-size: 18px;
         border: 1px solid $border-color;
@@ -2541,7 +2585,7 @@ header {
         padding: 0;
         position: relative;
 
-        +.header-icon {
+        + .header-icon {
           margin-left: 38px;
 
           &::after {
@@ -2576,7 +2620,7 @@ header {
           @include mq-max(xl) {
             display: flex;
 
-            +.header-icon {
+            + .header-icon {
               margin-left: 38px;
 
               &::after {
@@ -2611,16 +2655,16 @@ header {
     }
 
     .option-list {
-      >ul {
+      > ul {
         display: flex;
 
-        >li {
+        > li {
           position: relative;
 
           &:nth-of-type(5n-3) {
             display: none;
 
-            +li {
+            + li {
               margin-left: 0;
 
               &::after {
@@ -2633,7 +2677,7 @@ header {
             &:nth-of-type(5n-3) {
               display: block;
 
-              +li {
+              + li {
                 margin-left: 22px;
 
                 body[dir='rtl'] & {
@@ -2654,7 +2698,7 @@ header {
             }
           }
 
-          +li {
+          + li {
             margin-left: 37px;
 
             body[dir='rtl'] & {
@@ -2695,7 +2739,10 @@ header {
           }
 
           .header-icon {
-            @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+            @include pseudowh(
+              $width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+              $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+            );
             @include flex_common;
             font-size: 18px;
             border: 1px solid $border-color;
@@ -2704,7 +2751,7 @@ header {
             padding: 10px;
             position: relative;
 
-            +.header-icon {
+            + .header-icon {
               margin-left: 38px;
 
               &::after {
@@ -2737,7 +2784,7 @@ header {
               @include mq-max(xl) {
                 display: flex;
 
-                +.header-icon {
+                + .header-icon {
                   margin-left: 38px;
 
                   &::after {
@@ -2766,7 +2813,9 @@ header {
 
             svg {
               color: $black;
-              font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                18px + (22 - 18) * ((100vw - 320px) / (1920 - 320))
+              );
             }
           }
         }
@@ -2780,7 +2829,10 @@ header {
         position: relative;
 
         .header-icon {
-          @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+          @include pseudowh(
+            $width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+            $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+          );
           @include flex_common;
           font-size: 18px;
           border: 1px solid $border-color;
@@ -2789,7 +2841,7 @@ header {
           padding: 10px;
           position: relative;
 
-          +.header-icon {
+          + .header-icon {
             margin-left: 38px;
 
             &::after {
@@ -2816,7 +2868,9 @@ header {
 
           svg {
             color: $black;
-            font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              18px + (22 - 18) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
 
@@ -2839,10 +2893,10 @@ header {
           }
         }
 
-        +li {
+        + li {
           margin-left: 37px;
 
-          body[dir="rtl"] & {
+          body[dir='rtl'] & {
             margin-left: unset;
             margin-right: 37px;
           }
@@ -2988,7 +3042,11 @@ header {
           .main-fire {
             @include pseudowh;
             position: absolute;
-            background-image: radial-gradient(farthest-corner at 10px 0, $white 0%, #ddd 95%);
+            background-image: radial-gradient(
+              farthest-corner at 10px 0,
+              $white 0%,
+              #ddd 95%
+            );
             transform: scaleX(0.8) rotate(45deg);
             border-radius: 0 40% 60% 40%;
           }
@@ -3076,13 +3134,14 @@ header {
       @include flex_common;
       border: none;
       background-color: transparent;
-      padding: 9px calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320))) 9px 0;
+      padding: 9px calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320))) 9px
+        0;
       position: relative;
 
       body[dir='rtl'] & {
         margin-left: 9px;
-        padding: 9px 0 9px calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320)));
-
+        padding: 9px 0 9px
+          calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320)));
       }
 
       @include mq-max(md) {
@@ -3149,7 +3208,10 @@ header {
       }
 
       @include mq-max(md) {
-        @include pseudowh($width: calc(300px + (320 - 300) * ((100vw - 320px) / (1920 - 320))), $height: 100vh);
+        @include pseudowh(
+          $width: calc(300px + (320 - 300) * ((100vw - 320px) / (1920 - 320))),
+          $height: 100vh
+        );
         position: fixed;
         top: 0;
         left: -320px;
@@ -3181,7 +3243,11 @@ header {
         display: none;
 
         @include mq-max(md) {
-          @include flex_common($dis: flex, $align: center, $justify: space-between);
+          @include flex_common(
+            $dis: flex,
+            $align: center,
+            $justify: space-between
+          );
           padding: 20px 24px;
           border-bottom: 1px solid $border-color;
           box-shadow: 0 2px 10px -3px rgba($title-color, 0.1);
@@ -3227,7 +3293,7 @@ header {
               margin-left: 10px;
               transition: all 0.3s ease-in-out;
 
-              body[dir="rtl"] & {
+              body[dir='rtl'] & {
                 margin-left: unset;
                 margin-right: 10px;
               }
@@ -3241,7 +3307,7 @@ header {
                 opacity: 0.5;
                 transition: all 0.3s ease-in-out;
 
-                body[dir="rtl"] & {
+                body[dir='rtl'] & {
                   left: unset;
                   right: 0;
                 }
@@ -3319,7 +3385,7 @@ header {
         margin-right: 0;
       }
 
-      +li {
+      + li {
         .dropdown {
           margin-left: 20px;
 
@@ -3365,7 +3431,7 @@ header {
           .dropdown-list {
             display: block;
 
-            +.dropdown-list {
+            + .dropdown-list {
               margin-top: 10px;
               text-overflow: ellipsis;
               white-space: nowrap;
@@ -3580,7 +3646,6 @@ header {
           color: #fff;
           -webkit-text-fill-color: #fff;
         }
-
       }
     }
 
@@ -3673,7 +3738,11 @@ header {
       }
 
       @include mq-max(2xl) {
-        @include flex_common($dis: flex, $align: center, $justify: space-between);
+        @include flex_common(
+          $dis: flex,
+          $align: center,
+          $justify: space-between
+        );
         margin-left: 25px;
         float: right;
 
@@ -3813,7 +3882,12 @@ header {
 
             @include mq-max(lg) {
               @include flex_common;
-              @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+              @include pseudowh(
+                $width:
+                  calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+                $height:
+                  calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+              );
               margin-right: 0;
             }
           }
@@ -3907,7 +3981,7 @@ header {
           }
         }
 
-        +.dropdown {
+        + .dropdown {
           margin-left: 23px;
 
           &::after {
@@ -3934,7 +4008,10 @@ header {
       align-items: center;
 
       .header-icon {
-        @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+        @include pseudowh(
+          $width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+          $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+        );
         @include flex_common;
         font-size: 18px;
         border: 1px solid $border-color;
@@ -3943,7 +4020,7 @@ header {
         padding: 10px;
         position: relative;
 
-        +.header-icon {
+        + .header-icon {
           margin-left: 38px;
 
           &::after {
@@ -3978,7 +4055,7 @@ header {
           @include mq-max(xl) {
             display: flex;
 
-            +.header-icon {
+            + .header-icon {
               margin-left: 38px;
 
               &::after {
@@ -4021,10 +4098,10 @@ header {
         &:nth-of-type(5n-4) {
           display: none;
 
-          +li {
+          + li {
             margin-left: 0;
 
-            body[dir="rtl"] & {
+            body[dir='rtl'] & {
               margin-left: unset;
               margin-right: 0;
             }
@@ -4039,10 +4116,10 @@ header {
           &:nth-of-type(5n-4) {
             display: block;
 
-            +li {
+            + li {
               margin-left: 22px;
 
-              body[dir="rtl"] & {
+              body[dir='rtl'] & {
                 margin-left: unset;
                 margin-right: 22px;
               }
@@ -4061,7 +4138,10 @@ header {
         }
 
         .header-icon {
-          @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+          @include pseudowh(
+            $width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+            $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+          );
           @include flex_common;
           font-size: 18px;
           border: 1px solid $border-color;
@@ -4075,7 +4155,7 @@ header {
             background-color: transparent;
           }
 
-          +.header-icon {
+          + .header-icon {
             margin-left: 38px;
 
             &::after {
@@ -4110,7 +4190,9 @@ header {
 
           svg {
             color: $black;
-            font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              18px + (22 - 18) * ((100vw - 320px) / (1920 - 320))
+            );
 
             @include mq-max(xl) {
               color: $white;
@@ -4122,7 +4204,7 @@ header {
           }
         }
 
-        +li {
+        + li {
           margin-left: 37px;
 
           body[dir='rtl'] & {
@@ -4228,7 +4310,10 @@ header {
       }
 
       .header-icon {
-        @include pseudowh($width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))));
+        @include pseudowh(
+          $width: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320))),
+          $height: calc(35px + (46 - 35) * ((100vw - 320px) / (1920 - 320)))
+        );
         @include flex_common;
         font-size: 18px;
         border: 1px solid $border-color;
@@ -4404,7 +4489,11 @@ header {
           .main-fire {
             @include pseudowh;
             position: absolute;
-            background-image: radial-gradient(farthest-corner at 10px 0, $white 0%, #ddd 95%);
+            background-image: radial-gradient(
+              farthest-corner at 10px 0,
+              $white 0%,
+              #ddd 95%
+            );
             transform: scaleX(0.8) rotate(45deg);
             border-radius: 0 40% 60% 40%;
           }
@@ -4528,7 +4617,7 @@ header {
         margin-right: 0;
       }
 
-      +li {
+      + li {
         .dropdown {
           margin-left: 20px;
 
@@ -4574,7 +4663,7 @@ header {
           .dropdown-list {
             display: block;
 
-            +.dropdown-list {
+            + .dropdown-list {
               margin-top: 10px;
               text-overflow: ellipsis;
               white-space: nowrap;
@@ -4621,7 +4710,7 @@ header {
           transform: unset;
           left: 0;
 
-          body[dir="rtl"] & {
+          body[dir='rtl'] & {
             left: unset;
             right: 0;
           }
@@ -4673,8 +4762,11 @@ header {
   z-index: 1001;
   width: 360px;
   border-radius: 10px;
-  padding: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320))) calc(11px + (20 - 11) * ((100vw - 320px) / (1920 - 320)));
-  box-shadow: -1px 0 10px 0 rgba($title-color, 0.07), 5px 20px 40px 0 rgba($title-color, 0.04);
+  padding: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)))
+    calc(11px + (20 - 11) * ((100vw - 320px) / (1920 - 320)));
+  box-shadow:
+    -1px 0 10px 0 rgba($title-color, 0.07),
+    5px 20px 40px 0 rgba($title-color, 0.04);
   opacity: 0;
   transition: all 0.3s ease-in-out;
   visibility: hidden;
@@ -4686,7 +4778,7 @@ header {
   }
 
   .cart-list {
-    >li {
+    > li {
       .drop-cart {
         .drop-contain {
           h5 {
@@ -4714,7 +4806,7 @@ header {
         display: block;
         width: 100%;
 
-        +li {
+        + li {
           padding-top: 8px;
           margin-top: 8px;
           border-top: 1px solid #eee;
@@ -4749,7 +4841,11 @@ header {
   }
 
   .cart-list {
-    @include flex_wrap($dis: flex, $wrap: wrap, $gap: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320))));
+    @include flex_wrap(
+      $dis: flex,
+      $wrap: wrap,
+      $gap: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)))
+    );
     max-height: 300px;
     overflow: auto;
     padding-right: 6px;
@@ -4771,11 +4867,11 @@ header {
       opacity: 0.44;
     }
 
-    >li {
+    > li {
       margin: 0;
       width: 100%;
 
-      +li {
+      + li {
         margin-top: 10px;
         padding-top: 10px;
         border-top: 1px solid $border-color;
@@ -4811,7 +4907,9 @@ header {
           h5 {
             @include line;
             margin-bottom: 5px;
-            font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+            );
             color: #1e1e1e;
             font-weight: 500;
           }
@@ -4837,7 +4935,7 @@ header {
             bottom: 0;
             right: 0;
 
-            body[dir="rtl"] & {
+            body[dir='rtl'] & {
               right: unset;
               left: 0;
             }

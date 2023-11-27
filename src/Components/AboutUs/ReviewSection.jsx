@@ -21,20 +21,30 @@ const ReviewSection = () => {
         </div>
         <Row>
           <Col xs='12'>
-            <Slider className='slider-4-half product-wrapper' {...reviewSectionSlider}>
+            <Slider
+              className='slider-4-half product-wrapper'
+              {...reviewSectionSlider}
+            >
               {testimonialsData.map((data, index) => (
                 <div className='reviewer-box' key={index}>
                   <div className='icon'>
                     <RiDoubleQuotesR />
                   </div>
                   <div className='product-rating'>
-                    <ProductBox1Rating totalRating={Math.floor(Math.random() * 5) + 1} />
+                    <ProductBox1Rating
+                      totalRating={Math.floor(Math.random() * 5) + 1}
+                    />
                   </div>
                   <h3>{t(data.short_description)}</h3>
                   <p>{t(data.description)}</p>
                   <div className='reviewer-profile'>
                     <div className='reviewer-image'>
-                      <Image height={74.53} width={74.53} src={data.profile_image} alt={data?.name} />
+                      <Image
+                        height={74.53}
+                        width={74.53}
+                        src={data.profile_image}
+                        alt={data?.name}
+                      />
                     </div>
                     <div className='reviewer-name'>
                       <h4>{data.name}</h4>

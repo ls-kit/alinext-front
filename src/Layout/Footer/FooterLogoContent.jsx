@@ -28,7 +28,10 @@ const FooterLogoContent = () => {
       logo = { original_url: RomeLogo };
     } else if (pathName == `/${i18Lang}/theme/madrid`) {
       logo = { original_url: MadridLogo };
-    } else if (pathName == `/${i18Lang}/theme/berlin` || pathName == `/${i18Lang}/theme/denver`) {
+    } else if (
+      pathName == `/${i18Lang}/theme/berlin` ||
+      pathName == `/${i18Lang}/theme/denver`
+    ) {
       logo = { original_url: OtherLogo };
     } else {
       logo = themeOption?.logo?.footer_logo;
@@ -39,11 +42,23 @@ const FooterLogoContent = () => {
     <Col xl={3} sm={6}>
       <div className='footer-logo'>
         <div className='theme-logo'>
-          <Link href='/'>{logoAbc ? <Avatar data={logoAbc} placeHolder={placeHolderImage} name={'Footer'} height={28} width={160} /> : null}</Link>
+          <Link href='/'>
+            {logoAbc ? (
+              <Avatar
+                data={logoAbc}
+                placeHolder={placeHolderImage}
+                name={'Footer'}
+                height={28}
+                width={160}
+              />
+            ) : null}
+          </Link>
         </div>
 
         <div className='footer-logo-contain'>
-          {themeOption?.footer?.footer_about && <p>{themeOption?.footer?.footer_about}</p>}
+          {themeOption?.footer?.footer_about && (
+            <p>{themeOption?.footer?.footer_about}</p>
+          )}
 
           <ul className='address'>
             {themeOption?.footer?.about_address && (
@@ -57,7 +72,10 @@ const FooterLogoContent = () => {
             {themeOption?.footer?.about_email && (
               <li>
                 <RiMailLine />
-                <Link href={`mailto:${themeOption?.footer?.about_email}`} target='_blank'>
+                <Link
+                  href={`mailto:${themeOption?.footer?.about_email}`}
+                  target='_blank'
+                >
                   {themeOption?.footer?.about_email}
                 </Link>
               </li>

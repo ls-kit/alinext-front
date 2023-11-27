@@ -8,7 +8,10 @@ import SellerSelling from './SellerSelling';
 const BecomeSellerContent = () => {
   return (
     <>
-      <Breadcrumb title={'BecomeVendor'} subNavigation={[{ name: 'BecomeVendor' }]} />
+      <Breadcrumb
+        title={'BecomeVendor'}
+        subNavigation={[{ name: 'BecomeVendor' }]}
+      />
       <SellerPoster />
       <SellerService />
       <SellerBusiness />

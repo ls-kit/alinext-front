@@ -21,7 +21,10 @@ const RightSideHeader = ({ noContactUs, wishListIcon }) => {
         <li className='right-side'>
           <div className='delivery-login-box'>
             <div className='delivery-icon'>
-              <div className='search-box' onClick={() => router.push(`/${i18Lang}/search`)}>
+              <div
+                className='search-box'
+                onClick={() => router.push(`/${i18Lang}/search`)}
+              >
                 <RiSearchLine />
               </div>
             </div>
@@ -32,7 +35,10 @@ const RightSideHeader = ({ noContactUs, wishListIcon }) => {
         <HeaderCart />
         <HeaderProfile />
       </ul>
-      <div className={`bg-overlay  ${cartCanvas ? 'show' : ''}`} onClick={() => setCartCanvas((prev) => !prev)} />
+      <div
+        className={`bg-overlay  ${cartCanvas ? 'show' : ''}`}
+        onClick={() => setCartCanvas((prev) => !prev)}
+      />
     </div>
   );
 };

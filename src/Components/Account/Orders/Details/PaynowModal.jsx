@@ -11,7 +11,15 @@ import { handleModifier } from '@/Utils/Validation/ModifiedErrorMessage';
 const PaynowModal = ({ modal, setModal, params }) => {
   const { settingData } = useContext(SettingContext);
   return (
-    <CustomModal modal={modal} setModal={setModal} classes={{ modalClass: 'theme-modal', modalBodyClass: 'address-form', title: `PayNow` }}>
+    <CustomModal
+      modal={modal}
+      setModal={setModal}
+      classes={{
+        modalClass: 'theme-modal',
+        modalBodyClass: 'address-form',
+        title: `PayNow`,
+      }}
+    >
       <Formik
         initialValues={{ payment_method: '' }}
         validationSchema={YupObject({
@@ -20,8 +28,9 @@ const PaynowModal = ({ modal, setModal, params }) => {
         onSubmit={(values) => {
           // Add your logic here
           values['order_number'] = params;
-          setModal(false)
-        }}>
+          setModal(false);
+        }}
+      >
         {({ values, setFieldValue }) => (
           <Form>
             <div className='checkout-box'>
@@ -38,9 +47,14 @@ const PaynowModal = ({ modal, setModal, params }) => {
                               name='payment_method'
                               value={payment.name}
                               id={payment.name}
-                              onChange={() => setFieldValue('payment_method', payment.name)}
+                              onChange={() =>
+                                setFieldValue('payment_method', payment.name)
+                              }
                             />
-                            <Label className='form-check-label' htmlFor={payment.name}>
+                            <Label
+                              className='form-check-label'
+                              htmlFor={payment.name}
+                            >
                               {ModifyString(payment.name, 'upper')}
                             </Label>
                           </div>
@@ -51,10 +65,25 @@ const PaynowModal = ({ modal, setModal, params }) => {
                 </Row>
               </div>
             </div>
-            <ErrorMessage name={'payment_method'} render={(msg) => <div className='invalid-feedback d-block'>{handleModifier(msg)}</div>} />
+            <ErrorMessage
+              name={'payment_method'}
+              render={(msg) => (
+                <div className='invalid-feedback d-block'>
+                  {handleModifier(msg)}
+                </div>
+              )}
+            />
             <div className='modal-footer'>
-              <Btn title='Cancel' className='btn-md btn-theme-outline fw-bold' onClick={() => setModal(false)} />
-              <Btn title='Submit' type='submit' className='btn-md fw-bold text-light theme-bg-color' />
+              <Btn
+                title='Cancel'
+                className='btn-md btn-theme-outline fw-bold'
+                onClick={() => setModal(false)}
+              />
+              <Btn
+                title='Submit'
+                type='submit'
+                className='btn-md fw-bold text-light theme-bg-color'
+              />
             </div>
           </Form>
         )}

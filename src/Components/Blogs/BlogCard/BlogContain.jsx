@@ -32,7 +32,10 @@ const BlogContain = ({ blog }) => {
       </Link>
       <TextLimit value={blog?.description} maxLength={200} tag='p' />
       {themeOption?.blog?.read_more_enable && (
-        <Btn className='blog-button' onClick={() => router.push(`/${i18Lang}/blogs/${blog.slug}`)}>
+        <Btn
+          className='blog-button'
+          onClick={() => router.push(`/${i18Lang}/blogs/${blog.slug}`)}
+        >
           {t('ReadMore')} <RiArrowRightFill />
         </Btn>
       )}

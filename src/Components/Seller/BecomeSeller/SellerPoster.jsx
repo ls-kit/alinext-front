@@ -7,11 +7,22 @@ import Image from 'next/image';
 const SellerPoster = () => {
   const { themeOption } = useContext(ThemeOptionContext);
   return (
-    <WrapperComponent classes={{ sectionClass: 'seller-poster-section' }} customCol={true}>
+    <WrapperComponent
+      classes={{ sectionClass: 'seller-poster-section' }}
+      customCol={true}
+    >
       <Col xs={12}>
         <div className='poster-box'>
           <div className='poster-image'>
-            {themeOption?.seller?.about?.image_url && <Image src={themeOption?.seller?.about?.image_url} height={438} width={512} alt={themeOption?.seller?.about?.title || 'Seller'} className='w-100'/>}
+            {themeOption?.seller?.about?.image_url && (
+              <Image
+                src={themeOption?.seller?.about?.image_url}
+                height={438}
+                width={512}
+                alt={themeOption?.seller?.about?.title || 'Seller'}
+                className='w-100'
+              />
+            )}
           </div>
         </div>
       </Col>

@@ -11,7 +11,9 @@ const SellerSelling = () => {
   const router = useRouter();
   const { i18Lang } = useContext(I18NextContext);
   return (
-    <WrapperComponent classes={{ sectionClass: 'selling-section section-b-space' }}>
+    <WrapperComponent
+      classes={{ sectionClass: 'selling-section section-b-space' }}
+    >
       <div className='vendor-title'>
         <h5>{themeOption?.seller?.start_selling?.title}</h5>
         <p>{themeOption?.seller?.start_selling?.description}</p>
@@ -25,7 +27,12 @@ const SellerSelling = () => {
             <Input type='number' placeholder='Phone Number'></Input>
           </Col>
         </Row>
-        <Btn title="Start Selling" type="button" className='text-light theme-bg-color d-inline-block mt-3' onClick={()=>router.push(`/${i18Lang}/auth/register`)} />
+        <Btn
+          title='Start Selling'
+          type='button'
+          className='text-light theme-bg-color d-inline-block mt-3'
+          onClick={() => router.push(`/${i18Lang}/auth/register`)}
+        />
       </Form>
     </WrapperComponent>
   );

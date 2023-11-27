@@ -11,7 +11,8 @@ const BlogSkeletonComponent = ({ queryBoxStyle }) => {
           xxl={queryBoxStyle !== 'list_view' && 4}
           sm={queryBoxStyle !== 'list_view' && 6}
           className={`${queryBoxStyle == 'list_view' ? 'list_view' : ''}`}
-          key={i}>
+          key={i}
+        >
           <SkBlogGrid />
         </Col>
       ))}

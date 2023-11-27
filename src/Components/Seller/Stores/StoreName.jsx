@@ -23,7 +23,10 @@ const StoreName = ({ elem, classicImage }) => {
           </div>
         </div>
         {classicImage && (
-          <Link href={`/${i18Lang}/seller/stores/${elem?.slug}`} className='btn btn-sm theme-bg-color text-white fw-bold d-inline-flex'>
+          <Link
+            href={`/${i18Lang}/seller/stores/${elem?.slug}`}
+            className='btn btn-sm theme-bg-color text-white fw-bold d-inline-flex'
+          >
             {t('VisitStore')}
             <RiArrowRightLine className='ms-2' />
           </Link>

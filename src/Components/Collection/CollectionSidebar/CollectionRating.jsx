@@ -4,12 +4,25 @@ import { useCustomSearchParams } from '@/Utils/Hooks/useCustomSearchParams';
 import { useTranslation } from '@/app/i18n/client';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useContext } from 'react';
-import { AccordionBody, AccordionHeader, AccordionItem, Input } from 'reactstrap';
+import {
+  AccordionBody,
+  AccordionHeader,
+  AccordionItem,
+  Input,
+} from 'reactstrap';
 
 const CollectionRating = ({ filter, setFilter, attributeAPIData }) => {
   const RatingNumber = Array.from({ length: 5 }, (_, i) => i + 1).reverse();
   const router = useRouter();
-  const [category, attribute, price, sortBy, field, layout] = useCustomSearchParams(['category', 'attribute', 'price', 'sortBy', 'field', 'layout']);
+  const [category, attribute, price, sortBy, field, layout] =
+    useCustomSearchParams([
+      'category',
+      'attribute',
+      'price',
+      'sortBy',
+      'field',
+      'layout',
+    ]);
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const pathname = usePathname();
@@ -33,10 +46,25 @@ const CollectionRating = ({ filter, setFilter, attributeAPIData }) => {
       };
     });
     if (temp.length > 0) {
-      const queryParams = new URLSearchParams({ ...category, ...attribute, ...price, ...sortBy, ...field, ...layout, rating: temp }).toString();
+      const queryParams = new URLSearchParams({
+        ...category,
+        ...attribute,
+        ...price,
+        ...sortBy,
+        ...field,
+        ...layout,
+        rating: temp,
+      }).toString();
       router.push(`${pathname}?${queryParams}`);
     } else {
-      const queryParams = new URLSearchParams({ ...category, ...attribute, ...price, ...sortBy, ...field, ...layout }).toString();
+      const queryParams = new URLSearchParams({
+        ...category,
+        ...attribute,
+        ...price,
+        ...sortBy,
+        ...field,
+        ...layout,
+      }).toString();
       router.push(`${pathname}?${queryParams}`);
     }
   };
@@ -50,7 +78,13 @@ const CollectionRating = ({ filter, setFilter, attributeAPIData }) => {
           {RatingNumber.map((elem, i) => (
             <li key={i}>
               <div className='form-check m-0 category-list-box'>
-                <Input className='checkbox_animated' type='checkbox' value={elem} checked={checkRating(elem.toString())} onChange={applyRating} />
+                <Input
+                  className='checkbox_animated'
+                  type='checkbox'
+                  value={elem}
+                  checked={checkRating(elem.toString())}
+                  onChange={applyRating}
+                />
                 <div className='form-check-label'>
                   <ProductBox1Rating totalRating={elem} />
                   <span className='text-content'>
