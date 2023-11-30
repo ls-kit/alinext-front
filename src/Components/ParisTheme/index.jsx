@@ -11,6 +11,7 @@ import ThemeOptionContext from '@/Helper/ThemeOptionsContext';
 import StickyCart from '@/Layout/StickyCart';
 import ProductIdsContext from '@/Helper/ProductIdsContext';
 import Loader from '@/Layout/Loader';
+import { ProductService } from '@/service/product/product.service';
 
 const ParisTheme = () => {
   const { setGetProductIds, isLoading: productLoader } =
@@ -25,7 +26,20 @@ const ParisTheme = () => {
       select: (res) => res?.data,
     },
   );
+
+  const getProductsData = async () => {
+    try {
+      const productService = await ProductService.findAll();
+      const response = productService.data;
+      console.log("product", response);
+    } catch (error) {
+      console.log("error", error);
+    }
+
+  }
+
   useEffect(() => {
+    getProductsData();
     refetch();
   }, []);
 
