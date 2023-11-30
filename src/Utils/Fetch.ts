@@ -1,20 +1,20 @@
-import axios from "axios";
-import { AppConfig } from "../config/app.config";
+import axios from 'axios';
+import { AppConfig } from '../config/app.config';
 
 const config = {
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 };
 
-type AdapterOption = "fetch" | "axios";
+type AdapterOption = 'fetch' | 'axios';
 
 /**
  * Custom fetch class
  */
 export class Fetch {
-  private static _baseUrl = `${AppConfig().app.apiUrl}`;
-  private static _adapter: AdapterOption = "axios";
+  public static _baseUrl = `${AppConfig().app.apiUrl}`;
+  private static _adapter: AdapterOption = 'axios';
 
   /**
    * Set adapter.
@@ -32,7 +32,7 @@ export class Fetch {
    * @returns
    */
   static async get(url: string, header?: any) {
-    if (this._adapter == "axios") {
+    if (this._adapter == 'axios') {
       return await axios.get(`${this._baseUrl}${url}`, header);
     } else {
       const res = await fetch(`${this._baseUrl}${url}`, header);
@@ -48,12 +48,12 @@ export class Fetch {
    * @returns
    */
   static async post(url: string, data: any, header?: any) {
-    if (this._adapter == "axios") {
+    if (this._adapter == 'axios') {
       return await axios.post(`${this._baseUrl}${url}`, data, header);
     } else {
       const res = await fetch(`${this._baseUrl}${url}`, {
         ...header,
-        method: "POST",
+        method: 'POST',
         body: data,
       });
       return await res.json();
@@ -68,12 +68,12 @@ export class Fetch {
    * @returns
    */
   static async put(url: string, data: any, header?: any) {
-    if (this._adapter == "axios") {
+    if (this._adapter == 'axios') {
       return await axios.put(`${this._baseUrl}${url}`, data, header);
     } else {
       const res = await fetch(`${this._baseUrl}${url}`, {
         ...header,
-        method: "PUT",
+        method: 'PUT',
         body: data,
       });
       return await res.json();
@@ -88,12 +88,12 @@ export class Fetch {
    * @returns
    */
   static async patch(url: string, data: any, header?: any) {
-    if (this._adapter == "axios") {
+    if (this._adapter == 'axios') {
       return await axios.patch(`${this._baseUrl}${url}`, data, header);
     } else {
       const res = await fetch(`${this._baseUrl}${url}`, {
         ...header,
-        method: "PATCH",
+        method: 'PATCH',
         body: data,
       });
       return await res.json();
@@ -107,12 +107,12 @@ export class Fetch {
    * @returns
    */
   static async delete(url: string, header?: any) {
-    if (this._adapter == "axios") {
+    if (this._adapter == 'axios') {
       return await axios.delete(`${this._baseUrl}${url}`, header);
     } else {
       const res = await fetch(`${this._baseUrl}${url}`, {
         ...header,
-        method: "DELETE",
+        method: 'DELETE',
       });
       return await res.json();
     }
