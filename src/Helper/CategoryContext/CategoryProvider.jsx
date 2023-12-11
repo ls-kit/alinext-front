@@ -15,13 +15,15 @@ const CategoryProvider = (props) => {
     [CategoryAPI],
     () =>
       request({
-        url: CategoryAPI,
+        // url: CategoryAPI,
+        url: 'http://localhost:4000/api/product/category-list',
         params: { ...categoryAPIData.params, status: 1 },
       }),
     {
       enabled: true,
       refetchOnWindowFocus: false,
-      select: (data) => data.data.data,
+      // select: (data) => data.data.data,
+      select: (data) => data?.data?.CategoryInfoList?.Content?.slice(0, 20),
     },
   );
   const filterCategory = (value) => {
