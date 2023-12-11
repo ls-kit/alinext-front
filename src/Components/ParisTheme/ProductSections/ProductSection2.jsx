@@ -8,16 +8,19 @@ import CategoryContext from '@/Helper/CategoryContext';
 import { useTranslation } from '@/app/i18n/client';
 import I18NextContext from '@/Helper/I18NextContext';
 
+
+
 const ProductSection2 = ({
   dataAPI,
   isHeadingVisible = false,
   classes = {},
   svgUrl,
 }) => {
-  const { filterCategory } = useContext(CategoryContext);
+  const { filterCategory, categoryAPIData } = useContext(CategoryContext);
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
-  const categoryData = filterCategory('product');
+  // const categoryData = filterCategory('product');
+  const categoryData = categoryAPIData?.data
   return (
     <>
       {isHeadingVisible ? (
@@ -34,18 +37,18 @@ const ProductSection2 = ({
       <div className='category-slider-2 product-wrapper no-arrow'>
         <Slider {...classes?.sliderOption}>
           {categoryData?.map((elem) => (
-            <div key={elem.id}>
+            <div key={elem.Id}>
               <Link
-                href={`/${i18Lang}/collections?category=${elem?.slug}`}
+                href={`/${i18Lang}/collections?category=${elem?.Id}`}
                 className={`category-box ${classes?.link} category-dark`}
               >
                 <div>
                   <Avatar
                     data={elem?.category_icon}
                     placeHolder={placeHolderImage}
-                    name={elem.name}
+                    name={elem.Name}
                   />
-                  <h5>{elem.name}</h5>
+                  <h5>{elem.Name}</h5>
                 </div>
               </Link>
             </div>

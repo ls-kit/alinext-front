@@ -16,7 +16,7 @@ const ProductBox1 = ({
   imgUrl,
   productDetail,
   isClose,
-  addAction = true,
+  addAction = false,
   classObj,
   setWishlistState,
 }) => {
@@ -25,6 +25,7 @@ const ProductBox1 = ({
   const handelDelete = (currObj) => {
     setWishlistState((prev) => prev.filter((elem) => elem.id !== currObj?.id));
   };
+  console.log({ productDetail });
   return (
     <div className={`product-box ${classObj?.productBoxClass}`}>
       <ProductBagde productDetail={productDetail} />
@@ -39,12 +40,12 @@ const ProductBox1 = ({
         </div>
       )}
       <div className='product-image'>
-        <Link href={`/${i18Lang}/product/${productDetail?.slug}`}>
+        <Link href={`/${i18Lang}/product/${productDetail?.Id}`}>
           <Avatar
-            data={imgUrl}
+            data={{ original_url: imgUrl }}
             placeHolder={placeHolderImage}
             customeClass={'img-fluid'}
-            name={productDetail.title}
+            name={productDetail.Title}
             height={500}
             width={500}
           />
@@ -55,22 +56,22 @@ const ProductBox1 = ({
         />
       </div>
       <div className='product-detail'>
-        <Link href={`/${i18Lang}/product/${productDetail?.slug}`}>
-          <h6 className='name'>{productDetail.name}</h6>
+        <Link href={`/${i18Lang}/product/${productDetail?.Id}`}>
+          <h6 className='name'>{productDetail.OriginalTitle}</h6>
           <p
             dangerouslySetInnerHTML={{
               __html: productDetail?.short_description,
             }}
           />
         </Link>
-        {productDetail?.unit && (
+        {!productDetail?.unit && (
           <h6 className='unit mt-1'>{productDetail?.unit}</h6>
         )}
         <h5 className='sold text-content'>
           <span className='theme-color price'>
-            {convertCurrency(productDetail?.sale_price)}
+            {convertCurrency(productDetail?.Price?.OriginalPrice)}
           </span>
-          <del>{convertCurrency(productDetail?.price)}</del>
+          <del>{convertCurrency(productDetail?.Price?.MarginPrice)}</del>
         </h5>
 
         <div className='product-rating mt-sm-2 mt-1'>

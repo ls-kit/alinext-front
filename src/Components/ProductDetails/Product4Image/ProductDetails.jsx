@@ -9,6 +9,7 @@ const ProductDetails = ({ productState }) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const { convertCurrency } = useContext(SettingContext);
+  console.log("dddddd", productState)
   return (
     <>
       <CustomerOrderCount productState={productState} />

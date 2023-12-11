@@ -36,7 +36,7 @@ module.exports = (phase) => {
   };
 
   const images = {
-    domains: ['react.pixelstrap.net'],
+    domains: ['react.pixelstrap.net', 'cbu01.alicdn.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -44,7 +44,6 @@ module.exports = (phase) => {
       },
     ],
   };
-
   return {
     env,
     redirects,

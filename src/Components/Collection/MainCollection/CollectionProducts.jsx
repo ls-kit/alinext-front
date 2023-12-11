@@ -11,14 +11,16 @@ import noProduct from '../../../../public/assets/svg/no-product.svg';
 import ProductSkeletonComponent from '@/Components/Common/SkeletonLoader/ProductSkeleton/ProductSkeletonComponent';
 
 const CollectionProducts = ({ filter, grid }) => {
-  const { slug } = useParams();
+  const categoryId = filter?.category[0];
+  const slug = useParams();
   const [page, setPage] = useState(1);
 
   const { data, fetchStatus } = useQuery(
     [page, filter],
     () =>
       request({
-        url: ProductAPI,
+        // url: ProductAPI,
+        url: `http://localhost:4000/api/product/${categoryId}`,
         params: {
           page,
           status: 1,
@@ -36,7 +38,8 @@ const CollectionProducts = ({ filter, grid }) => {
     {
       enabled: true,
       refetchOnWindowFocus: false,
-      select: (data) => data.data,
+      // select: (data) => data.data,
+      select: (data) => data?.data?.Result?.Items?.Items?.Content,
     },
   );
   return (
@@ -65,15 +68,19 @@ const CollectionProducts = ({ filter, grid }) => {
             grid == 'list' ? 'list-style' : ''
           }`}
         >
-          {data?.map((product, i) => (
-            <Col key={i}>
-              <ProductBox1
-                imgUrl={product?.product_thumbnail}
-                productDetail={{ ...product }}
-                classObj={{ productBoxClass: 'product-box-3' }}
-              />
-            </Col>
-          ))}
+          {data?.map(
+            (product, i) => (
+              (
+                <Col key={i}>
+                  <ProductBox1
+                    imgUrl={product?.MainPictureUrl}
+                    productDetail={{ ...product }}
+                    classObj={{ productBoxClass: 'product-box-3' }}
+                  />
+                </Col>
+              )
+            ),
+          )}
         </Row>
       ) : (
         <NoDataFound
