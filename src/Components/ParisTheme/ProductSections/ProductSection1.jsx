@@ -7,7 +7,7 @@ import ProductBox1 from '@/Components/Common/ProductBox/ProductBox1/ProductBox1'
 
 const ProductSection1 = ({
   dataAPI,
-  ProductData,
+  // ProductData,
   svgUrl,
   noCustomClass = false,
   customClass,
@@ -15,18 +15,18 @@ const ProductSection1 = ({
   customSliderOption = productSliderOption,
   isHeadingVisible = true,
 }) => {
-  const filterProduct = useMemo(() => {
-    return ProductData?.filter((el) =>
-      dataAPI?.product_ids ? dataAPI?.product_ids?.includes(el.id) : el,
-    );
-  }, [ProductData, dataAPI]);
+  // const filterProduct = useMemo(() => {
+  //   return ProductData?.filter((el) =>
+  //     dataAPI?.product_ids ? dataAPI?.product_ids?.includes(el.id) : el,
+  //   );
+  // }, [ProductData, dataAPI]);
   return (
     <>
       {isHeadingVisible ? (
         <CustomHeading
-          title={dataAPI?.title}
+          title={'sports'}
           svgUrl={svgUrl}
-          subTitle={dataAPI?.description}
+          subTitle={''}
           customClass={
             customClass
               ? customClass
@@ -39,12 +39,12 @@ const ProductSection1 = ({
       <div className={`${classObj?.productStyle} overflow-hidden`}>
         <div className='no-arrow'>
           <Slider {...customSliderOption}>
-            {filterProduct?.map((elem) => (
-              <div key={elem?.id}>
+            {dataAPI?.map((elem) => (
+              <div key={elem?.product_code}>
                 <Row className='m-0'>
                   <Col xs={12} className='px-0'>
                     <ProductBox1
-                      imgUrl={elem?.product_thumbnail}
+                      imgUrl={elem?.img}
                       productDetail={{ ...elem }}
                       classObj={classObj}
                     />

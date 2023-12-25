@@ -16,9 +16,39 @@ import {
 } from '../../../Data/SliderSettingsData';
 import { LeafSVG } from '../Common/CommonSVG';
 import ProductIdsContext from '@/Helper/ProductIdsContext';
+import { section_products } from '@/Utils/AxiosUtils/API';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const ProductCard = ({ dataAPI }) => {
   const { filteredProduct } = useContext(ProductIdsContext);
+
+  // fetch section_one
+  const fetchSectionOne = async () => {
+    const result = axios.get(`${section_products}/section_one`);
+    return result;
+  };
+
+  // tanstack query
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['section_one'],
+    queryFn: fetchSectionOne,
+  });
+
+  if (isLoading) {
+    console.log('loading');
+    return <div>Loading</div>;
+  }
+
+  if (error) {
+    console.log('Error:', error.message);
+  }
+
+  console.log(data.data.data.products);
+  const parsedProducts = data.data.data.products;
+  const inJson = JSON.parse(parsedProducts);
+  console.log(inJson.Content);
+
   return (
     <Col
       xxl={dataAPI?.main_content?.sidebar?.status ? 9 : 12}
@@ -27,7 +57,8 @@ const ProductCard = ({ dataAPI }) => {
       {dataAPI?.main_content?.section1_products?.status &&
         dataAPI?.main_content?.section1_products?.product_ids.length > 0 && (
           <ProductSection1
-            dataAPI={dataAPI?.main_content?.section1_products}
+            // dataAPI={dataAPI?.main_content?.section1_products}
+            dataAPI={inJson.Content}
             ProductData={filteredProduct}
             svgUrl={<LeafSVG className='icon-width' />}
             noCustomClass={true}

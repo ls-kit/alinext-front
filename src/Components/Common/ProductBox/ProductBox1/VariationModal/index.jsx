@@ -17,7 +17,7 @@ const VariationModal = ({ productObj, variationModal, setVariationModal }) => {
   });
   return (
     <CustomModal
-      modal={productObj?.id == variationModal}
+      modal={productObj?.product_code == variationModal}
       setModal={setVariationModal}
       classes={{
         modalClass: 'view-modal modal-lg theme-modal',
@@ -32,12 +32,13 @@ const VariationModal = ({ productObj, variationModal, setVariationModal }) => {
         <Col lg='6'>
           <div className='right-sidebar-modal'>
             <RightVariationModal cloneVariation={cloneVariation} />
-            {cloneVariation?.product && productObj?.id == variationModal && (
-              <ProductAttribute
-                productState={cloneVariation}
-                setProductState={setCloneVariation}
-              />
-            )}
+            {cloneVariation?.product &&
+              productObj?.product_code == variationModal && (
+                <ProductAttribute
+                  productState={cloneVariation}
+                  setProductState={setCloneVariation}
+                />
+              )}
             <div className='modal-bottom-cart'>
               <VariationModalQty
                 cloneVariation={cloneVariation}

@@ -42,6 +42,10 @@ module.exports = (phase) => {
         protocol: 'https',
         hostname: 'react.pixelstrap.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'cbu01.alicdn.com',
+      },
     ],
   };
 

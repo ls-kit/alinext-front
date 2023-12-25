@@ -11,11 +11,11 @@ const Avatar = ({
 }) => {
   return (
     <>
-      {data?.original_url ? (
+      {data? (
         <div className={`${customeClass ? customeClass : ''}`}>
           <Image
             className={customImageClass ? customImageClass : ''}
-            src={data?.original_url}
+            src={data}
             height={height || 50}
             width={width || 50}
             alt={name?.name || name || ''}
