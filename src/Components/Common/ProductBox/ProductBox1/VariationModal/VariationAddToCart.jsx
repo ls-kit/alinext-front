@@ -10,13 +10,13 @@ const VariationAddToCart = ({ cloneVariation, setVariationModal }) => {
   const { t } = useTranslation(i18Lang, 'common');
   const { cartProducts, handleIncDec } = useContext(CartContext);
   const productInStock = cloneVariation?.selectedVariation
-    ? cloneVariation?.selectedVariation?.stock_status == 'in_stock'
-    : cloneVariation?.product?.stock_status == 'in_stock';
+    ? cloneVariation?.selectedVariation?.stock > 0
+    : cloneVariation?.product?.stock > 0;
 
   const addToCart = (allProduct) => {
     if (cloneVariation?.selectedVariation) {
       handleIncDec(
-        cloneVariation.productQty,
+        cloneVariation.stock,
         allProduct,
         false,
         false,
@@ -25,7 +25,7 @@ const VariationAddToCart = ({ cloneVariation, setVariationModal }) => {
       );
       setVariationModal(false);
     } else {
-      handleIncDec(cloneVariation.productQty, allProduct, false, false, false);
+      handleIncDec(cloneVariation.stock, allProduct, false, false, false);
       setVariationModal(false);
     }
   };
@@ -35,8 +35,8 @@ const VariationAddToCart = ({ cloneVariation, setVariationModal }) => {
         className='btn btn-md fw-bold icon text-white theme-bg-color view-button text-uppercase'
         disabled={
           (cloneVariation?.selectedVariation &&
-            cloneVariation?.selectedVariation?.stock_status !== 'in_stock') ||
-          (cloneVariation?.product?.stock_status !== 'in_stock' && true)
+            cloneVariation?.selectedVariation?.stock !== 'in_stock') ||
+          (cloneVariation?.product?.stock !== 'in_stock' && true)
         }
         onClick={() => addToCart(cloneVariation.product)}
       >

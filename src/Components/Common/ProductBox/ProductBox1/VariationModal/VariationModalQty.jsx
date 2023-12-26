@@ -10,8 +10,8 @@ const VariationModalQty = ({ cloneVariation, setCloneVariation }) => {
     if (cloneVariation?.selectedVariation) {
       setCloneVariation((prevState) => {
         const tempSelectedVariation = { ...prevState.selectedVariation };
-        tempSelectedVariation.stock_status =
-          tempSelectedVariation.quantity < prevState.productQty
+        tempSelectedVariation.stock =
+          tempSelectedVariation.stock < prevState.stock
             ? 'out_of_stock'
             : 'in_stock';
         return {
@@ -22,10 +22,8 @@ const VariationModalQty = ({ cloneVariation, setCloneVariation }) => {
     } else {
       setCloneVariation((prevState) => {
         const tempProduct = { ...prevState.product };
-        tempProduct.stock_status =
-          tempProduct.quantity < prevState.productQty
-            ? 'out_of_stock'
-            : 'in_stock';
+        tempProduct.stock =
+          tempProduct.stock < prevState.stock ? 'out_of_stock' : 'in_stock';
         return {
           ...prevState,
           product: tempProduct,
@@ -34,28 +32,28 @@ const VariationModalQty = ({ cloneVariation, setCloneVariation }) => {
     }
   };
   const updateQuantity = (qty) => {
-    if (1 > cloneVariation?.productQty + qty) return;
+    if (1 > cloneVariation?.stock + qty) return;
 
     setCloneVariation((prev) => {
-      return { ...prev, productQty: cloneVariation?.productQty + qty };
+      return { ...prev, stock: cloneVariation?.stock + qty };
     });
     checkStockAvailable();
   };
   useEffect(() => {
     if (cartProducts.length > 0) {
       const foundProduct = cartProducts.find(
-        (elem) => elem.product_id === cloneVariation?.product?.id,
+        (elem) => elem.product_code === cloneVariation?.product?.product_code,
       );
       if (foundProduct) {
         setCloneVariation({
           ...cloneVariation,
-          productQty: foundProduct?.quantity,
+          stock: foundProduct?.stock,
         });
       } else {
-        setCloneVariation({ ...cloneVariation, productQty: 1 });
+        setCloneVariation({ ...cloneVariation, stock: 1 });
       }
     } else {
-      setCloneVariation({ ...cloneVariation, productQty: 1 });
+      setCloneVariation({ ...cloneVariation, stock: 1 });
     }
   }, [cartProducts]);
   return (
@@ -72,7 +70,7 @@ const VariationModalQty = ({ cloneVariation, setCloneVariation }) => {
           className='form-control input-number qty-input'
           type='text'
           name='quantity'
-          value={cloneVariation.productQty}
+          value={cloneVariation.stock}
           readOnly
         />
         <Btn

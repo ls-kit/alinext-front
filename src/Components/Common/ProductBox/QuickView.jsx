@@ -6,7 +6,10 @@ const QuickView = ({ productObj }) => {
   const [variationModal, setVariationModal] = useState('');
   return (
     <>
-      <li title='View' onClick={() => setVariationModal(productObj?.id)}>
+      <li
+        title='View'
+        onClick={() => setVariationModal(productObj?.product_code)}
+      >
         <a>
           <RiEyeLine />
         </a>

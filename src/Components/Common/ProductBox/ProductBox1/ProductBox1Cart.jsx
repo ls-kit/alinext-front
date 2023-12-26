@@ -46,7 +46,7 @@ const ProductBox1Cart = ({ productObj }) => {
           onClick={() => {
             productObj?.stock > 0
               ? // productObj?.type === 'classified'
-                setVariationModal(productObj?.id)
+                setVariationModal(productObj?.product_code)
               : handleIncDec(
                   1,
                   productObj,

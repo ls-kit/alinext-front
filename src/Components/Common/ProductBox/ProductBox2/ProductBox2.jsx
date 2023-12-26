@@ -11,7 +11,11 @@ const ProductBox2 = ({ elem, rating = true, customImageClass }) => {
   const { convertCurrency } = useContext(SettingContext);
   return (
     <div className='offer-product'>
-      <Link href={`/${i18Lang}/product/${elem.slug}`} className='offer-image'>
+      {/* Slug to product_code */}
+      <Link
+        href={`/${i18Lang}/product/${elem.product_code}`}
+        className='offer-image'
+      >
         <Avatar
           data={elem?.product_thumbnail}
           placeHolder={placeHolderImage}
@@ -31,7 +35,7 @@ const ProductBox2 = ({ elem, rating = true, customImageClass }) => {
             <h6 className='name'>{elem?.name}</h6>
           </Link>
           {rating ? (
-            <ProductBox1Rating totalRating={elem?.rating_count} />
+            <ProductBox1Rating totalRating={elem?.rating} />
           ) : (
             <span>{elem?.unit}</span>
           )}

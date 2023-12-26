@@ -24,8 +24,8 @@ const RightVariationModal = ({ cloneVariation }) => {
           : convertCurrency(cloneVariation?.product?.sale_price)}
         <del>
           {cloneVariation?.selectedVariation
-            ? convertCurrency(cloneVariation?.selectedVariation?.price)
-            : convertCurrency(cloneVariation?.product?.price)}
+            ? convertCurrency(cloneVariation?.selectedVariation?.sale_price)
+            : convertCurrency(cloneVariation?.product?.sale_price)}
         </del>
         <Label className='modal-label mb-0'>
           {cloneVariation?.selectedVariation
@@ -35,9 +35,7 @@ const RightVariationModal = ({ cloneVariation }) => {
         </Label>
       </h4>
       <div className='product-rating'>
-        <ProductBox1Rating
-          totalRating={cloneVariation?.product?.rating_count}
-        />
+        <ProductBox1Rating totalRating={cloneVariation?.product?.rating} />
         <div className='fs-14 ms-2'>
           {cloneVariation?.product?.reviews_count} {t('Reviews')}
         </div>
@@ -65,17 +63,13 @@ const RightVariationModal = ({ cloneVariation }) => {
             </li>
             <li>
               {t('StockStatus')} :
-              {cloneVariation?.selectedVariation?.stock_status
+              {cloneVariation?.selectedVariation?.stock
                 ? ModifyString(
-                    cloneVariation?.selectedVariation?.stock_status,
+                    cloneVariation?.selectedVariation?.stock,
                     false,
                     '_',
                   )
-                : ModifyString(
-                    cloneVariation?.product?.stock_status,
-                    false,
-                    '_',
-                  )}
+                : ModifyString(cloneVariation?.product?.stock, false, '_')}
             </li>
             <li>
               {t('Quantity')} :{' '}
