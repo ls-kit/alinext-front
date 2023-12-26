@@ -7,6 +7,11 @@ export const VerifyTokenAPI = "/verify-token"
 export const UpdatePasswordAPI = "/update-password"
 export const LogoutAPI = "/logout";
 
+
+// getting section data
+export const section_products =
+  'https://admin.alibainternational.com/api/v1/get-section-products';
+  
 // Theme Option
 export const ThemeOptionsAPI = "/themeOptions"
 

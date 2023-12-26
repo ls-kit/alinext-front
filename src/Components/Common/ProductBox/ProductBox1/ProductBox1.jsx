@@ -12,42 +12,74 @@ import ProductBagde from './ProductBagde';
 import SettingContext from '@/Helper/SettingContext';
 import { ModifyString } from '@/Utils/CustomFunctions/ModifyString';
 
-const ProductBox1 = ({ imgUrl, productDetail, isClose, addAction = true, classObj, setWishlistState }) => {
+const ProductBox1 = ({
+  imgUrl,
+  productDetail,
+  isClose,
+  addAction = true,
+  classObj,
+  setWishlistState,
+}) => {
   const { i18Lang } = useContext(I18NextContext);
   const { convertCurrency } = useContext(SettingContext);
   const handelDelete = (currObj) => {
-    setWishlistState((prev) => prev.filter((elem) => elem.id !== currObj?.id));
+    setWishlistState((prev) =>
+      prev.filter((elem) => elem.product_code !== currObj?.product_code),
+    );
   };
   return (
     <div className={`product-box ${classObj?.productBoxClass}`}>
       <ProductBagde productDetail={productDetail} />
       {isClose && (
-        <div className='product-header-top' onClick={() => handelDelete(productDetail)}>
+        <div
+          className='product-header-top'
+          onClick={() => handelDelete(productDetail)}
+        >
           <Btn className='wishlist-button close_button'>
             <RiCloseLine />
           </Btn>
         </div>
       )}
       <div className='product-image'>
-        <Link href={`/${i18Lang}/product/${productDetail?.slug}`}>
-          <Avatar data={imgUrl} placeHolder={placeHolderImage} customeClass={'img-fluid'} name={productDetail.title} height={500} width={500} />
+        <Link href={`/${i18Lang}/product/${productDetail?.product_code}`}>
+          <Avatar
+            data={imgUrl}
+            placeHolder={placeHolderImage}
+            customeClass={'img-fluid'}
+            name={productDetail.name}
+            height={500}
+            width={500}
+          />
         </Link>
-        <ProductBoxAction productObj={productDetail} listClass='product-option' />
+        <ProductBoxAction
+          productObj={productDetail}
+          listClass='product-option'
+        />
       </div>
       <div className='product-detail'>
-        <Link href={`/${i18Lang}/product/${productDetail?.slug}`}>
+        <Link href={`/${i18Lang}/product/${productDetail?.product_code}`}>
           <h6 className='name'>{productDetail.name}</h6>
-          <p dangerouslySetInnerHTML={{ __html: productDetail?.short_description }} />
+          <p
+            dangerouslySetInnerHTML={{
+              __html: productDetail?.short_description,
+            }}
+          />
         </Link>
-        {productDetail?.unit && <h6 className='unit mt-1'>{productDetail?.unit}</h6>}
+        {productDetail?.stock && (
+          <h6 className='unit mt-1'>{productDetail?.stock}</h6>
+        )}
         <h5 className='sold text-content'>
-          <span className='theme-color price'>{convertCurrency(productDetail?.sale_price)}</span>
-          <del>{convertCurrency(productDetail?.price)}</del>
+          <span className='theme-color price'>
+            {convertCurrency(productDetail?.sale_price)}
+          </span>
+          <del>{convertCurrency(productDetail?.regular_price)}</del>
         </h5>
 
         <div className='product-rating mt-sm-2 mt-1'>
-          <ProductBox1Rating totalRating={productDetail?.rating_count || 0} />
-          <h6 className='theme-color'>{ModifyString(productDetail.stock_status, false, '_')}</h6>
+          <ProductBox1Rating totalRating={productDetail?.rating || 0} />
+          <h6 className='theme-color'>
+            {ModifyString(productDetail.stock_status, false, '_')}
+          </h6>
         </div>
         {addAction && <ProductBox1Cart productObj={productDetail} />}
       </div>

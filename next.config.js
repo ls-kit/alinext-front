@@ -14,15 +14,15 @@ module.exports = (phase) => {
 
   const env = {
     API_PROD_URL: (() => {
-      if (isDev) return 'https://3000-lskit-alinextfront-ceiz1tbbgre.ws-us107.gitpod.io/api/';
+      if (isDev) return 'http://localhost:3000/api/';
       if (isProd) {
         // Note: The code below needs to be uncommented, and you should use your domin where your API is hosted.
         // return 'Enter Your URL here'
       }
-      if (isStaging) return 'https://3000-lskit-alinextfront-ceiz1tbbgre.ws-us107.gitpod.io/api/';
+      if (isStaging) return 'http://localhost:3000/api/';
       return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
     })(),
-    API_BASE_URL: 'https://3000-lskit-alinextfront-ceiz1tbbgre.ws-us107.gitpod.io/api',
+    API_BASE_URL: 'http://localhost:3000/api/',
   };
 
   const redirects = () => {
@@ -41,6 +41,10 @@ module.exports = (phase) => {
       {
         protocol: 'https',
         hostname: 'react.pixelstrap.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cbu01.alicdn.com'
       },
     ],
   };
